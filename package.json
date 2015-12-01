@@ -1,0 +1,23 @@
+{
+  "name": "TousenBuilder",
+  "version": "1.0.0",
+  "description": "Character Creator",
+  "main": "app/mainController.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jaysom/AngularSample.git"
+  },
+  "author": "Jaysom",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Jaysom/AngularSample/issues"
+  },
+  "homepage": "https://github.com/Jaysom/AngularSample#readme",
+  "devDependencies": {
+    "http-server": "^0.8.5"
+  }
+}

@@ -1,0 +1,185 @@
+{"kinds": [
+	{
+	"name": "Humano",
+	"attrs": {
+		"mov": 10,
+		"int": 3,
+		"ate": 3,
+		"rea": 3,
+		"ser": 3,
+		"con": 3,
+		"per": 3,
+		"tam": 4
+		}
+	},
+	{
+	
+	"name":  "Kitsune",
+	"attrs": {
+		"mov": 10,
+		"int": 4,
+		"ate": 3,
+		"rea": 3,
+		"ser": 3,
+		"con": 2,
+		"per": 3,
+		"tam": 4
+		}
+	},
+	{
+	"name": "Tanuki",
+	"attrs": {
+		"mov": 10,
+		"int": 3,
+		"ate": 4,
+		"rea": 3,
+		"ser": 2,
+		"con": 3,
+		"per": 3,
+		"tam": 4
+		}
+	},
+	{
+	"name": "Mujina",
+	"attrs": {
+		"mov": 10,
+		"int": 3,
+		"ate": 2,
+		"rea": 3,
+		"ser": 3,
+		"con": 3,
+		"per": 4,
+		"tam": 4
+		}
+	},
+	{
+	"name":  "Bakeneko",
+	"attrs": {
+		"mov": 10,
+		"int": 3,
+		"ate": 3,
+		"rea": 4,
+		"ser": 3,
+		"con": 3,
+		"per": 2,
+		"tam": 4
+		}
+	},
+	{
+	"name": "Nogitsune",
+	"attrs": {
+		"mov": 10,
+		"int": 4,
+		"ate": 3,
+		"rea": 3,
+		"ser": 3,
+		"con": 2,
+		"per": 3,
+		"tam": 4
+		}
+	},
+	{
+    "name": "Jorōgumo",
+	"attrs": {
+		"mov": 12,
+		"int": 4,
+		"ate": 3,
+		"rea": 3,
+		"ser": 3,
+		"con": 3,
+		"per": 2,
+		"tam": 5
+		}
+	},
+	{
+	"name": "Nureonna",
+	"attrs": {
+		"mov": 14,
+		"int": 2,
+		"ate": 3,
+		"rea": 4,
+		"ser": 3,
+		"con": 3,
+		"per": 3,
+		"tam": 5
+		}
+	},
+	{
+	"name": "Noppera-bō",
+	"attrs": {
+		"mov": 10,
+		"int": 3,
+		"ate": 3,
+		"rea": 3,
+		"ser": 3,
+		"con": 3,
+		"per": 3,
+		"tam": 4
+		}
+	},
+	{
+    "name": "Ningyo",
+	"attrs": {
+		"mov": 6,
+		"int": 3,
+		"ate": 3,
+		"rea": 3,
+		"ser": 3,
+		"con": 3,
+		"per": 3,
+		"tam": 4
+		}
+	},
+	{
+	"name": "Oni",
+	"attrs": {
+		"mov": 10,
+		"int": 2,
+		"ate": 3,
+		"rea": 3,
+		"ser": 2,
+		"con": 4,
+		"per": 3,
+		"tam": 5
+		}
+	},
+	{
+	"name": "Aobōzu",
+	"attrs": {
+		"mov": 10,
+		"int": 3,
+		"ate": 3,
+		"rea": 2,
+		"ser": 3,
+		"con": 3,
+		"per": 4,
+		"tam": 4
+		}
+	},
+	{
+	"name": "Tengu",
+	"attrs": {
+		"mov": 8,
+		"int": 3,
+		"ate": 3,
+		"rea": 3,
+		"ser": 3,
+		"con": 3,
+		"per": 3,
+		"tam": 4
+		}
+	},
+	{
+	"name": "Kappa",
+	"attrs": {
+		"mov": 10,
+		"int": 3,
+		"ate": 3,
+		"rea": 3,
+		"ser": 3,
+		"con": 3,
+		"per": 3,
+		"tam": 4
+		}
+	}
+]}

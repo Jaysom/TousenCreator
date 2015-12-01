@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="TousenApp">
+<head>
+	<title>Tousen Character Builder</title>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+	<script type="text/javascript" src="js/mainController.js"></script>
+	<script type="text/javascript" src="js/cardService.js"></script>
+</head>
+<body>
+    <div class='banner'>
+        <div class='container'>
+            <h1>Tousen Character Builder</h1>
+        </div>
+    </div>
+	<div class="container main-frame"  ng-controller="mainController" ng-init="LoadKinds()">
+		<div>
+			Tipo: <select ng-options="object as object.name for object in todos" ng-model="selected"></select>
+		</div>
+		<div ng-show="selected.name=='Humano'">
+			Paterna: <select ng-options="object as object.name for object in families" ></select>
+			Materna: <select ng-options="object as object.name for object in families" ></select>
+		</div>
+			<span>Tipo: {{ selected.name }}</span>
+		<div id="main-card" ng-if="selected">
+			<table>
+				<tr>
+					<th>Movement</th>
+					<th>Intelligence</th>
+					<th>Atention</th>
+					<th>Reaction</th>
+					<th>Serenity</th>
+					<th>Constitution</th>
+					<th>Perseverance</th>
+					<th>Size</th>
+				</tr>
+				<tr>
+					<td>{{selected.attrs.mov}}</td>
+					<td>{{selected.attrs.int}}</td>
+					<td>{{selected.attrs.ate}}</td>
+					<td>{{selected.attrs.rea}}</td>
+					<td>{{selected.attrs.ser}}</td>
+					<td>{{selected.attrs.con}}</td>
+					<td>{{selected.attrs.per}}</td>
+					<td>{{selected.attrs.tam}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

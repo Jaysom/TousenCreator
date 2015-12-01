@@ -1,0 +1,124 @@
+{
+    "Families": [
+        {
+            "Family": "Kanemoto",
+            "adv": {
+                "big": "Visión Total",
+                "med": "Táctico",
+                "dis": "Desafortunado"
+            }
+        },
+        {
+            "Family": "Tanaka",
+            "adv": {
+                "big": "Robusto",
+                "med": "Duro",
+                "dis": "Grande"
+            }
+        },
+        {
+            "Family": "Ishikawa",
+            "adv": {
+                "big": "Concentrado",
+                "med": "Conoce la magia",
+                "dis": "Parado"
+            }
+        },
+        {
+            "Family": "Kimura",
+            "adv": {
+                "big": "Ágil",
+                "med": "Veloz",
+                "dis": "Indigno"
+            }
+        },
+        {
+            "Family": "Ueno",
+            "adv": {
+                "big": "Convincente",
+                "med": "Astuto",
+                "dis": "Cobarde"
+            }
+        },
+        {
+            "Family": "Yamashita",
+            "adv": {
+                "big": "Bruto",
+                "med": "Fuerte",
+                "dis": "Tonto"
+            }
+        },
+        {
+            "Family": "Kobayashi",
+            "adv": {
+                "big": "Tranquilo",
+                "med": "Rápido",
+                "dis": "Blando"
+            }
+        },
+        {
+            "Family": "Ootake",
+            "adv": {
+                "big": "Tozudo",
+                "med": "Resistente",
+                "dis": "Lento"
+            }
+        },
+        {
+            "Family": "Takahashi",
+            "adv": {
+                "big": "Honorable",
+                "med": "Valiente",
+                "dis": "Ingenuo"
+            }
+        },
+        {
+            "Family": "Yanagihara",
+            "adv": {
+                "big": "Sentidos agudos",
+                "med": "Carismático",
+                "dis": "Desprotegido contra la magia"
+            }
+        },
+        {
+            "Family": "Furumori",
+            "adv": {
+                "big": "Listo",
+                "med": "Escurridizo",
+                "dis": "Impaciente"
+            }
+        },
+        {
+            "Family": "Shimizu",
+            "adv": {
+                "big": "Preciso",
+                "med": "Afortunado",
+                "dis": "Débil"
+            }
+        },
+        {
+            "Family": "Miyazaki",
+            "adv": {
+                "big": "Ingenioso",
+                "med": "Cordial",
+                "dis": "Distraído"
+            }
+        },
+        {
+            "Family": "Hirose",
+            "adv": {
+                "big": "Firme ",
+                "med": "Voz potente",
+                "dis": "Impulsivo"
+            }
+        },
+        {
+            "Family": "Kosugi",
+            "adv": {
+                "big": "Ligero",
+                "med": "Ligero",
+                "dis": "Desafortunado"
+            }
+        }
+    ]
+}

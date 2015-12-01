@@ -14,16 +14,16 @@
             <h1>Tousen Character Builder</h1>
         </div>
     </div>
-	<div class="container main-frame"  ng-controller="mainController" ng-init="LoadKinds()">
+	<div class="container main-frame"  ng-controller="mainController">
 		<div>
-			Tipo: <select ng-options="object as object.name for object in todos" ng-model="selected"></select>
+			Tipo: <select ng-options="race as race.name for race in races" ng-model="selectedRace"></select>
 		</div>
-		<div ng-show="selected.name=='Humano'">
-			Paterna: <select ng-options="object as object.name for object in families" ></select>
-			Materna: <select ng-options="object as object.name for object in families" ></select>
+		<div ng-show="selectedRace.name === 'Humano'">
+			Paterna: <select ng-options="family as family.Family for family in families" ng-model="selectedFatherFamily"></select>
+			Materna: <select ng-options="family as family.Family for family in families" ng-model="selectedMotherFamily"></select>
 		</div>
-			<span>Tipo: {{ selected.name }}</span>
-		<div id="main-card" ng-if="selected">
+			<span>Tipo: {{ selectedRace.name }}</span>
+		<div id="main-card" ng-if="selectedRace">
 			<table>
 				<tr>
 					<th>Movement</th>
@@ -36,14 +36,14 @@
 					<th>Size</th>
 				</tr>
 				<tr>
-					<td>{{selected.attrs.mov}}</td>
-					<td>{{selected.attrs.int}}</td>
-					<td>{{selected.attrs.ate}}</td>
-					<td>{{selected.attrs.rea}}</td>
-					<td>{{selected.attrs.ser}}</td>
-					<td>{{selected.attrs.con}}</td>
-					<td>{{selected.attrs.per}}</td>
-					<td>{{selected.attrs.tam}}</td>
+					<td>{{selectedRace.attrs.mov}}</td>
+					<td>{{selectedRace.attrs.int}}</td>
+					<td>{{selectedRace.attrs.ate}}</td>
+					<td>{{selectedRace.attrs.rea}}</td>
+					<td>{{selectedRace.attrs.ser}}</td>
+					<td>{{selectedRace.attrs.con}}</td>
+					<td>{{selectedRace.attrs.per}}</td>
+					<td>{{selectedRace.attrs.tam}}</td>
 				</tr>
 			</table>
 		</div>

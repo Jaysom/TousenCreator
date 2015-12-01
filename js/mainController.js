@@ -3,10 +3,6 @@ var TousenApp = angular.module('TousenApp', []);
 
 TousenApp.controller('mainController', ['$scope','CardService', function(scope, CardService){
 
-	/*scope.init = function() {
-
-    };*/
-
 	scope.Message =  "Welcome to The TousenApp Character builder!";
 	scope.LoadKinds = function(){
 		CardService.getKinds()
@@ -34,6 +30,7 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 		scope.families = res.Families;
 		scope.selectedFatherFamily = scope.families[0];
 		scope.selectedMotherFamily = scope.families[0];
+		
 	}
 
 	function _handlerFamilyError(data, status) {

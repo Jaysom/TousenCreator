@@ -19,10 +19,19 @@
 			Tipo: <select ng-options="race as race.name for race in races" ng-model="selectedRace"></select>
 		</div>
 		<div ng-show="selectedRace.name === 'Humano'">
+			<div>
 			Paterna: <select ng-options="family as family.Family for family in families" ng-model="selectedFatherFamily"></select>
 			Materna: <select ng-options="family as family.Family for family in families" ng-model="selectedMotherFamily"></select>
+			</div>
+			<div>
+			{{selectedFatherFamily.adv.big}}	| 		{{selectedMotherFamily.adv.big}} </br>
+			{{selectedFatherFamily.adv.med}} 	|		{{selectedMotherFamily.adv.med}}</br>
+			{{selectedFatherFamily.adv.dis}}	|		{{selectedMotherFamily.adv.dis}}	</br>
+			</div>
 		</div>
-			<span>Tipo: {{ selectedRace.name }}</span>
+			<span>Tipo: {{ selectedRace.name }}</span></br>
+			<span>Familia Paterna: {{ selectedFatherFamily.Family }}</span></br>
+			<span>Familia Materna: {{ selectedMotherFamily.Family }}</span></br>
 		<div id="main-card" ng-if="selectedRace">
 			<table>
 				<tr>

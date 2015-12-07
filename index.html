@@ -18,20 +18,30 @@
 		<div>
 			Tipo: <select ng-options="race as race.name for race in races" ng-model="selectedRace"></select>
 		</div>
+		<div>
+			Current Money: <input type="text" ng-model="Money" /> => {{Money}} </br>
+			Exp Available: <input type="text" ng-model="Experience" />  => {{Experience}}
+		</div>
 		<div ng-show="selectedRace.name === 'Humano'">
 			<div>
 			Paterna: <select ng-options="family as family.Family for family in families" ng-model="selectedFatherFamily"></select>
 			Materna: <select ng-options="family as family.Family for family in families" ng-model="selectedMotherFamily"></select>
 			</div>
 			<div>
-			{{selectedFatherFamily.adv.big}}	| 		{{selectedMotherFamily.adv.big}} </br>
-			{{selectedFatherFamily.adv.med}} 	|		{{selectedMotherFamily.adv.med}}</br>
-			{{selectedFatherFamily.adv.dis}}	|		{{selectedMotherFamily.adv.dis}}	</br>
+				<select ng-model="majorAvantage">
+					<option value="{{selectedFatherFamily.adv.big}}">{{selectedFatherFamily.adv.big}}</option>
+					<option value="{{selectedMotherFamily.adv.big}}">{{selectedMotherFamily.adv.big}}</option>
+				</select>
+				<select ng-model="minorAvantage">
+					<option>{{selectedFatherFamily.adv.med}}</option>
+					<option>{{selectedMotherFamily.adv.med}}</option>
+				</select>
+				<select ng-model="disAvantage">
+					<option>{{selectedFatherFamily.adv.dis}}</option>
+					<option>{{selectedMotherFamily.adv.dis}}</option>
+				</select>
 			</div>
 		</div>
-			<span>Tipo: {{ selectedRace.name }}</span></br>
-			<span>Familia Paterna: {{ selectedFatherFamily.Family }}</span></br>
-			<span>Familia Materna: {{ selectedMotherFamily.Family }}</span></br>
 		<div id="main-card" ng-if="selectedRace">
 			<table>
 				<tr>
@@ -55,7 +65,16 @@
 					<td>{{selectedRace.attrs.tam}}</td>
 				</tr>
 			</table>
+			<span>Tipo: {{ selectedRace.name }}</span></br>
+			<div ng-show="selectedRace.name === 'Humano'">
+				<span>Familia Paterna: {{ selectedFatherFamily.Family }}</span></br>
+				<span>Familia Materna: {{ selectedMotherFamily.Family }}</span></br>
+				<span>Ventaja Mayor: {{majorAvantage}}</span></br>
+				<span>Ventaja Menor: {{minorAvantage}}</span></br>
+				<span>Desventaja: {{disAvantage}}</span></br>
+			</div>
 		</div>
 	</div>
+	
 </body>
 </html>

@@ -18,29 +18,19 @@
 		<div>
 			Tipo: <select ng-options="race as race.name for race in races" ng-model="selectedRace"></select>
 		</div>
-		<div>
+		<!--<div>
 			Current Money: <input type="text" ng-model="Money" /> => {{Money}} </br>
 			Exp Available: <input type="text" ng-model="Experience" />  => {{Experience}}
-		</div>
+		</div>-->
 		<div ng-show="selectedRace.name === 'Humano'">
 			<div>
-			Paterna: <select ng-options="family as family.Family for family in families" ng-model="selectedFatherFamily"></select>
-			Materna: <select ng-options="family as family.Family for family in families" ng-model="selectedMotherFamily"></select>
+			Paterna: <select ng-options="family as family.Familia for family in families" ng-change="handleFatherFamily(selectedFatherFamily)" ng-model="selectedFatherFamily"></select>
+			Materna: <select ng-options="family as family.Familia for family in families" ng-change="handleMotherFamily(selectedMotherFamily)" ng-model="selectedMotherFamily"></select>
 			</div>
 			<div>
-				<select ng-model="majorAvantage">
-					<option value="{{selectedFatherFamily.adv.big}}">{{selectedFatherFamily.adv.big}}</option>
-					<option value="{{selectedMotherFamily.adv.big}}">{{selectedMotherFamily.adv.big}}</option>
-				</select>
-				<select ng-model="minorAvantage">
-					<option>{{selectedFatherFamily.adv.med}}</option>
-					<option>{{selectedMotherFamily.adv.med}}</option>
-				</select>
-				<select ng-model="disAvantage">
-					<option>{{selectedFatherFamily.adv.dis}}</option>
-					<option>{{selectedMotherFamily.adv.dis}}</option>
-				</select>
-			</div>
+				<select ng-options="ven for ven in vent" ng-model="majorAvantage"> </select>
+				<select ng-options="mid for mid in med" ng-model="minorAvantage"> </select>
+				<select ng-options="disav for disav in dis" ng-model="disAvantage"> </select>
 		</div>
 		<div id="main-card" ng-if="selectedRace">
 			<table>
@@ -67,11 +57,11 @@
 			</table>
 			<span>Tipo: {{ selectedRace.name }}</span></br>
 			<div ng-show="selectedRace.name === 'Humano'">
-				<span>Familia Paterna: {{ selectedFatherFamily.Family }}</span></br>
-				<span>Familia Materna: {{ selectedMotherFamily.Family }}</span></br>
-				<span>Ventaja Mayor: {{majorAvantage}}</span></br>
-				<span>Ventaja Menor: {{minorAvantage}}</span></br>
-				<span>Desventaja: {{disAvantage}}</span></br>
+				<span>Familia Paterna: {{ selectedFatherFamily.Familia }}</span></br>
+				<span>Familia Materna: {{ selectedMotherFamily.Familia }}</span></br>
+				<span>Ventaja Mayor: {{majorAvantage[0]}}</span> - {{selectedFatherFamily.vent.big[majorAvantage]}}</br>
+				<span>Ventaja Menor: {{minorAvantage[0]}}</span>- {{selectedFatherFamily.vent.med[minorAvantage]}}</br>
+				<span>Desventaja: {{disAvantage[0]}}</span>- {{selectedFatherFamily.vent.dis[disAvantage]}}</br>
 			</div>
 		</div>
 	</div>

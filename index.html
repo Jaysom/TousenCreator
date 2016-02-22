@@ -16,7 +16,7 @@
     </div>
 	<div class="container main-frame"  ng-controller="mainController">
 		<div>
-			Tipo: <select ng-options="race as race.name for race in races" ng-model="selectedRace"></select>
+			Tipo: <select ng-options="race as race.name for race in races"ng-change="handleRace(selectedRace)" ng-model="selectedRace"></select>
 		</div>
 		<!--<div>
 			Current Money: <input type="text" ng-model="Money" /> => {{Money}} </br>
@@ -24,16 +24,26 @@
 		</div>-->
 		<div ng-show="selectedRace.name === 'Humano'">
 			<div>
-			Paterna: <select ng-options="family as family.Familia for family in families" ng-change="handleFatherFamily(selectedFatherFamily)" ng-model="selectedFatherFamily"></select>
-			Materna: <select ng-options="family as family.Familia for family in families" ng-change="handleMotherFamily(selectedMotherFamily)" ng-model="selectedMotherFamily"></select>
+				Paterna: <select ng-options="family as family.Familia for family in families" ng-change="handleFatherFamily(selectedFatherFamily)" ng-model="selectedFatherFamily"></select>
+				Materna: <select ng-options="family as family.Familia for family in families" ng-change="handleMotherFamily(selectedMotherFamily)" ng-model="selectedMotherFamily"></select>
 			</div>
 			<div>
-				<select ng-options="ven for ven in vent" ng-model="majorAvantage"> </select>
-				<select ng-options="mid for mid in med" ng-model="minorAvantage"> </select>
-				<select ng-options="disav for disav in dis" ng-model="disAvantage"> </select>
+				<select ng-model="majorAvantage" ng-change="setAdv()">
+					<option value={{selectedFatherFamily.vent.big}}>	{{fatherVent}} </option>
+					<option value={{selectedMotherFamily.vent.big}}>	{{motherVent}} </option>
+				</select>
+				<select ng-model="minorAvantage" ng-change="sedMed()"> 
+					<option value="{{selectedFatherFamily.vent.med}}">	{{fatherMed}} </option>
+					<option value="{{selectedMotherFamily.vent.med}}">	{{motherMed}} </option>
+				</select>
+				<select ng-model="disAvantage" ng-change="setDis()">
+					<option value="{{selectedFatherFamily.vent.dis}}">	{{fatherDis}} </option>
+					<option value="{{selectedMotherFamily.vent.dis}}">	{{motherDis}} </option>
+				</select>
+			</div>
 		</div>
 		<div id="main-card" ng-if="selectedRace">
-			<table>
+			<table class="table">
 				<tr>
 					<th>Movement</th>
 					<th>Intelligence</th>
@@ -59,9 +69,13 @@
 			<div ng-show="selectedRace.name === 'Humano'">
 				<span>Familia Paterna: {{ selectedFatherFamily.Familia }}</span></br>
 				<span>Familia Materna: {{ selectedMotherFamily.Familia }}</span></br>
-				<span>Ventaja Mayor: {{majorAvantage[0]}}</span> - {{selectedFatherFamily.vent.big[majorAvantage]}}</br>
+				<span>Ventaja Mayor: {{advSelected}}</span> - {{}}</br>
+				<span>Ventaja Menor: {{medSelected}}</span>- {{}}</br>
+				<span>Desventaja: {{disSelected}}</span>- {{}}</br>
+				
+				<!--<span>Ventaja Mayor: {{majorAvantage[0]}}</span> - {{selectedFatherFamily.vent.big[majorAvantage]}}</br>
 				<span>Ventaja Menor: {{minorAvantage[0]}}</span>- {{selectedFatherFamily.vent.med[minorAvantage]}}</br>
-				<span>Desventaja: {{disAvantage[0]}}</span>- {{selectedFatherFamily.vent.dis[disAvantage]}}</br>
+				<span>Desventaja: {{disAvantage[0]}}</span>- {{selectedFatherFamily.vent.dis[disAvantage]}}</br>-->
 			</div>
 		</div>
 	</div>

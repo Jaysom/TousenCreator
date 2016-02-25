@@ -29,16 +29,16 @@
 			</div>
 			<div>
 				<select ng-model="majorAvantage" ng-change="setAdv()">
-					<option value={{selectedFatherFamily.vent.big}}>	{{fatherVent}} </option>
-					<option value={{selectedMotherFamily.vent.big}}>	{{motherVent}} </option>
+					<option value="{{fatherVent[0]}}">	{{fatherVent[0]}} </option>
+					<option value="{{motherVent[0]}}">	{{motherVent[0]}} </option>
 				</select>
 				<select ng-model="minorAvantage" ng-change="sedMed()"> 
-					<option value="{{selectedFatherFamily.vent.med}}">	{{fatherMed}} </option>
-					<option value="{{selectedMotherFamily.vent.med}}">	{{motherMed}} </option>
+					<option value="{{fatherVent[1]}}">	{{fatherVent[1]}} </option>
+					<option value="{{motherVent[1]}}">	{{motherVent[1]}} </option>
 				</select>
 				<select ng-model="disAvantage" ng-change="setDis()">
-					<option value="{{selectedFatherFamily.vent.dis}}">	{{fatherDis}} </option>
-					<option value="{{selectedMotherFamily.vent.dis}}">	{{motherDis}} </option>
+					<option value="{{fatherVent[2]}}">	{{fatherVent[2]}} </option>
+					<option value="{{motherVent[2]}}">	{{motherVent[2]}} </option>
 				</select>
 			</div>
 		</div>
@@ -69,9 +69,9 @@
 			<div ng-show="selectedRace.name === 'Humano'">
 				<span>Familia Paterna: {{ selectedFatherFamily.Familia }}</span></br>
 				<span>Familia Materna: {{ selectedMotherFamily.Familia }}</span></br>
-				<span>Ventaja Mayor: {{advSelected}}</span> - {{}}</br>
-				<span>Ventaja Menor: {{medSelected}}</span>- {{}}</br>
-				<span>Desventaja: {{disSelected}}</span>- {{}}</br>
+				<span>Ventaja Mayor: {{majorAvantage}}</span> - {{}}</br>
+				<span>Ventaja Menor: {{minorAvantage}}</span> - {{}}</br>
+				<span>Desventaja: {{disAvantage}}</span> - {{}}</br>
 				
 				<!--<span>Ventaja Mayor: {{majorAvantage[0]}}</span> - {{selectedFatherFamily.vent.big[majorAvantage]}}</br>
 				<span>Ventaja Menor: {{minorAvantage[0]}}</span>- {{selectedFatherFamily.vent.med[minorAvantage]}}</br>

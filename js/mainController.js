@@ -36,34 +36,14 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 	
 	scope.handleFatherFamily = function(res){
 		scope.selectedFatherFamily = res;
-		scope.fatherVent = Object.keys(res.vent.big)[0];
-		scope.fatherMed = Object.keys(res.vent.med)[0];
-		scope.fatherDis = Object.keys(res.vent.dis)[0];
-		console.log(res);
+		scope.fatherVent = [Object.keys(res.vent.big)[0],Object.keys(res.vent.med)[0],Object.keys(res.vent.dis)[0]];
 	}
 	
 	scope.handleMotherFamily = function(res){
 		scope.selectedMotherFamily = res;
-		scope.motherVent = Object.keys(res.vent.big)[0];
-		scope.motherMed = Object.keys(res.vent.med)[0];
-		scope.motherDis = Object.keys(res.vent.dis)[0];
-		console.log(res);
+		scope.motherVent = [Object.keys(res.vent.big)[0],Object.keys(res.vent.med)[0],Object.keys(res.vent.dis)[0]];
 	}
 	
-	scope.setAdv = function(){
-		console.log(this[scope.majorAvantage]);
-		scope.advSelected = scope.majorAvantage;
-		debugger;
-	}
-	
-	scope.sedMed = function(){
-		scope.medSelected = res;
-	}
-	
-	scope.setDis = function(){
-		scope.disSelected = res;
-	}
-
 	scope.LoadKinds();
 	scope.LoadFamilies();
 }]);

@@ -16,7 +16,7 @@
     </div>
 	<div class="container main-frame"  ng-controller="mainController">
 		<div>
-			Tipo: <select ng-options="race as race.name for race in races"ng-change="handleRace(selectedRace)" ng-model="selectedRace"></select>
+			Tipo: <select ng-options="race as race.name for race in races" ng-change="handleRace(selectedRace)" ng-model="selectedRace"></select>
 		</div>
 		<!--<div>
 			Current Money: <input type="text" ng-model="Money" /> => {{Money}} </br>
@@ -53,6 +53,9 @@
 					<th>Constitution</th>
 					<th>Perseverance</th>
 					<th>Size</th>
+					<th>Initiative</th>
+					<th>Honor</th>
+					<th>Richness</th>
 				</tr>
 				<tr>
 					<td>{{selectedRace.attrs.mov}}</td>
@@ -63,19 +66,18 @@
 					<td>{{selectedRace.attrs.con}}</td>
 					<td>{{selectedRace.attrs.per}}</td>
 					<td>{{selectedRace.attrs.tam}}</td>
+					<td>{{initiative}}</td>
+					<td>{{honor}}</td>
+					<td>{{richness}}</td>
 				</tr>
 			</table>
-			<span>Tipo: {{ selectedRace.name }}</span></br>
+			<span><b>Tipo:</b> {{ selectedRace.name }}</span></br>
 			<div ng-show="selectedRace.name === 'Humano'">
-				<span>Familia Paterna: {{ selectedFatherFamily.Familia }}</span></br>
-				<span>Familia Materna: {{ selectedMotherFamily.Familia }}</span></br>
-				<span>Ventaja Mayor: {{majorAvantage}}</span> - {{}}</br>
-				<span>Ventaja Menor: {{minorAvantage}}</span> - {{}}</br>
-				<span>Desventaja: {{disAvantage}}</span> - {{}}</br>
-				
-				<!--<span>Ventaja Mayor: {{majorAvantage[0]}}</span> - {{selectedFatherFamily.vent.big[majorAvantage]}}</br>
-				<span>Ventaja Menor: {{minorAvantage[0]}}</span>- {{selectedFatherFamily.vent.med[minorAvantage]}}</br>
-				<span>Desventaja: {{disAvantage[0]}}</span>- {{selectedFatherFamily.vent.dis[disAvantage]}}</br>-->
+				<span><b>Familia Paterna: </b>{{ selectedFatherFamily.Familia }}</span></br>
+				<span><b>Familia Materna: </b>{{ selectedMotherFamily.Familia }}</span></br>
+				<span ng-if="majorAvantage"><b>{{advSelected}}</b> - {{advDes.value}} </br></span>
+				<span ng-if="minorAvantage"><b>{{medSelected}}</b> - {{medDes.value}}</br></span>
+				<span ng-if="disAvantage"><b>{{disSelected}}</b> - {{disDes.value}}</br></span>
 			</div>
 		</div>
 	</div>

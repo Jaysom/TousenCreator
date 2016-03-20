@@ -26,6 +26,7 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 	scope.handleRace = function(selectedRace){
 		scope.selectedRace = selectedRace;
 		scope.initiative = selectedRace.attrs.int + selectedRace.attrs.ate;
+		scope.health = selectedRace.attrs.con + selectedRace.attrs.per;
 	}
 
 	scope.handleFatherFamily = function(res){

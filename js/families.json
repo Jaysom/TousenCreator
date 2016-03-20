@@ -8,7 +8,10 @@
 			},
 			"med": {
 				"key":"Táctico",
-				"value": "Aumenta en dos puntos la Iniciativa del héroe."
+				"value": "Aumenta en dos puntos la Iniciativa del héroe.",
+				"effect":{
+					"initiative": 1
+				}
 			},
 			"dis": {
 				"key":"Desafortunado",
@@ -20,15 +23,24 @@
 		"vent": {
 			"big": {
 				"key":"Robusto",
-				"value": "Aumenta en un punto el atributo de Constitución."
+				"value": "Aumenta en un punto el atributo de Constitución.",
+				"effect":{
+					"const":1
+				}
 			},
 			"med": {
 				"key":"Duro",
-				"value": "Aumenta en dos puntos los Puntos de Vida."
+				"value": "Aumenta en dos puntos los Puntos de Vida.",
+				"effect":{
+					"health":2
+				}
 			},
 			"dis": {
 				"key":"Grande",
-				"value":"Aumenta en un punto su atributo de Tamaño."
+				"value":"Aumenta en un punto su atributo de Tamaño.",
+				"effect":{
+					"tam":1
+				}
 			}
 		}
 	}, {
@@ -44,7 +56,10 @@
 			},
 			"dis": {
 				"key":"Parado",
-				"value": "Disminuye en un punto el atributo de Reacción."
+				"value": "Disminuye en un punto el atributo de Reacción.",
+				"effect":{
+					"rea":-1
+				}
 			}
 		}
 	}, {
@@ -52,15 +67,24 @@
 		"vent": {
 			"big": {
 				"key":"Ágil",
-				"value": "Aumenta en un punto el atributo de Reacción."
+				"value": "Aumenta en un punto el atributo de Reacción.",
+				"effect":{
+					"rea":1
+				}
 			},
 			"med": {
 				"key":"Veloz",
-				"value": "Aumenta en dos puntos el atributo de Movimiento."
+				"value": "Aumenta en dos puntos el atributo de Movimiento.",
+				"effect":{
+					"mov":2
+				}
 			},
 			"dis": {
 				"key":"Indigno",
-				"value": "Disminuye en un punto el atributo de Honor."
+				"value": "Disminuye en un punto el atributo de Honor.",
+				"effect":{
+					"honor":-1
+				}
 			}
 		}
 	}, {
@@ -72,7 +96,10 @@
 			},
 			"med": {
 				"key":"Astuto",
-				"value": "Aumenta en un punto el atributo de Riqueza."
+				"value": "Aumenta en un punto el atributo de Riqueza.",
+				"effect":{
+					"richness":1
+				}
 			},
 			"dis": {
 				"key":"Cobarde",
@@ -92,7 +119,10 @@
 			},
 			"dis": {
 				"key":"Tonto",
-				"value": "Disminuye en un punto el atributo de Intelecto."
+				"value": "Disminuye en un punto el atributo de Intelecto.",
+				"effect":{
+					"int":-1
+				}
 			}
 		}
 	}, {
@@ -100,7 +130,10 @@
 		"vent": {
 			"big": {
 				"key":"Tranquilo",
-				"value": "Aumenta en un punto el atributo de Serenidad."
+				"value": "Aumenta en un punto el atributo de Serenidad.",
+				"effect":{
+					"ser":1
+				}
 			},
 			"med": {
 				"key":"Rápido",
@@ -108,7 +141,10 @@
 			},
 			"dis": {
 				"key":"Blando",
-				"value":"Disminuye en un punto el atributo de Constitución."
+				"value":"Disminuye en un punto el atributo de Constitución.",
+				"effect":{
+					"con":-1
+				}
 			}
 		}
 	}, {
@@ -116,7 +152,10 @@
 		"vent": {
 			"big": {
 				"key":"Tozudo",
-				"value": "Aumenta en un punto el atributo de Perseverancia."
+				"value": "Aumenta en un punto el atributo de Perseverancia.",
+				"effect":{
+					"per":1
+				}
 			},
 			"med": {
 				"key":"Resistente",
@@ -124,7 +163,10 @@
 			},
 			"dis": {
 				"key":"Lento",
-				"value": "Disminuye en dos puntos el atributo de Movimiento del héroe."
+				"value": "Disminuye en dos puntos el atributo de Movimiento del héroe.",
+				"effect":{
+					"mov":-2
+				}
 			}
 		}
 	}, {
@@ -132,7 +174,10 @@
 		"vent": {
 			"big": {
 				"key":"Honorable",
-				"value": "Aumenta en un punto el atributo de Honor."
+				"value": "Aumenta en un punto el atributo de Honor.",
+				"effect":{
+					"honor":1
+				}
 			},
 			"med": {
 				"key":"Valiente",
@@ -140,7 +185,10 @@
 			},
 			"dis": {
 				"key":"Ingenuo",
-				"value": "Disminuye en un punto el atributo de Riqueza."
+				"value": "Disminuye en un punto el atributo de Riqueza.",
+				"effect":{
+					"richness":-1
+				}
 			}
 		}
 	}, {
@@ -148,7 +196,10 @@
 		"vent": {
 			"big": {
 				"key":"Sentidos agudos",
-				"value": "Aumenta en un punto el atributo de Atención."
+				"value": "Aumenta en un punto el atributo de Atención.",
+				"effect":{
+					"ate":1
+				}
 			},
 			"med": {
 				"key":"Carismático",
@@ -164,15 +215,24 @@
 		"vent": {
 			"big": {
 				"key":"Listo",
-				"value": "Aumenta en un punto el atributo de Intelecto."
+				"value": "Aumenta en un punto el atributo de Intelecto.",
+				"effect":{
+					"int":1
+				}
 			},
 			"med": {
 				"key":"Escurridizo",
-				"value": "Disminuye en un punto su atributo de Tamaño."
+				"value": "Disminuye en un punto su atributo de Tamaño.",
+				"effect":{
+					"tam":-1
+				}
 			},
 			"dis": {
 				"key":"Impaciente",
-				"value": "Disminuye en un punto el atributo de Serenidad."
+				"value": "Disminuye en un punto el atributo de Serenidad.",
+				"effect":{
+					"ser":-1
+				}
 			}
 		}
 	}, {
@@ -188,7 +248,10 @@
 			},
 			"dis": {
 				"key":"Débil",
-				"value": "Disminuye en un punto el atributo de Perseverancia."
+				"value": "Disminuye en un punto el atributo de Perseverancia.",
+				"effect":{
+					"per":-1
+				}
 			}
 		}
 	}, {
@@ -204,7 +267,10 @@
 			},
 			"dis": {
 				"key":"Distraído",
-				"value": "Disminuye en un punto el atributo de Atención."
+				"value": "Disminuye en un punto el atributo de Atención.",
+				"effect":{
+					"ate":-1
+				}
 			}
 		}
 	}, {
@@ -220,7 +286,10 @@
 			},
 			"dis": {
 				"key":"Impulsivo",
-				"value": "Disminuye en dos puntos la Iniciativa del héroe."
+				"value": "Disminuye en dos puntos la Iniciativa del héroe.",
+				"effect":{
+					"initiative":-2
+				}
 			}
 		}
 	}, {

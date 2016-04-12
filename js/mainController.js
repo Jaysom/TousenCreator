@@ -6,12 +6,13 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 	scope.Message =  "Welcome to The TousenApp Character builder!";
     
     scope.character = {};
+    scope.character.initiative = 0;
+    scope.character.health = 0; 
 
 	scope.LoadKinds = function(){
 		CardService.getKinds()
 			.success(_handerKindsuccess)
 			.error(_handlerError);
-			
 		scope.LoadFamilies();
 	}
 
@@ -39,8 +40,6 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
         scope.character.constitution = res.attrs.con;
         scope.character.perseverance = res.attrs.per;
         scope.character.size = res.attrs.tam;
-        scope.character.initiative = scope.character.intelligence + scope.character.atention;
-        scope.character.health = scope.character.constitution + scope.character.perseverance;
         
     }
 
@@ -56,24 +55,21 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 	
 	scope.setAdv = function(){
 		scope.advSelected = scope.majorAvantage;
-		scope.vents =  [scope.selectedFatherFamily.vent.big, scope.selectedMotherFamily.vent.big];
+        scope.vents =  [scope.selectedFatherFamily.vent.big, scope.selectedMotherFamily.vent.big];
 		scope.advDes = scope.vents.find(i => i.key == scope.advSelected);
-        applyAdvantage(scope.character, scope.vents.find(i => i.key == scope.advSelected));
 	}
 	
 	scope.setMed = function(){
 		scope.medSelected = scope.minorAvantage;
 		scope.meds =  [scope.selectedFatherFamily.vent.med, scope.selectedMotherFamily.vent.med];
 		scope.medDes = scope.meds.find(i => i.key == scope.medSelected);
-        applyAdvantage(scope.character, scope.meds.find(i => i.key == scope.minorAvantage));
 	}
 	
 	scope.setDis = function(){
 		scope.disSelected = scope.disAvantage;
-		scope.disavs =  [scope.selectedFatherFamily.vent.dis, scope.selectedMotherFamily.vent.dis];
+        scope.disavs =  [scope.selectedFatherFamily.vent.dis, scope.selectedMotherFamily.vent.dis];
 		scope.disDes = scope.disavs.find(i => i.key == scope.disSelected);
-        applyAdvantage(scope.character, scope.disavs.find(i => i.key == scope.disAvantage));
-	}	
+	}
 	
 	function _handlerError(data, status) {
 		console.log(data || "Request failed");
@@ -86,9 +82,17 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 		scope.character.richness = 0;
 	}
     
+    scope.setAbbiltyEffects = function() {
+        applyAdvantage(scope.character, scope.vents.find(i => i.key == scope.advSelected));
+        applyAdvantage(scope.character, scope.meds.find(i => i.key == scope.minorAvantage));
+        applyAdvantage(scope.character, scope.disavs.find(i => i.key == scope.disAvantage));
+        scope.character.initiative = scope.character.intelligence + scope.character.atention;
+        scope.character.health = scope.character.constitution + scope.character.perseverance;
+        scope.disableButton = true;
+    }
+    
     var applyAdvantage = function(selectedPlayer, adv)  {
         if (adv.effect) {
-            debugger;
                 for (var k in adv.effect) {
                 selectedPlayer[k] += adv.effect[k];
             }

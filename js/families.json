@@ -25,7 +25,7 @@
 				"key":"Robusto",
 				"value": "Aumenta en un punto el atributo de Constitución.",
 				"effect":{
-					"const":1
+					"constitution":1
 				}
 			},
 			"med": {
@@ -39,7 +39,7 @@
 				"key":"Grande",
 				"value":"Aumenta en un punto su atributo de Tamaño.",
 				"effect":{
-					"tam":1
+					"size":1
 				}
 			}
 		}
@@ -58,7 +58,7 @@
 				"key":"Parado",
 				"value": "Disminuye en un punto el atributo de Reacción.",
 				"effect":{
-					"rea":-1
+					"reaction":-1
 				}
 			}
 		}
@@ -69,14 +69,14 @@
 				"key":"Ágil",
 				"value": "Aumenta en un punto el atributo de Reacción.",
 				"effect":{
-					"rea":1
+					"reaction":1
 				}
 			},
 			"med": {
 				"key":"Veloz",
 				"value": "Aumenta en dos puntos el atributo de Movimiento.",
 				"effect":{
-					"mov":2
+					"movement":2
 				}
 			},
 			"dis": {
@@ -121,7 +121,7 @@
 				"key":"Tonto",
 				"value": "Disminuye en un punto el atributo de Intelecto.",
 				"effect":{
-					"int":-1
+					"intelligence":-1
 				}
 			}
 		}
@@ -132,7 +132,7 @@
 				"key":"Tranquilo",
 				"value": "Aumenta en un punto el atributo de Serenidad.",
 				"effect":{
-					"ser":1
+					"serenity":1
 				}
 			},
 			"med": {
@@ -143,7 +143,7 @@
 				"key":"Blando",
 				"value":"Disminuye en un punto el atributo de Constitución.",
 				"effect":{
-					"con":-1
+					"constitution":-1
 				}
 			}
 		}
@@ -154,7 +154,7 @@
 				"key":"Tozudo",
 				"value": "Aumenta en un punto el atributo de Perseverancia.",
 				"effect":{
-					"per":1
+					"perseverance":1
 				}
 			},
 			"med": {
@@ -165,7 +165,7 @@
 				"key":"Lento",
 				"value": "Disminuye en dos puntos el atributo de Movimiento del héroe.",
 				"effect":{
-					"mov":-2
+					"movement":-2
 				}
 			}
 		}
@@ -198,7 +198,7 @@
 				"key":"Sentidos agudos",
 				"value": "Aumenta en un punto el atributo de Atención.",
 				"effect":{
-					"ate":1
+					"atention":1
 				}
 			},
 			"med": {
@@ -217,21 +217,21 @@
 				"key":"Listo",
 				"value": "Aumenta en un punto el atributo de Intelecto.",
 				"effect":{
-					"int":1
+					"intelligence":1
 				}
 			},
 			"med": {
 				"key":"Escurridizo",
 				"value": "Disminuye en un punto su atributo de Tamaño.",
 				"effect":{
-					"tam":-1
+					"size":-1
 				}
 			},
 			"dis": {
 				"key":"Impaciente",
 				"value": "Disminuye en un punto el atributo de Serenidad.",
 				"effect":{
-					"ser":-1
+					"serenity":-1
 				}
 			}
 		}
@@ -250,7 +250,7 @@
 				"key":"Débil",
 				"value": "Disminuye en un punto el atributo de Perseverancia.",
 				"effect":{
-					"per":-1
+					"perseverance":-1
 				}
 			}
 		}
@@ -269,7 +269,7 @@
 				"key":"Distraído",
 				"value": "Disminuye en un punto el atributo de Atención.",
 				"effect":{
-					"ate":-1
+					"atention":-1
 				}
 			}
 		}

@@ -7,5 +7,9 @@ TousenApp.service('CardService', ['$http', function($http) {
 	this.getFamilies = function(){
 		return $http.get('js/families.json');
 	}
+	
+	this.getCreatures = function() {
+		return $http.get('js/creatures.json');
+	}
 }]);
     

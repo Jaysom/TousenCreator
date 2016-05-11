@@ -1,0 +1,78 @@
+{
+	"Oni": [{
+		"Raza": "Akki",
+		"effect": {
+			"reaction": "1"
+		}
+	}, {
+		"Raza": "Kijo",
+		"effect": {
+			"serenity": "1"
+		}
+	}, {
+		"Raza": "Gozuki",
+		"effect": {
+			"perseverance": "1"
+		}
+	}, {
+		"Raza": "Mezuki",
+		"effect": {
+			"atention": "1"
+		}
+	}],
+	"Tengu": [{
+		"Raza": "Karasutengu",
+		"effect": {
+			"reaction": "1"
+		},
+		"skills": {
+			"Teletransportarse": "Puede realizar movimientos en línea recta sin tener en cuenta ni los obstáculos ni el tipo de superficie."
+		}
+	}, {
+		"Raza": "Konohatengu",
+		"effect": {
+			"perseverance": "1",
+			"armor": "1"
+		},
+		"skills": {
+			"Piel de madera": "El personaje tiene Armadura 1. Puede acumularse con otros valores de Armadura."
+		}
+	}, {
+		"Raza": "Kawatengu",
+		"effect": {
+			"intelligence": "1"
+		},
+		"trait": "Criatura acuática"
+	}, {
+		"Raza": "Taimatsumaru",
+		"effect": {
+			"serenity": "1",
+			"armor": "1"
+		},
+		"skills": {
+			"Cuerpo en llamas": "Se considera equipado con un arma Incendiaria y Daño 0."
+		}
+	}],
+	"Kappa": [{
+		"Raza": "Ichimoku",
+		"effect": {
+			"atention": "1"
+		}
+	}, {
+		"Raza": "Hyousube",
+		"effect": {
+			"constitution": "1"
+		}
+	}, {
+		"Raza": "Kashanbo",
+		"effect": {
+			"perseverance": "1"
+		}
+	}, {
+		"Raza": "Kawatarou",
+		"effect": {
+			"reaction": "1"
+		}
+	}]
+}
+	

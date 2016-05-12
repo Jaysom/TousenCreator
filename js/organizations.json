@@ -1,0 +1,100 @@
+{
+	"Organizations": [{
+		"El Dragón Dorado": {
+			"kinds": "Human",
+			"clans": {
+				"Linaje Imperial": {
+					"Limit": "Kanemoto",
+					"Honor": "4",
+					"Gains": "3",
+					"Principal": "Calma",
+					"Secundaria": "Palabra",
+					"Dishonor": {
+						"interf": "Interferir en un duelo",
+						"ignorar": "Ignorar un duelo",
+						"herido": "Ser herido por un seguidor",
+						"cobarde": "Ser un cobarde",
+						"corpse": "Saquear un cadáver",
+						"corrupto": "Estar corrupto"
+					},
+					"Weapons": {
+						"Katana": "Katana",
+						"Yari": "Yari",
+						"Tessen": "Tessen"
+					},
+					"Clothes": {
+						"Armadura Ligera": "Armadura Ligera",
+						"Kimono de Gala": "Kimono de Gala"
+					}
+				},
+				"Espadas Relucientes": {
+					"Honor":{"Kanemoto":"4",
+								"Default":"3"
+								},
+					"Gains":"3",
+					"Principal": "Lucha",
+					"Secundaria": "Perfección",
+					"Dishonor":{
+						"disarm":"Ser desarmado",
+						"cobarde": "Ser un cobarde",
+						"corpse": "Saquear un cadáver",
+						"corrupto": "Estar corrupto"
+					},
+					"Weapons": {
+						"Katana": "Katana",
+						"Wakizashi": "Wakizashi",
+						"Kodachi": "Kodachi"
+					},
+					"Clothes": {
+						"Armadura Ligera": "Armadura Ligera"
+					}
+					
+				},
+				"Pinceles Brillantes":{
+					"Honor":{"Kanemoto":"4",
+								"Default":"3"
+							},
+					"Gains":"3",
+					"Principal": "Calma",
+					"Secundaria": "Palabra",
+					"Dishonor": {
+						"interf": "Interferir en un duelo",
+						"corpse": "Saquear un cadáver",
+						"corrupto": "Estar corrupto"
+					},
+					"Weapons": {
+						"Tanto": "Tanto",
+						"Tessen": "Tessen"
+					},
+					"Clothes": {
+						"Armadura Ligera": "Armadura Ligera"
+					}
+				},
+				"Dragones Negros":{
+					"Honor": "3",
+					"Gains": "3",
+					"Principal": "Lucha",
+					"Secundaria": "Sombra",
+					"Dishonor": {
+						"disarm":"Ser desarmado",
+						"herido": "Ser herido por un seguidor",
+						"corrupto": "Estar corrupto"
+					},
+					"Weapons": {
+						"Katana": "Katana",
+						"Wakizashi": "Wakizashi",
+						"Kodachi": "Kodachi"
+					},
+					"Clothes": {
+					},
+					"Extras":{
+						"Endan":"3",
+						"Metsubishi":"3"
+					}
+				}
+			}
+		}
+	}
+	
+	]
+}

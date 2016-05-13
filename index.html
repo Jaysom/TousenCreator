@@ -42,6 +42,10 @@
 				</select>
                 <button ng-disabled="disableButton" ng-click="setAbbiltyEffects()" class="btn btn-default">Set Abbilities</button>
 			</div>
+			<div ng-if="disableButton">
+				<span> <b>Organization: </b> <select ng-options="org as org.Name for org in orgs" ng-model="selectedOrg"></select> {{selectedOrg.Name}}</span></br>
+				<span> <b>Clans: </b> <select ng-options="clan as clan.clan  for clan in clans" ng-model="selectedClan"></select> {{selectedClan.clan}}</span>
+			</div>
 		</div>
 		<div id="main-card" ng-if="selectedRace">
 			<table class="table">
@@ -78,9 +82,9 @@
 			<div ng-show="selectedRace.name === 'Humano'">
 				<span><b>Familia Paterna: </b>{{ selectedFatherFamily.Familia }}</span></br>
 				<span><b>Familia Materna: </b>{{ selectedMotherFamily.Familia }}</span></br>
-				<span ng-if="majorAvantage"><b>{{advSelected}}</b> - {{advDes.value}} </br></span>
-				<span ng-if="minorAvantage"><b>{{medSelected}}</b> - {{medDes.value}}</br></span>
-				<span ng-if="disAvantage"><b>{{disSelected}}</b> - {{disDes.value}}</br></span>
+				<span ng-if="majorAvantage"><b>{{advSelected}}</b> - {{advDes.value}} </span></br>
+				<span ng-if="minorAvantage"><b>{{medSelected}}</b> - {{medDes.value}}</span></br>
+				<span ng-if="disAvantage"><b>{{disSelected}}</b> - {{disDes.value}}</span></br>
 			</div>
 		</div>
 	</div>

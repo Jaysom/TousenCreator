@@ -1,12 +1,15 @@
 {
 	"Organizations": [{
-		"El Dragón Dorado": {
-			"kinds": "Human",
+		"Name":"El Dragón Dorado",
+		"values": {
+			"kinds": "Humano",
 			"clans": {
 				"Linaje Imperial": {
 					"Limit": "Kanemoto",
-					"Honor": "4",
-					"Gains": "3",
+					"Honor": {
+						"Default":"4"
+						},
+					"richness": "3",
 					"Principal": "Calma",
 					"Secundaria": "Palabra",
 					"Dishonor": {
@@ -28,10 +31,11 @@
 					}
 				},
 				"Espadas Relucientes": {
-					"Honor":{"Kanemoto":"4",
-								"Default":"3"
-								},
-					"Gains":"3",
+					"Honor":{
+						"Kanemoto":"4",
+						"Default":"3"
+						},
+					"richness":"3",
 					"Principal": "Lucha",
 					"Secundaria": "Perfección",
 					"Dishonor":{
@@ -51,10 +55,11 @@
 					
 				},
 				"Pinceles Brillantes":{
-					"Honor":{"Kanemoto":"4",
-								"Default":"3"
-							},
-					"Gains":"3",
+					"Honor":{
+						"Kanemoto":"4",
+						"Default":"3"
+						},
+					"richness":"3",
 					"Principal": "Calma",
 					"Secundaria": "Palabra",
 					"Dishonor": {
@@ -71,8 +76,10 @@
 					}
 				},
 				"Dragones Negros":{
-					"Honor": "3",
-					"Gains": "3",
+					"Honor": {
+						"Default":"3"
+						},
+					"richness": "3",
 					"Principal": "Lucha",
 					"Secundaria": "Sombra",
 					"Dishonor": {

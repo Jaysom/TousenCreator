@@ -8,6 +8,7 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
     scope.character = {};
     scope.character.initiative = 0;
     scope.character.health = 0; 
+	scope.clans = [];
 
 	scope.LoadKinds = function(){
 		CardService.getKinds()
@@ -26,6 +27,18 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 		scope.races = res.kinds;
 	}
 	
+	function _handleOrganizationsSuccess(res){
+		if(res.Organizations[0].values.kinds == scope.selectedRace.name);{
+			scope.orgs = res.Organizations;
+		}
+		angular.forEach(scope.orgs[0].values.clans, function(vals,clan){
+			debugger;
+			if(vals.Limit != null || (vals.Limit == scope.selectedFatherFamilyFamily || vals.Limit == scope.selectedMotherFamily)){
+				scope.clans.push({clan,vals});	
+			}			
+		});
+	}
+	
 	scope.handleRace = function(selectedRace){
 		scope.selectedRace = selectedRace;
         _handleCharacter(selectedRace);
@@ -40,7 +53,6 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
         scope.character.constitution = res.attrs.con;
         scope.character.perseverance = res.attrs.per;
         scope.character.size = res.attrs.tam;
-        
     }
 
 	scope.handleFatherFamily = function(res){
@@ -89,8 +101,15 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
         scope.character.initiative = scope.character.intelligence + scope.character.atention;
         scope.character.health = scope.character.constitution + scope.character.perseverance;
         scope.disableButton = true;
+		scope.LoadOrganizations();
     }
-    
+
+	scope.LoadOrganizations = function(){
+		CardService.getOrganizations()
+			.success(_handleOrganizationsSuccess)
+			.error(_handlerError);
+	}
+	
     var applyAdvantage = function(selectedPlayer, adv)  {
         if (adv.effect) {
                 for (var k in adv.effect) {

@@ -44,7 +44,7 @@
 			</div>
 			<div ng-if="disableButton">
 				<span> <b>Organization: </b> <select ng-options="org as org.Name for org in orgs" ng-model="selectedOrg"></select> {{selectedOrg.Name}}</span></br>
-				<span> <b>Clans: </b> <select ng-options="clan as clan.clan  for clan in clans" ng-model="selectedClan"></select> {{selectedClan.clan}}</span>
+				<span> <b>Clans: </b> <select ng-options="clan as clan.clan  for clan in clans" ng-model="selectedClan" ng-change="handleClan(selectedClan)"></select> {{selectedClan.clan}}</span>
 			</div>
 		</div>
 		<div id="main-card" ng-if="selectedRace">
@@ -74,8 +74,8 @@
 					<td>{{character.size}}</td>
 					<td>{{character.initiative}}</td>
 					<td>{{character.health}}</td>
-					<td>{{character.honor}}</td>
-					<td>{{character.richness}}</td>
+					<td>{{character.honor + honor}}</td>
+					<td>{{richness}}</td>
 				</tr>
 			</table>
 			<span><b>Tipo:</b> {{ selectedRace.name }}</span></br>

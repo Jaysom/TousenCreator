@@ -7,7 +7,9 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
     
     scope.character = {};
     scope.character.initiative = 0;
-    scope.character.health = 0; 
+    scope.character.health = 0;
+	scope.richness = 0;
+	scope.honor = 0;
 	scope.clans = [];
 
 	scope.LoadKinds = function(){
@@ -28,14 +30,17 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 	}
 	
 	function _handleOrganizationsSuccess(res){
-		if(res.Organizations[0].values.kinds == scope.selectedRace.name);{
+		if(res.Organizations[0].values.kinds == scope.selectedRace.name){
 			scope.orgs = res.Organizations;
 		}
 		angular.forEach(scope.orgs[0].values.clans, function(vals,clan){
-			debugger;
-			if(vals.Limit != null || (vals.Limit == scope.selectedFatherFamilyFamily || vals.Limit == scope.selectedMotherFamily)){
+			if(vals.Limit != null){
+				if(vals.Limit == scope.selectedFatherFamily.Familia || vals.Limit == scope.selectedMotherFamily.Familia){
+					scope.clans.push({clan,vals});	
+				}
+			}else{
 				scope.clans.push({clan,vals});	
-			}			
+			}	
 		});
 	}
 	
@@ -65,6 +70,12 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 		scope.motherVent = [res.vent.big.key,res.vent.med.key,res.vent.dis.key];
 	}
 	
+	scope.handleClan = function(clan) {
+		scope.clanSelected = clan;
+		scope.richness = scope.clanSelected.vals.richness + scope.character.richness;
+		_handleCharacterHonor(scope.clanSelected.vals.Honor);
+	}
+	
 	scope.setAdv = function(){
 		scope.advSelected = scope.majorAvantage;
         scope.vents =  [scope.selectedFatherFamily.vent.big, scope.selectedMotherFamily.vent.big];
@@ -92,6 +103,17 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 		scope.families = res.Families;
 		scope.character.honor = 0;
 		scope.character.richness = 0;
+	}
+	
+	function _handleCharacterHonor(honor) {
+		var a = Object.keys(honor);
+		if((a.indexOf(scope.selectedFatherFamily.Familia) != -1 || a.indexOf(scope.selectedMotherFamily.Familia) != -1) == true){
+			scope.honor = honor[scope.selectedFatherFamily.Familia] + scope.character.honor;
+			scope.honor = honor[scope.selectedMotherFamily.Familia] + scope.character.honor;
+		}
+		else {
+			scope.honor = honor["Default"];
+		}
 	}
     
     scope.setAbbiltyEffects = function() {

@@ -7,9 +7,9 @@
 				"Linaje Imperial": {
 					"Limit": "Kanemoto",
 					"Honor": {
-						"Default":"4"
+						"Default":4
 						},
-					"richness": "3",
+					"richness": 3,
 					"Principal": "Calma",
 					"Secundaria": "Palabra",
 					"Dishonor": {
@@ -32,10 +32,10 @@
 				},
 				"Espadas Relucientes": {
 					"Honor":{
-						"Kanemoto":"4",
-						"Default":"3"
+						"Kanemoto":4,
+						"Default":3
 						},
-					"richness":"3",
+					"richness":3,
 					"Principal": "Lucha",
 					"Secundaria": "Perfección",
 					"Dishonor":{
@@ -56,10 +56,10 @@
 				},
 				"Pinceles Brillantes":{
 					"Honor":{
-						"Kanemoto":"4",
-						"Default":"3"
+						"Kanemoto":4,
+						"Default":3
 						},
-					"richness":"3",
+					"richness":3,
 					"Principal": "Calma",
 					"Secundaria": "Palabra",
 					"Dishonor": {
@@ -77,9 +77,9 @@
 				},
 				"Dragones Negros":{
 					"Honor": {
-						"Default":"3"
+						"Default":3
 						},
-					"richness": "3",
+					"richness": 3,
 					"Principal": "Lucha",
 					"Secundaria": "Sombra",
 					"Dishonor": {
@@ -95,8 +95,8 @@
 					"Clothes": {
 					},
 					"Extras":{
-						"Endan":"3",
-						"Metsubishi":"3"
+						"Endan":3,
+						"Metsubishi":3
 					}
 				}
 			}

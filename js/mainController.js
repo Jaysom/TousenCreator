@@ -10,6 +10,7 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
     scope.character.health = 0;
 	scope.richness = 0;
 	scope.honor = 0;
+	scope.orgs = [];
 	scope.clans = [];
 
 	scope.LoadKinds = function(){
@@ -29,11 +30,8 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 		scope.races = res.kinds;
 	}
 	
-	function _handleOrganizationsSuccess(res){
-		if(res.Organizations[0].values.kinds == scope.selectedRace.name){
-			scope.orgs = res.Organizations;
-		}
-		angular.forEach(scope.orgs[0].values.clans, function(vals,clan){
+	function getOrganizationClans(org){
+		angular.forEach(org.values.clans, function(vals,clan){
 			if(vals.Limit != null){
 				if(vals.Limit == scope.selectedFatherFamily.Familia || vals.Limit == scope.selectedMotherFamily.Familia){
 					scope.clans.push({clan,vals});	
@@ -41,6 +39,16 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 			}else{
 				scope.clans.push({clan,vals});	
 			}	
+		});
+	}
+	
+	function _handleOrganizationsSuccess(res){
+		angular.forEach(res.Organizations, function(val){
+			debugger;
+			if(val.values.kinds == scope.selectedRace.name){
+				scope.orgs.push(val);
+				debugger;
+			}
 		});
 	}
 	

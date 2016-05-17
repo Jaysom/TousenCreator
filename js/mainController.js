@@ -30,7 +30,8 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 		scope.races = res.kinds;
 	}
 	
-	function getOrganizationClans(org){
+	scope.getOrganizationClans = function(org){
+        debugger;
 		angular.forEach(org.values.clans, function(vals,clan){
 			if(vals.Limit != null){
 				if(vals.Limit == scope.selectedFatherFamily.Familia || vals.Limit == scope.selectedMotherFamily.Familia){

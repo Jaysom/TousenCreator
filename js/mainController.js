@@ -3,9 +3,7 @@ var TousenApp = angular.module('TousenApp', []);
 
 TousenApp.controller('mainController', ['$scope','CardService', function(scope, CardService){
 
-	scope.Message =  "Welcome to The TousenApp Character builder!";
-    
-    scope.character = {};
+	scope.character = {};
     scope.character.initiative = 0;
     scope.character.health = 0;
 	scope.richness = 0;
@@ -66,6 +64,8 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
         scope.character.constitution = res.attrs.con;
         scope.character.perseverance = res.attrs.per;
         scope.character.size = res.attrs.tam;
+		scope.character.initiative = scope.character.intelligence + scope.character.atention;
+        scope.character.health = scope.character.constitution + scope.character.perseverance;
     }
 
 	scope.handleFatherFamily = function(res){
@@ -109,24 +109,37 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 	
 	scope.handleClan = function(clan) {
 		scope.clanSelected = clan;
-		scope.richness = scope.clanSelected.vals.richness + scope.character.richness;
-		_handleCharacterHonor(scope.clanSelected.vals.Honor);
+		if(Object.keys(clan.vals.Honor).length > 1){
+			_handleCharacterHonor(scope.clanSelected.vals.Honor);	
+		}else{
+			scope.honor = scope.clanSelected.vals.Honor["Default"] + scope.character.honor;
+		}
+		if(Object.keys(clan.vals.richness).length > 1) {
+			_handleCharacterRichness(scope.clanSelected.vals.richness);
+		} else {
+				scope.richness = scope.clanSelected.vals.Richness["Default"] + scope.character.richness;
+		}
 		scope.weapons = clan.vals.Weapons;
 		scope.clothes = clan.vals.Clothes;
 		scope.character.mainWay = clan.vals.Principal;
-		scope.character.secondaryWay = clan.vals.Secundaria;
-		debugger;
-		
+		scope.character.secondaryWay = clan.vals.Secundaria;		
 	}
 	
 	function _handleCharacterHonor(honor) {
 		var a = Object.keys(honor);
-		if((a.indexOf(scope.selectedFatherFamily.Familia) != -1 || a.indexOf(scope.selectedMotherFamily.Familia) != -1) == true){
+		if(a.indexOf(scope.selectedFatherFamily.Familia) != -1){
 			scope.honor = honor[scope.selectedFatherFamily.Familia] + scope.character.honor;
+		}else if(a.indexOf(scope.selectedMotherFamily.Familia) != -1){
 			scope.honor = honor[scope.selectedMotherFamily.Familia] + scope.character.honor;
 		}
-		else {
-			scope.honor = honor["Default"];
+	}
+	
+	function _handleCharacterRichness(rich) {
+		var a = Object.keys(rich);
+		if(a.indexOf(scope.selectedFatherFamily.Familia) != -1){
+			scope.richness = rich[scope.selectedFatherFamily.Familia] + scope.character.honor;
+		}else if(a.indexOf(scope.selectedMotherFamily.Familia) != -1){
+			scope.richness = rich[scope.selectedMotherFamily.Familia] + scope.character.honor;
 		}
 	}
     
@@ -134,8 +147,6 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
         applyAdvantage(scope.character, scope.vents.find(i => i.key == scope.advSelected));
         applyAdvantage(scope.character, scope.meds.find(i => i.key == scope.minorAvantage));
         applyAdvantage(scope.character, scope.disavs.find(i => i.key == scope.disAvantage));
-        scope.character.initiative = scope.character.intelligence + scope.character.atention;
-        scope.character.health = scope.character.constitution + scope.character.perseverance;
         scope.disableButton = true;
 		scope.LoadOrganizations();
     }

@@ -9,7 +9,9 @@
 					"Honor": {
 						"Default":4
 						},
-					"richness": 3,
+					"Richness": {
+						"Default":3
+					},
 					"Principal": "Calma",
 					"Secundaria": "Palabra",
 					"Dishonor": ["Interferir","Ignorar","HeridoSeguidor","Cobarde","Saqueo","Corrupto"],
@@ -21,7 +23,9 @@
 						"Kanemoto":4,
 						"Default":3
 						},
-					"richness":3,
+					"Richness":{
+						"Default":3
+					},
 					"Principal": "Lucha",
 					"Secundaria": "Perfección",
 					"Dishonor":["Desarmado","Cobarde","Saqueo","Corrupto"],
@@ -34,7 +38,9 @@
 						"Kanemoto":4,
 						"Default":3
 						},
-					"richness":3,
+					"Richness":{
+						"Default":3
+					},
 					"Principal": "Calma",
 					"Secundaria": "Palabra",
 					"Dishonor": ["Interferir","Saqueo","Corrupto"],
@@ -45,7 +51,9 @@
 					"Honor": {
 						"Default":3
 						},
-					"richness": 3,
+					"Richness": {
+						"Default":3
+					},
 					"Principal": "Lucha",
 					"Secundaria": "Sombra",
 					"Dishonor": ["Desarmado","HeridoSeguidor","Corrupto"],
@@ -69,7 +77,7 @@
 					"Honor": {
 						"Default":3
 						},
-					"richness": 3,
+					"Richness": 3,
 					"Principal": "Lucha",
 					"Secundaria": "Protección",
 					"Dishonor": ["Interferir","Ignorar","Cobarde","Saqueo","Corrupto"],
@@ -83,7 +91,9 @@
 					"Honor":{
 						"Default":4
 					},
-					"richness":2,
+					"Richness":{
+						"Default":2
+					},
 					"Principal": "Protección",
 					"Secundaria": "Calma",
 					"Dishonor":["Interferir","Ignorar","Cobarde","Saqueo","Corrupto"],
@@ -105,7 +115,7 @@
 					"Honor": {
 						"Default":3
 						},
-					"richness": {
+					"Richness": {
 						"Default":3,
 						"Ishikawa":4
 					},
@@ -124,7 +134,9 @@
 					"Honor":{
 						"Default":3
 					},
-					"richness":3,
+					"Richness":{
+						"Default":3
+					},						
 					"Principal": "Protección",
 					"Secundaria": "Tierra",
 					"Dishonor":["Interferir","Cobarde","Saqueo","Corrupto"],

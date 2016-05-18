@@ -12,23 +12,9 @@
 					"richness": 3,
 					"Principal": "Calma",
 					"Secundaria": "Palabra",
-					"Dishonor": {
-						"interf": "Interferir en un duelo",
-						"ignorar": "Ignorar un duelo",
-						"herido": "Ser herido por un seguidor",
-						"cobarde": "Ser un cobarde",
-						"corpse": "Saquear un cadáver",
-						"corrupto": "Estar corrupto"
-					},
-					"Weapons": {
-						"Katana": "Katana",
-						"Yari": "Yari",
-						"Tessen": "Tessen"
-					},
-					"Clothes": {
-						"Armadura Ligera": "Armadura Ligera",
-						"Kimono de Gala": "Kimono de Gala"
-					}
+					"Dishonor": ["Interferir","Ignorar","HeridoSeguidor","Cobarde","Saqueo","Corrupto"],
+					"Weapons": ["Katana","Yari","Tessen"],
+					"Clothes": ["ALigera", "KGala"]
 				},
 				"Espadas Relucientes": {
 					"Honor":{
@@ -38,20 +24,9 @@
 					"richness":3,
 					"Principal": "Lucha",
 					"Secundaria": "Perfección",
-					"Dishonor":{
-						"disarm":"Ser desarmado",
-						"cobarde": "Ser un cobarde",
-						"corpse": "Saquear un cadáver",
-						"corrupto": "Estar corrupto"
-					},
-					"Weapons": {
-						"Katana": "Katana",
-						"Wakizashi": "Wakizashi",
-						"Kodachi": "Kodachi"
-					},
-					"Clothes": {
-						"Armadura Ligera": "Armadura Ligera"
-					}
+					"Dishonor":["Desarmado","Cobarde","Saqueo","Corrupto"],
+					"Weapons": ["Katana","Wakizashi","Kodachi"],
+					"Clothes": ["ALigera"]
 					
 				},
 				"Pinceles Brillantes":{
@@ -62,18 +37,9 @@
 					"richness":3,
 					"Principal": "Calma",
 					"Secundaria": "Palabra",
-					"Dishonor": {
-						"interf": "Interferir en un duelo",
-						"corpse": "Saquear un cadáver",
-						"corrupto": "Estar corrupto"
-					},
-					"Weapons": {
-						"Tanto": "Tanto",
-						"Tessen": "Tessen"
-					},
-					"Clothes": {
-						"Armadura Ligera": "Armadura Ligera"
-					}
+					"Dishonor": ["Interferir","Saqueo","Corrupto"],
+					"Weapons": ["Tanto","Tessen"],
+					"Clothes": ["ALigera"]
 				},
 				"Dragones Negros":{
 					"Honor": {
@@ -82,18 +48,9 @@
 					"richness": 3,
 					"Principal": "Lucha",
 					"Secundaria": "Sombra",
-					"Dishonor": {
-						"disarm":"Ser desarmado",
-						"herido": "Ser herido por un seguidor",
-						"corrupto": "Estar corrupto"
-					},
-					"Weapons": {
-						"Katana": "Katana",
-						"Wakizashi": "Wakizashi",
-						"Kodachi": "Kodachi"
-					},
-					"Clothes": {
-					},
+					"Dishonor": ["Desarmado","HeridoSeguidor","Corrupto"],
+					"Weapons": ["Katana","Wakizashi","Kodachi"],
+					"Clothes": [],
 					"Extras":{
 						"Endan":3,
 						"Metsubishi":3
@@ -101,7 +58,85 @@
 				}
 			}
 		}
-	}
-	
-	]
+	},
+	{
+		"Name":"Los Guardianes del Primer Sello",
+		"values": {
+			"kinds": "Humano",
+			"clans": {
+				"Guardianes": {
+					"Limit": "Tanaka",
+					"Honor": {
+						"Default":3
+						},
+					"richness": 3,
+					"Principal": "Lucha",
+					"Secundaria": "Protección",
+					"Dishonor": ["Interferir","Ignorar","Cobarde","Saqueo","Corrupto"],
+					"Weapons": ["Arma no cortante"],
+					"Clothes": ["ALigera"],
+					"Extras":{
+						"Ofuda":3
+					}
+				},
+				"Custodios": {
+					"Honor":{
+						"Default":4
+					},
+					"richness":2,
+					"Principal": "Protección",
+					"Secundaria": "Calma",
+					"Dishonor":["Interferir","Ignorar","Cobarde","Saqueo","Corrupto"],
+					"Weapons": ["Katana","Wakizashi","Kodachi"],
+					"Clothes": ["ALigera"],
+					"Extras":{
+						"Ofuda":3
+					}					
+				}
+			}
+		}
+	},
+	{
+		"Name":"Maestros Elementales",
+		"values": {
+			"kinds": "Humano",
+			"clans": {
+				"Señores de la Escuela": {
+					"Honor": {
+						"Default":3
+						},
+					"richness": {
+						"Default":3,
+						"Ishikawa":4
+					},
+					"Principal": "Magia",
+					"Secundaria": ["Fuego","Tierra","Aire","Agua","Naturaleza"],
+					"Dishonor": ["Ignorar","HeridoSeguidor","Cobarde","Saqueo","Corrupto"],
+					"Weapons": ["Tanto","Tessen"],
+					"Clothes": ["KGala"],
+					"Extras":{
+						"Ofuda":3,
+						"Pergamino":1,
+						"Ungüento de los arrecifes":3
+					}
+				},
+				"Guardianes del segundo sello": {
+					"Honor":{
+						"Default":3
+					},
+					"richness":3,
+					"Principal": "Protección",
+					"Secundaria": "Tierra",
+					"Dishonor":["Interferir","Cobarde","Saqueo","Corrupto"],
+					"Weapons": ["Katana","Yari","Kodachi"],
+					"Clothes": ["ALigera"],
+					"Extras":{
+						"Ofuda":3,
+						"Pergamino":1,
+						"Ungüento de los arrecifes":3
+					}					
+				}
+			}
+		}
+	}]
 }

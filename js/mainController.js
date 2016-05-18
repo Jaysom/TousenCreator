@@ -31,7 +31,8 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 	}
 	
 	scope.getOrganizationClans = function(org){
-        debugger;
+		scope.clans = [];
+		scope.organizationSelected = org;
 		angular.forEach(org.values.clans, function(vals,clan){
 			if(vals.Limit != null){
 				if(vals.Limit == scope.selectedFatherFamily.Familia || vals.Limit == scope.selectedMotherFamily.Familia){
@@ -45,10 +46,8 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 	
 	function _handleOrganizationsSuccess(res){
 		angular.forEach(res.Organizations, function(val){
-			debugger;
 			if(val.values.kinds == scope.selectedRace.name){
 				scope.orgs.push(val);
-				debugger;
 			}
 		});
 	}
@@ -79,12 +78,6 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 		scope.motherVent = [res.vent.big.key,res.vent.med.key,res.vent.dis.key];
 	}
 	
-	scope.handleClan = function(clan) {
-		scope.clanSelected = clan;
-		scope.richness = scope.clanSelected.vals.richness + scope.character.richness;
-		_handleCharacterHonor(scope.clanSelected.vals.Honor);
-	}
-	
 	scope.setAdv = function(){
 		scope.advSelected = scope.majorAvantage;
         scope.vents =  [scope.selectedFatherFamily.vent.big, scope.selectedMotherFamily.vent.big];
@@ -112,6 +105,18 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 		scope.families = res.Families;
 		scope.character.honor = 0;
 		scope.character.richness = 0;
+	}
+	
+	scope.handleClan = function(clan) {
+		scope.clanSelected = clan;
+		scope.richness = scope.clanSelected.vals.richness + scope.character.richness;
+		_handleCharacterHonor(scope.clanSelected.vals.Honor);
+		scope.weapons = clan.vals.Weapons;
+		scope.clothes = clan.vals.Clothes;
+		scope.character.mainWay = clan.vals.Principal;
+		scope.character.secondaryWay = clan.vals.Secundaria;
+		debugger;
+		
 	}
 	
 	function _handleCharacterHonor(honor) {

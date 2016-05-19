@@ -23,10 +23,6 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 			.success(_handlerFamilySuccess)
 			.error(_handlerError);
 	}
-
-	function _handerKindsuccess(res) {
-		scope.races = res.kinds;
-	}
 	
 	scope.getOrganizationClans = function(org){
 		scope.clans = [];
@@ -42,31 +38,10 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 		});
 	}
 	
-	function _handleOrganizationsSuccess(res){
-		angular.forEach(res.Organizations, function(val){
-			if(val.values.kinds == scope.selectedRace.name){
-				scope.orgs.push(val);
-			}
-		});
-	}
-	
 	scope.handleRace = function(selectedRace){
 		scope.selectedRace = selectedRace;
         _handleCharacter(selectedRace);
 	}
-    
-    function _handleCharacter(res) {
-        scope.character.movement = res.attrs.mov;
-        scope.character.intelligence = res.attrs.int;
-        scope.character.atention = res.attrs.ate;
-        scope.character.reaction = res.attrs.rea;
-        scope.character.serenity = res.attrs.ser;
-        scope.character.constitution = res.attrs.con;
-        scope.character.perseverance = res.attrs.per;
-        scope.character.size = res.attrs.tam;
-		scope.character.initiative = scope.character.intelligence + scope.character.atention;
-        scope.character.health = scope.character.constitution + scope.character.perseverance;
-    }
 
 	scope.handleFatherFamily = function(res){
 		scope.selectedFatherFamily = res;
@@ -95,18 +70,7 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
         scope.disavs =  [scope.selectedFatherFamily.vent.dis, scope.selectedMotherFamily.vent.dis];
 		scope.disDes = scope.disavs.find(i => i.key == scope.disSelected);
 	}
-	
-	function _handlerError(data, status) {
-		console.log(data || "Request failed");
-		console.log(status);
-	}
-	
-	function _handlerFamilySuccess(res) {
-		scope.families = res.Families;
-		scope.character.honor = 0;
-		scope.character.richness = 0;
-	}
-	
+		
 	scope.handleClan = function(clan) {
 		scope.clanSelected = clan;
 		if(Object.keys(clan.vals.Honor).length > 1){
@@ -123,6 +87,51 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 		scope.clothes = clan.vals.Clothes;
 		scope.character.mainWay = clan.vals.Principal;
 		scope.character.secondaryWay = clan.vals.Secundaria;		
+	}
+	
+	scope.setAbbiltyEffects = function() {
+        applyAdvantage(scope.character, scope.vents.find(i => i.key == scope.advSelected));
+        applyAdvantage(scope.character, scope.meds.find(i => i.key == scope.minorAvantage));
+        applyAdvantage(scope.character, scope.disavs.find(i => i.key == scope.disAvantage));
+        scope.disableButton = true;
+		scope.LoadOrganizations();
+    }
+
+	scope.LoadOrganizations = function(){
+		CardService.getOrganizations()
+			.success(_handleOrganizationsSuccess)
+			.error(_handlerError);
+	}
+	
+	function _handerKindsuccess(res) {
+		scope.races = res.kinds;
+	}
+	
+	function _handleCharacter(res) {
+        scope.character.movement = res.attrs.mov;
+        scope.character.intelligence = res.attrs.int;
+        scope.character.atention = res.attrs.ate;
+        scope.character.reaction = res.attrs.rea;
+        scope.character.serenity = res.attrs.ser;
+        scope.character.constitution = res.attrs.con;
+        scope.character.perseverance = res.attrs.per;
+        scope.character.size = res.attrs.tam;
+		scope.character.initiative = scope.character.intelligence + scope.character.atention;
+        scope.character.health = scope.character.constitution + scope.character.perseverance;
+    }
+	
+	function _handlerFamilySuccess(res) {
+		scope.families = res.Families;
+		scope.character.honor = 0;
+		scope.character.richness = 0;
+	}
+	
+		function _handleOrganizationsSuccess(res){
+		angular.forEach(res.Organizations, function(val){
+			if(val.values.kinds == scope.selectedRace.name){
+				scope.orgs.push(val);
+			}
+		});
 	}
 	
 	function _handleCharacterHonor(honor) {
@@ -143,27 +152,18 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 		}
 	}
     
-    scope.setAbbiltyEffects = function() {
-        applyAdvantage(scope.character, scope.vents.find(i => i.key == scope.advSelected));
-        applyAdvantage(scope.character, scope.meds.find(i => i.key == scope.minorAvantage));
-        applyAdvantage(scope.character, scope.disavs.find(i => i.key == scope.disAvantage));
-        scope.disableButton = true;
-		scope.LoadOrganizations();
-    }
-
-	scope.LoadOrganizations = function(){
-		CardService.getOrganizations()
-			.success(_handleOrganizationsSuccess)
-			.error(_handlerError);
-	}
-	
-    var applyAdvantage = function(selectedPlayer, adv)  {
+    function applyAdvantage(selectedPlayer, adv)  {
         if (adv.effect) {
                 for (var k in adv.effect) {
                 selectedPlayer[k] += adv.effect[k];
             }
         }
     }
-
+	
+	function _handlerError(data, status) {
+		console.log(data || "Request failed");
+		console.log(status);
+	}
+	
 	scope.LoadKinds();
 }]);

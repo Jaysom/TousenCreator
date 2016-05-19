@@ -9,14 +9,14 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 	scope.orgs = [];
 	scope.clans = [];
 
-	scope.LoadKinds = function(){
+	scope.loadKinds = function(){
 		CardService.getKinds()
 			.success(_handerKindsuccess)
 			.error(_handlerError);
-		scope.LoadFamilies();
+		scope.loadFamilies();
 	}
 
-	scope.LoadFamilies = function(){
+	scope.loadFamilies = function(){
 		CardService.getFamilies()
 			.success(_handlerFamilySuccess)
 			.error(_handlerError);
@@ -27,9 +27,7 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 		scope.organizationSelected = org;
 		angular.forEach(org.values.clans, function(vals,clan){
 			if(vals.Limit != null){
-				if(vals.Limit == scope.selectedFatherFamily.Familia || vals.Limit == scope.selectedMotherFamily.Familia){
-					scope.clans.push({clan,vals});	
-				}
+				if(vals.Limit == scope.selectedFatherFamily.Familia || vals.Limit == scope.selectedMotherFamily.Familia) scope.clans.push({clan,vals});	
 			}else{
 				scope.clans.push({clan,vals});	
 			}	
@@ -71,16 +69,10 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 		
 	scope.handleClan = function(clan) {
 		scope.clanSelected = clan;
-		if(Object.keys(clan.vals.Honor).length > 1){
-			_handleCharacterHonor(scope.clanSelected.vals.Honor);	
-		}else{
-			scope.honor = scope.clanSelected.vals.Honor["Default"] + scope.character.honor;
-		}
-		if(Object.keys(clan.vals.Richness).length > 1) {
-			_handleCharacterRichness(scope.clanSelected.vals.richness);
-		} else {
-				scope.richness = scope.clanSelected.vals.Richness["Default"] + scope.character.richness;
-		}
+		if(Object.keys(clan.vals.Honor).length > 1) _handleCharacterHonor(scope.clanSelected.vals.Honor);	
+		else scope.honor = scope.clanSelected.vals.Honor["Default"] + scope.character.honor;
+		if(Object.keys(clan.vals.Richness).length > 1) _handleCharacterRichness(scope.clanSelected.vals.Richness);
+		else scope.richness = scope.clanSelected.vals.Richness["Default"] + scope.character.richness;
 		scope.weapons = clan.vals.Weapons;
 		scope.clothes = clan.vals.Clothes;
 		scope.character.mainWay = clan.vals.Principal;
@@ -92,10 +84,10 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
         applyAdvantage(scope.character, scope.meds.find(i => i.key == scope.minorAvantage));
         applyAdvantage(scope.character, scope.disavs.find(i => i.key == scope.disAvantage));
         scope.disableButton = true;
-		scope.LoadOrganizations();
+		scope.loadOrganizations();
     }
 
-	scope.LoadOrganizations = function(){
+	scope.loadOrganizations = function(){
 		CardService.getOrganizations()
 			.success(_handleOrganizationsSuccess)
 			.error(_handlerError);
@@ -134,20 +126,14 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 	
 	function _handleCharacterHonor(honor) {
 		var a = Object.keys(honor);
-		if(a.indexOf(scope.selectedFatherFamily.Familia) != -1){
-			scope.honor = honor[scope.selectedFatherFamily.Familia] + scope.character.honor;
-		}else if(a.indexOf(scope.selectedMotherFamily.Familia) != -1){
-			scope.honor = honor[scope.selectedMotherFamily.Familia] + scope.character.honor;
-		}
+		if(a.indexOf(scope.selectedFatherFamily.Familia) != -1) scope.honor = honor[scope.selectedFatherFamily.Familia] + scope.character.honor;
+		else if(a.indexOf(scope.selectedMotherFamily.Familia) != -1) scope.honor = honor[scope.selectedMotherFamily.Familia] + scope.character.honor;
 	}
 	
 	function _handleCharacterRichness(rich) {
 		var a = Object.keys(rich);
-		if(a.indexOf(scope.selectedFatherFamily.Familia) != -1){
-			scope.richness = rich[scope.selectedFatherFamily.Familia] + scope.character.honor;
-		}else if(a.indexOf(scope.selectedMotherFamily.Familia) != -1){
-			scope.richness = rich[scope.selectedMotherFamily.Familia] + scope.character.honor;
-		}
+		if(a.indexOf(scope.selectedFatherFamily.Familia) != -1) scope.richness = rich[scope.selectedFatherFamily.Familia] + scope.character.honor;
+		else if(a.indexOf(scope.selectedMotherFamily.Familia) != -1) scope.richness = rich[scope.selectedMotherFamily.Familia] + scope.character.honor;
 	}
     
     function applyAdvantage(selectedPlayer, adv)  {
@@ -163,5 +149,5 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 		console.log(status);
 	}
 	
-	scope.LoadKinds();
+	scope.loadKinds();
 }]);

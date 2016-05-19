@@ -4,8 +4,6 @@ var TousenApp = angular.module('TousenApp', []);
 TousenApp.controller('mainController', ['$scope','CardService', function(scope, CardService){
 
 	scope.character = {};
-    scope.character.initiative = 0;
-    scope.character.health = 0;
 	scope.richness = 0;
 	scope.honor = 0;
 	scope.orgs = [];
@@ -78,7 +76,7 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 		}else{
 			scope.honor = scope.clanSelected.vals.Honor["Default"] + scope.character.honor;
 		}
-		if(Object.keys(clan.vals.richness).length > 1) {
+		if(Object.keys(clan.vals.Richness).length > 1) {
 			_handleCharacterRichness(scope.clanSelected.vals.richness);
 		} else {
 				scope.richness = scope.clanSelected.vals.Richness["Default"] + scope.character.richness;

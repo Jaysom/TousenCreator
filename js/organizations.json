@@ -150,5 +150,203 @@
 				}
 			}
 		}
+	},
+	{
+		"Name":"Comerciantes de Soja",
+		"values": {
+			"kinds": "Humano",
+			"families":["Ueno","Yamashita"],
+			"clans": {
+				"Comerciantes": {
+					"Limit": "Ueno",	
+					"Honor": {
+						"Default":3
+					},
+					"Richness": {
+						"Default":3
+					},
+					"Principal": "Palabra",
+					"Secundaria": "Lucha",
+					"Dishonor": ["Ignorar","Saqueo"],
+					"Weapons": ["Katana","Kodachi","Tessen"],
+					"Clothes": ["KGala"]
+				},
+				"Guerrero": {
+					"Limit": "Yamashita",
+					"Honor":{
+						"Default":3
+					},
+					"Richness":{
+						"Default":3
+					},						
+					"Principal": "Protección",
+					"Secundaria": "Tierra",
+					"Dishonor":["Ignorar","Saqueo"],
+					"Weapons": ["Katana","Yari","Kodachi"],
+					"Clothes": ["ALigera"]					
+				}
+			}
+		}
+	},
+	{
+		"Name":"Hijos de la Sombra",
+		"values": {
+			"kinds": "Humano",
+			"families":["Kimura"],//menor!
+			"clans": {
+				"Ninjas": {
+					"Honor": {
+						"Default":3
+						},
+					"Richness": {
+						"Default":3
+					},
+					"Principal": "Sombra",
+					"Secundaria": "Perfección",
+					"Dishonor": ["Desarmado","HeridoSeguidor","Cobarde"],
+					"Weapons": ["Jitte","Nunchaku","Torashuko","Tonfa","Ninjatō"],
+					"Extras":{
+						"Veneno":3,
+						"Shuriken":3
+					}
+				},
+				"Kurohasaki": {
+					"Limit": "Kimura",
+					"Honor":{
+						"Default":3
+					},
+					"Richness":{
+						"Default":3
+					},						
+					"Principal": "Perfección",
+					"Secundaria": "Sombra",
+					"Dishonor":["Ignorar","Desarmado","HeridoSeguidor","Cobarde"],
+					"Weapons": ["Katana","Yari","Naginata"]				
+				}
+			}
+		}
+	},
+	{
+		"Name":"Señores del Bambú",
+		"values": {
+			"kinds": "Humano",
+			"families":["Kobayashi","Ootake"],//Menor
+			"clans": {
+				"Primer Brote": {
+					"Honor": {
+						"Default":3
+						},
+					"Richness": {
+						"Default":3
+					},
+					"Principal": "Perfección",
+					"Secundaria": "Palabra",
+					"Dishonor": ["Interferir","Ignorar","Desarmado","HeridoSeguidor","Cobarde","Saqueo","Corrupto"],
+					"Weapons": ["Katana","Ken","","Tonfa","Ninjatō"],
+					"Clothes":["Uma-jirushi"]
+				},
+				"Panda Iracundo": {
+					"Honor":{
+						"Default":3
+					},
+					"Richness":{
+						"Default":3
+					},						
+					"Principal": "Caza",
+					"Secundaria": "Naturaleza",
+					"Dishonor":["Interferir","Desarmado","Cobarde","Corrupto"],
+					"Weapons": ["Katana","Ken","Yumi-Ya[3]"]				
+				}
+			}
+		}
+	},
+	{
+		"Name":"Tigres de las Nieves",
+		"values": {
+			"kinds": "Humano",
+			"families":["Yanagihara"],//Menor
+			"clans": {
+				"Tigres Blancos": {
+					"Honor": {
+						"Default":4
+						},
+					"Richness": {
+						"Default":3
+					},
+					"Principal": "Lucha",
+					"Secundaria": "Caza",
+					"Dishonor": ["Ignorar","Desarmado","Cobarde","Saqueo","Corrupto"],
+					"Weapons": ["Tachi","Yari","Yumi-Ya[3]"]
+				},
+				"Domadores de la llanura": {
+					"Honor":{
+						"Default":3
+					},
+					"Richness":{
+						"Default":3
+					},						
+					"Principal": "Caza",
+					"Secundaria": "Perfección",
+					"Dishonor":["Ignorar","Desarmado","Cobarde","Saqueo","Corrupto"],
+					"Weapons":["Tachi","Yari","Yumi-Ya[3]"],
+					"Extras":{
+						"Caballo":{"Dishonor":"PerderCaballo"}//Cuesta todos los kobans iniciales
+					}
+				}
+			}
+		}
+	},
+	{
+		"Name":"Espectros del Bosque",
+		"values": {
+			"kinds": "Humano",
+			"families":["Menor"],//
+			"clans": {
+				"Ninjas": {
+					"Honor": {
+						"Default":2
+						},
+					"Richness": {
+						"Default":2
+					},
+					"Principal": "Sombra",
+					"Secundaria": "Caza",
+					"Dishonor": ["Desarmado","Cobarde"],
+					"Weapons": ["Nunchaku","Kama","Torashuko","Shuriken[3]","Kunai[3]","Makibishi[3]","Yumi-Ya[3]"]
+				},
+				"Garzas Grises": {
+					"Honor":{
+						"Default":3
+					},
+					"Richness":{
+						"Default":2
+					},						
+					"Principal": "Palabra",
+					"Secundaria": "Perfección",
+					"Dishonor":["Ignorar","Desarmado","Cobarde","Saqueo"],
+					"Weapons":["Katana","Yari"]
+				}
+			}
+		}
+	},
+	{
+		"Name":"Reino Ningyo",
+		"values": {
+			"kinds": "Ningyo",
+			"clans": {
+				"Reino Submarino": {
+					"Honor": {
+						"Default":3
+						},
+					"Richness": {
+						"Default":3
+					},
+					"Principal": "Lucha",
+					"Secundaria": "Agua",
+					"Dishonor": ["Interferir","HeridoSeguidor","Desarmado","Cobarde"],
+					"Weapons": ["Yari", "Sodegarami","Tsukubō"]
+				}
+			}
+		}
 	}]
 }

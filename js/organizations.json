@@ -409,5 +409,49 @@
 				
 			}
 		}
+	},
+	{
+		"Name":"Poblado Kappa",
+		"values": {
+			"kinds": "Kappa",
+			"clans": {
+				"Casta Ichimoku": {
+					"Limit": "Ichimoku",	
+					"Honor": {
+						"Default":1
+						},
+					"Richness": {
+						"Default":2
+					},
+					"Principal": "Caza",
+					"Secundaria": "Cuerpo",
+					"Dishonor": ["Corrupto"]
+				},
+				"Casta Hyousube": {
+					"Limit": "Hyousube",	
+					"Honor": {
+						"Default":1
+						},
+					"Richness": {
+						"Default":2
+					},
+					"Principal": "Lucha",
+					"Secundaria": "Cuerpo",
+					"Dishonor": ["Corrupto"]
+				},
+				"Casta Kawatarou": {
+					"Limit": "Kawatarou",	
+					"Honor": {
+						"Default":1
+						},
+					"Richness": {
+						"Default":2
+					},
+					"Principal": "Sombra",
+					"Secundaria": "Cuerpo",
+					"Dishonor": ["Corrupto"]
+				}
+			}
+		}
 	}]
 }

@@ -300,7 +300,7 @@
 		"Name":"Espectros del Bosque",
 		"values": {
 			"kinds": "Humano",
-			"families":["Menor"],//
+			"families":["Menor"],
 			"clans": {
 				"Ninjas": {
 					"Honor": {
@@ -346,6 +346,67 @@
 					"Dishonor": ["Interferir","HeridoSeguidor","Desarmado","Cobarde"],
 					"Weapons": ["Yari", "Sodegarami","Tsukubō"]
 				}
+			}
+		}
+	},
+	{
+		"Name":"Casta Tengu",
+		"values": {
+			"kinds": "Tengu",
+			"clans": {
+				"Clan Karasutengu": {
+					"Limit": "Karasutengu",	
+					"Honor": {
+						"Default":4
+						},
+					"Richness": {
+						"Default":2
+					},
+					"Principal": "Perfección",
+					"Secundaria": "Sombra",
+					"Dishonor": ["Interferir","Desarmado","Ignorar","HeridoSeguidor","Cobarde","Corrupto"],
+					"Weapons": ["Katana", "Kodachi","Bo"]
+				},
+				"Clan Konohatengu": {
+					"Limit": "Konohatengu",	
+					"Honor": {
+						"Default":4
+						},
+					"Richness": {
+						"Default":2
+					},
+					"Principal": "Calma",
+					"Secundaria": "Caza",
+					"Dishonor": ["Interferir","Desarmado","Ignorar","HeridoSeguidor","Cobarde","Corrupto"],
+					"Weapons": ["Katana", "Kodachi","Bo"]
+				},
+				"Clan Kawatengu": {
+					"Limit": "Kawatengu",	
+					"Honor": {
+						"Default":4
+						},
+					"Richness": {
+						"Default":2
+					},
+					"Principal": "Espíritus",
+					"Secundaria": "Palabra",
+					"Dishonor": ["Interferir","Desarmado","Ignorar","HeridoSeguidor","Cobarde","Corrupto"],
+					"Weapons": ["Katana", "Kodachi","Bo"]
+				},
+				"Clan Taimatsumaru": {
+					"Limit": "Taimatsumaru",	
+					"Honor": {
+						"Default":4
+						},
+					"Richness": {
+						"Default":2
+					},
+					"Principal": "Fuego",
+					"Secundaria": "Magia",
+					"Dishonor": ["Interferir","Desarmado","Ignorar","HeridoSeguidor","Cobarde","Corrupto"],
+					"Weapons": ["Katana", "Kodachi","Bo"]
+				}
+				
 			}
 		}
 	}]

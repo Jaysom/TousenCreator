@@ -192,7 +192,7 @@
 		"Name":"Hijos de la Sombra",
 		"values": {
 			"kinds": "Humano",
-			"families":["Kimura"],//menor!
+			"families":"Kimura",
 			"clans": {
 				"Ninjas": {
 					"Honor": {
@@ -230,7 +230,7 @@
 		"Name":"Señores del Bambú",
 		"values": {
 			"kinds": "Humano",
-			"families":["Kobayashi","Ootake"],//Menor
+			"families":["Kobayashi","Ootake"],
 			"clans": {
 				"Primer Brote": {
 					"Honor": {
@@ -264,7 +264,7 @@
 		"Name":"Tigres de las Nieves",
 		"values": {
 			"kinds": "Humano",
-			"families":["Yanagihara"],//Menor
+			"families":["Yanagihara"],
 			"clans": {
 				"Tigres Blancos": {
 					"Honor": {
@@ -290,7 +290,7 @@
 					"Dishonor":["Ignorar","Desarmado","Cobarde","Saqueo","Corrupto"],
 					"Weapons":["Tachi","Yari","Yumi-Ya[3]"],
 					"Extras":{
-						"Caballo":{"Dishonor":"PerderCaballo"}//Cuesta todos los kobans iniciales
+						"Caballo":{"Dishonor":"PerderCaballo"}
 					}
 				}
 			}

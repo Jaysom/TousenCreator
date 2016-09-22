@@ -2,7 +2,6 @@
 var TousenApp = angular.module('TousenApp', []);
 
 TousenApp.controller('mainController', ['$scope','CardService', function(scope, CardService){
-
 	scope.character = {};
 	scope.richness = 0;
 	scope.honor = 0;
@@ -22,7 +21,7 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 			.error(_handlerError);
 	}
 	
-		scope.handleRace = function(selectedRace){
+	scope.handleRace = function(selectedRace){
 		scope.selectedRace = selectedRace;
         _handleCharacter(selectedRace);
 	}
@@ -134,7 +133,6 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 			}else if(fam.indexOf(scope.selectedMotherFamily.Familia) != -1){
 				return honor[scope.selectedMotherFamily.Familia] + scope.character.honor;;
 			}
-			debugger;
 		} 
 	}
 	
@@ -146,7 +144,6 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 			}else if(a.indexOf(scope.selectedMotherFamily.Familia) != -1){
 				return rich[scope.selectedMotherFamily.Familia] + scope.character.richness;
 			}
-			debugger;
 		}
 	}
     

@@ -58,11 +58,10 @@
 					"Secundaria": "Sombra",
 					"Dishonor": ["Desarmado","HeridoSeguidor","Corrupto"],
 					"Weapons": ["Katana","Wakizashi","Kodachi"],
-					"Clothes": [],
-					"Extras":{
-						"Endan":3,
-						"Metsubishi":3
-					}
+					"Extras":[
+						{"Endan":3},
+						{"Metsubishi":3}
+					]
 				}
 			}
 		}
@@ -83,9 +82,9 @@
 					"Dishonor": ["Interferir","Ignorar","Cobarde","Saqueo","Corrupto"],
 					"Weapons": ["Arma no cortante"],
 					"Clothes": ["ALigera"],
-					"Extras":{
-						"Ofuda":3
-					}
+					"Extras":[
+						{"Ofuda":3}
+					]
 				},
 				"Custodios": {
 					"Honor":{
@@ -99,9 +98,9 @@
 					"Dishonor":["Interferir","Ignorar","Cobarde","Saqueo","Corrupto"],
 					"Weapons": ["Katana","Wakizashi","Kodachi"],
 					"Clothes": ["ALigera"],
-					"Extras":{
-						"Ofuda":3
-					}					
+					"Extras":[
+						{"Ofuda":3}
+					]			
 				}
 			}
 		}
@@ -142,11 +141,11 @@
 					"Dishonor":["Interferir","Cobarde","Saqueo","Corrupto"],
 					"Weapons": ["Katana","Yari","Kodachi"],
 					"Clothes": ["ALigera"],
-					"Extras":{
-						"Ofuda":3,
-						"Pergamino":1,
-						"Ungüento de los arrecifes":3
-					}					
+					"Extras":[
+						{"Ofuda":3},
+						{"Pergamino":1},
+						{"Ungüento de los arrecifes":3}
+					]			
 				}
 			}
 		}
@@ -205,10 +204,10 @@
 					"Secundaria": "Perfección",
 					"Dishonor": ["Desarmado","HeridoSeguidor","Cobarde"],
 					"Weapons": ["Jitte","Nunchaku","Torashuko","Tonfa","Ninjatō"],
-					"Extras":{
-						"Veneno":3,
-						"Shuriken":3
-					}
+					"Extras":[
+						{"Veneno":3},
+						{"Shuriken":3}
+					]
 				},
 				"Kurohasaki": {
 					"Limit": "Kimura",

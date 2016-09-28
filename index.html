@@ -40,13 +40,10 @@
 					<option value="{{fatherVent[2]}}">	{{fatherVent[2]}} </option>
 					<option value="{{motherVent[2]}}">	{{motherVent[2]}} </option>
 				</select>
-                <button ng-disabled="disableButton" ng-click="setAbbiltyEffects()" class="btn btn-default">Set Abbilities</button>
 			</div>
-			<div ng-if="disableButton">
+			<div>
 				<span> <b>Organization: </b> <select ng-options="org as org.Name for org in orgs" ng-model="selectedOrg" ng-change="getOrganizationClans(selectedOrg)"></select></span></br>
 				<span> <b>Clans: </b> <select ng-options="clan as clan.clan  for clan in clans" ng-model="selectedClan" ng-change="handleClan(selectedClan)"></select></span></br>
-				<span> <b>Senda Principal: </b> {{character.mainWay}}</span></br>
-				<span> <b>Senda Secundaria: </b> {{character.secondaryWay}}</span></br>
 			</div>
 		</div>
 		<div id="main-card" ng-if="selectedRace">
@@ -66,27 +63,27 @@
 					<th>Richness</th>
 				</tr>
 				<tr>
-					<td>{{character.movement}}</td>
-					<td>{{character.intelligence}}</td>
-					<td>{{character.atention}}</td>
-					<td>{{character.reaction}}</td>
-					<td>{{character.serenity}}</td>
-					<td>{{character.constitution}}</td>
-					<td>{{character.perseverance}}</td>
-					<td>{{character.size}}</td>
-					<td>{{character.initiative}}</td>
-					<td>{{character.health}}</td>
+					<td>{{selectedRace.attrs.mov +  character.mov}}</td>
+					<td>{{selectedRace.attrs.int +  character.int}}</td>
+					<td>{{selectedRace.attrs.ate +  character.ate}}</td>
+					<td>{{selectedRace.attrs.rea + character.rea}}</td>
+					<td>{{selectedRace.attrs.ser + character.ser}}</td>
+					<td>{{selectedRace.attrs.con + character.con}}</td>
+					<td>{{selectedRace.attrs.per + character.per}}</td>
+					<td>{{selectedRace.attrs.tam + character.tam}}</td>
+					<td>{{character.initiative + selectedPlayer.initiative}}</td>
+					<td>{{character.health + selectedPlayer.health}}</td>
 					<td>{{character.honor + honor}}</td>
-					<td>{{richness}}</td>
+					<td>{{character.richness + richness}}</td>
 				</tr>
 			</table>
 			<span><b>Tipo:</b> {{ selectedRace.name }}</span></br>
 			<div ng-show="selectedRace.name === 'Humano'">
 				<span><b>Familia Paterna: </b>{{ selectedFatherFamily.Familia }}</span></br>
 				<span><b>Familia Materna: </b>{{ selectedMotherFamily.Familia }}</span></br>
-				<span ng-if="majorAvantage"><b>{{advSelected}}</b> - {{advDes.value}} </span></br>
-				<span ng-if="minorAvantage"><b>{{medSelected}}</b> - {{medDes.value}}</span></br>
-				<span ng-if="disAvantage"><b>{{disSelected}}</b> - {{disDes.value}}</span></br>
+				<span ng-if="majorAvantage"><b>{{majorAvantage}}</b> - {{advDes.value}} </span></br>
+				<span ng-if="minorAvantage"><b>{{minorAvantage}}</b> - {{medDes.value}}</span></br>
+				<span ng-if="disAvantage"><b>{{disAvantage}}</b> - {{disDes.value}}</span></br>
 				<span><b>Organización:</b> {{organizationSelected.Name}}</span></br>
 				<span><b>Clan:</b> {{clanSelected.clan}}</span></br>
 			</div>

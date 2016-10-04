@@ -69,7 +69,7 @@
 				"key":"Ágil",
 				"value": "Aumenta en un punto el atributo de Reacción.",
 				"effect":{
-					"reaction":1
+					"rea":1
 				}
 			},
 			"med": {

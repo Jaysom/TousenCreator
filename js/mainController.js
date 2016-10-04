@@ -3,8 +3,8 @@ var TousenApp = angular.module('TousenApp', []);
 
 TousenApp.controller('mainController', ['$scope','CardService', function(scope, CardService){
 	scope.character = {};
-	scope.richness = 0;
-	scope.honor = 0;
+	scope.character.richness = 0;
+	scope.character.honor = 0;
 	scope.orgs = [];
 	scope.clans = [];
 
@@ -24,7 +24,6 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 	scope.handleRace = function(selectedRace){
 		scope.selectedRace = selectedRace;
         _handleCharacter(selectedRace);
-		_loadOrganizations();
 	}
 
 	scope.handleFatherFamily = function(res){
@@ -40,19 +39,22 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 	scope.setAdv = function(){
         scope.vents =  [scope.selectedFatherFamily.vent.big, scope.selectedMotherFamily.vent.big];
 		scope.advDes = scope.vents.find(i => i.key == scope.majorAvantage);
-		applyAdvantage(scope.character, scope.vents.find(i => i.key == scope.majorAvantage));
+		scope.bigAdv = scope.vents.find(i => i.key == scope.majorAvantage);
+		applyAdvantage(scope.character, scope.bigAdv);
 	}
 	
 	scope.setMed = function(){
 		scope.meds =  [scope.selectedFatherFamily.vent.med, scope.selectedMotherFamily.vent.med];
 		scope.medDes = scope.meds.find(i => i.key == scope.minorAvantage);
-		applyAdvantage(scope.character, scope.meds.find(i => i.key == scope.minorAvantage));
+		scope.midAdv = scope.meds.find(i => i.key == scope.minorAvantage);
+		applyAdvantage(scope.character, scope.midAdv);
 	}
 	
 	scope.setDis = function(){
         scope.disavs =  [scope.selectedFatherFamily.vent.dis, scope.selectedMotherFamily.vent.dis];
 		scope.disDes = scope.disavs.find(i => i.key == scope.disAvantage);
-		applyAdvantage(scope.character, scope.disavs.find(i => i.key == scope.disAvantage));
+		scope.disAdv = scope.disavs.find(i => i.key == scope.disAvantage)
+		applyAdvantage(scope.character, scope.disAdv);
 	}
 	
 	scope.getOrganizationClans = function(org){
@@ -65,6 +67,12 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 				scope.clans.push({clan,vals});	
 			}	
 		});
+	}
+
+	scope.loadOrganizations = function(){
+		CardService.getOrganizations()
+			.success(_handleOrganizationsSuccess)
+			.error(_handlerError);
 	}
 		
 	scope.handleClan = function(clan) {
@@ -83,29 +91,24 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 		scope.races = res.kinds;
 	}
 
-	function _loadOrganizations(){
-		CardService.getOrganizations()
-			.success(_handleOrganizationsSuccess)
-			.error(_handlerError);
-	}
 	
 	function _handleCharacter(res) {
-        scope.character.mov = 0;
-        scope.character.int = 0;
-        scope.character.ate = 0;
-        scope.character.rea = 0;
-        scope.character.ser = 0;
-        scope.character.con = 0;
-        scope.character.per = 0;
-        scope.character.tam = 0;
-		scope.character.initiative = res.attrs.int + scope.character.int + res.attrs.ate + scope.character.ate;
-        scope.character.health = res.attrs.con + res.attrs.per + scope.character.con + scope.character.per;
+        scope.character.mov = res.attrs.mov;
+        scope.character.int = res.attrs.int;
+        scope.character.ate = res.attrs.ate;
+        scope.character.rea = res.attrs.rea;
+        scope.character.ser = res.attrs.ser;
+        scope.character.con = res.attrs.con;
+        scope.character.per = res.attrs.per;
+        scope.character.tam = res.attrs.tam;
+		scope.character.initiative = 0
+        scope.character.health = 0;
     }
 	
 	function _handlerFamilySuccess(res) {
 		scope.families = res.Families;
-		scope.character.honor = 0;
-		scope.character.richness = 0;
+		scope.honor = 0;
+		scope.richness = 0;
 	}
 	
 	function _handleOrganizationsSuccess(res){
@@ -120,36 +123,85 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 	
 	function _handleCharacterHonor(honor) {
 		var a = Object.keys(honor);
-		if(checkFamilies(a)){
+		if(_checkFamilies(a)){
 			if(a.indexOf(scope.selectedFatherFamily.Familia) != -1){
-				return honor[scope.selectedFatherFamily.Familia] + scope.character.honor; 
+				return honor[scope.selectedFatherFamily.Familia]; 
 			}else if(fam.indexOf(scope.selectedMotherFamily.Familia) != -1){
-				return honor[scope.selectedMotherFamily.Familia] + scope.character.honor;;
+				return honor[scope.selectedMotherFamily.Familia];
 			}
-		} 
+		} else{
+			return scope.clanSelected.vals.Honor.Default;
+		}
 	}
 	
 	function _handleCharacterRichness(rich) {
 		var a = Object.keys(rich);
 		if(checkFamilies(a)){
 			if(a.indexOf(scope.selectedFatherFamily.Familia) != -1){
-				return rich[scope.selectedFatherFamily.Familia] + scope.character.richness;
+				return rich[scope.selectedFatherFamily.Familia];
 			}else if(a.indexOf(scope.selectedMotherFamily.Familia) != -1){
-				return rich[scope.selectedMotherFamily.Familia] + scope.character.richness;
+				return rich[scope.selectedMotherFamily.Familia];
 			}
+		}else{
+			return scope.clanSelected.vals.Richness.Default;
 		}
 	}
     
     function applyAdvantage(selectedPlayer, adv)  {
         if (adv.effect) {
-                for (var k in adv.effect) {
-                selectedPlayer[k] = adv.effect[k];
-            }
+			var k = _getAdvantageEffect(adv);
+			if (k){
+				switch(k){
+					case "health":
+						selectedPlayer[k] = adv.effect[k];
+						break;
+					case "initiative":
+						selectedPlayer[k] = adv.effect[k];
+						break;
+					default:
+						selectedPlayer[k] = scope.selectedRace.attrs[k] + adv.effect[k];
+						if(!_checkHealthAdvantage()){
+							scope.character.health = 0;
+						}
+						if(!_checkInitiativeAdvantage()){
+							scope.character.initiative = 0;
+						}
+						break;
+				}
+			}
         }
+		if(!_checkHealthAdvantage()){
+			scope.character.health = 0;
+		}
+		if(!_checkInitiativeAdvantage()){
+			scope.character.initiative = 0;
+		}
     }
 	
-	function checkFamilies(fam) {
+	function _checkFamilies(fam) {
 		return fam.indexOf(scope.selectedFatherFamily.Familia) != -1 || fam.indexOf(scope.selectedMotherFamily.Familia) != -1;
+	}
+
+	function _getAdvantageEffect(advantage){
+		for (var k in advantage.effect){
+			return k;
+		}
+	}
+
+	function _checkHealthAdvantage(){
+		var adv = _getAdvantageEffect(scope.bigAdv);
+		var med =_getAdvantageEffect(scope.midAdv);
+		var dis = _getAdvantageEffect(scope.disAdv);
+		debugger;
+		return (adv == "health" || med == "health" || dis == "health");		
+	}
+
+	function _checkInitiativeAdvantage(){
+		var adv = _getAdvantageEffect(scope.bigAdv);
+		var med =_getAdvantageEffect(scope.midAdv);
+		var dis = _getAdvantageEffect(scope.disAdv);
+		debugger;
+		return (adv == "initiative" || med == "initiative" || dis == "initiative");	
 	}
 	
 	function _handlerError(data, status) {

@@ -11,7 +11,7 @@
 <body>
     <div class='banner'>
         <div class='container'>
-            <img src="./img/Tousen.JPG" alt="Tousen Character Builder" >
+            <!--<img src="./img/Tousen.JPG" alt="Tousen Character Builder" >-->
         </div>
     </div>
 	<div class="container main-frame"  ng-controller="mainController">
@@ -41,6 +41,7 @@
 					<option value="{{motherVent[2]}}">	{{motherVent[2]}} </option>
 				</select>
 			</div>
+			<button ng-click="loadOrganizations()" class="btn btn-primary">Cargar Organizaciones</button>
 			<div>
 				<span> <b>Organization: </b> <select ng-options="org as org.Name for org in orgs" ng-model="selectedOrg" ng-change="getOrganizationClans(selectedOrg)"></select></span></br>
 				<span> <b>Clans: </b> <select ng-options="clan as clan.clan  for clan in clans" ng-model="selectedClan" ng-change="handleClan(selectedClan)"></select></span></br>
@@ -63,18 +64,18 @@
 					<th>Richness</th>
 				</tr>
 				<tr>
-					<td>{{selectedRace.attrs.mov +  character.mov}}</td>
-					<td>{{selectedRace.attrs.int +  character.int}}</td>
-					<td>{{selectedRace.attrs.ate +  character.ate}}</td>
-					<td>{{selectedRace.attrs.rea + character.rea}}</td>
-					<td>{{selectedRace.attrs.ser + character.ser}}</td>
-					<td>{{selectedRace.attrs.con + character.con}}</td>
-					<td>{{selectedRace.attrs.per + character.per}}</td>
-					<td>{{selectedRace.attrs.tam + character.tam}}</td>
-					<td>{{character.initiative + selectedPlayer.initiative}}</td>
-					<td>{{character.health + selectedPlayer.health}}</td>
-					<td>{{character.honor + honor}}</td>
-					<td>{{character.richness + richness}}</td>
+					<td>{{character.mov}}</td>
+					<td>{{character.int}}</td>
+					<td>{{character.ate}}</td>
+					<td>{{character.rea}}</td>
+					<td>{{character.ser}}</td>
+					<td>{{character.con}}</td>
+					<td>{{character.per}}</td>
+					<td>{{character.tam}}</td>
+					<td>{{character.int + character.ate + character.initiative}}</td>
+					<td>{{character.per + character.con + character.health}}</td>
+					<td>{{character.honor}}</td>
+					<td>{{character.richness}}</td>
 				</tr>
 			</table>
 			<span><b>Tipo:</b> {{ selectedRace.name }}</span></br>

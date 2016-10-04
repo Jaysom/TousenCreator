@@ -76,7 +76,9 @@
 					"Honor": {
 						"Default":3
 						},
-					"Richness": 3,
+					"Richness": {
+						"Default":3
+					},
 					"Principal": "Lucha",
 					"Secundaria": "Protección",
 					"Dishonor": ["Interferir","Ignorar","Cobarde","Saqueo","Corrupto"],

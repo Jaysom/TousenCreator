@@ -62,7 +62,7 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 		scope.organizationSelected = org;
 		angular.forEach(org.values.clans, function(vals,clan){
 			if(vals.Limit != null){
-				if(checkFamilies(vals.Limit)) scope.clans.push({clan,vals});	
+				if(_checkFamilies(vals.Limit)) scope.clans.push({clan,vals});	
 			}else{
 				scope.clans.push({clan,vals});	
 			}	
@@ -116,7 +116,7 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 			if(val.values.kinds == scope.selectedRace.name && val.values.families === undefined){
 				scope.orgs.push(val);
 			}else{
-				if(checkFamilies(val.values.families)) scope.orgs.push(val);
+				if(_checkFamilies(val.values.families)) scope.orgs.push(val);
 			}
 		});
 	}
@@ -136,7 +136,7 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 	
 	function _handleCharacterRichness(rich) {
 		var a = Object.keys(rich);
-		if(checkFamilies(a)){
+		if(_checkFamilies(a)){
 			if(a.indexOf(scope.selectedFatherFamily.Familia) != -1){
 				return rich[scope.selectedFatherFamily.Familia];
 			}else if(a.indexOf(scope.selectedMotherFamily.Familia) != -1){

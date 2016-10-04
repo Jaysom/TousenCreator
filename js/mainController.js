@@ -3,6 +3,7 @@ var TousenApp = angular.module('TousenApp', []);
 
 TousenApp.controller('mainController', ['$scope','CardService', function(scope, CardService){
 	scope.character = {};
+	scope.advantages = {}
 	scope.character.richness = 0;
 	scope.character.honor = 0;
 	scope.orgs = [];
@@ -39,22 +40,31 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 	scope.setAdv = function(){
         scope.vents =  [scope.selectedFatherFamily.vent.big, scope.selectedMotherFamily.vent.big];
 		scope.advDes = scope.vents.find(i => i.key == scope.majorAvantage);
-		scope.bigAdv = scope.vents.find(i => i.key == scope.majorAvantage);
-		applyAdvantage(scope.character, scope.bigAdv);
+		if(scope.advDes.effect != null) {
+			_applyAdvantage(scope.character, scope.advDes);
+			scope.advantages.big = _getAdvantageEffect(scope.advDes);
+		}
+		else _checkCalculatedAttributes();
 	}
 	
 	scope.setMed = function(){
 		scope.meds =  [scope.selectedFatherFamily.vent.med, scope.selectedMotherFamily.vent.med];
 		scope.medDes = scope.meds.find(i => i.key == scope.minorAvantage);
-		scope.midAdv = scope.meds.find(i => i.key == scope.minorAvantage);
-		applyAdvantage(scope.character, scope.midAdv);
+		if(scope.medDes.effect != null){
+			_applyAdvantage(scope.character, scope.medDes);
+			scope.advantages.med = _getAdvantageEffect(scope.medDes);
+		}
+		else _checkCalculatedAttributes();
 	}
 	
 	scope.setDis = function(){
         scope.disavs =  [scope.selectedFatherFamily.vent.dis, scope.selectedMotherFamily.vent.dis];
 		scope.disDes = scope.disavs.find(i => i.key == scope.disAvantage);
-		scope.disAdv = scope.disavs.find(i => i.key == scope.disAvantage)
-		applyAdvantage(scope.character, scope.disAdv);
+		if(scope.disDes.effect !=null){ 
+			_applyAdvantage(scope.character, scope.disDes);
+			scope.advantages.dis = _getAdvantageEffect(scope.disAv);
+		}
+		else _checkCalculatedAttributes();
 	}
 	
 	scope.getOrganizationClans = function(org){
@@ -147,35 +157,20 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 		}
 	}
     
-    function applyAdvantage(selectedPlayer, adv)  {
-        if (adv.effect) {
-			var k = _getAdvantageEffect(adv);
-			if (k){
-				switch(k){
-					case "health":
-						selectedPlayer[k] = adv.effect[k];
-						break;
-					case "initiative":
-						selectedPlayer[k] = adv.effect[k];
-						break;
-					default:
-						selectedPlayer[k] = scope.selectedRace.attrs[k] + adv.effect[k];
-						if(!_checkHealthAdvantage()){
-							scope.character.health = 0;
-						}
-						if(!_checkInitiativeAdvantage()){
-							scope.character.initiative = 0;
-						}
-						break;
-				}
-			}
-        }
-		if(!_checkHealthAdvantage()){
-			scope.character.health = 0;
-		}
-		if(!_checkInitiativeAdvantage()){
-			scope.character.initiative = 0;
-		}
+    function _applyAdvantage(selectedPlayer, adv)  {
+        var k = _getAdvantageEffect(adv);
+		switch(k){
+			case "health":
+				selectedPlayer[k] = adv.effect[k];
+				break;
+			case "initiative":
+				selectedPlayer[k] = adv.effect[k];
+				break;
+			default:
+				selectedPlayer[k] = scope.selectedRace.attrs[k] + adv.effect[k];
+				_checkCalculatedAttributes();
+				break;
+		}			
     }
 	
 	function _checkFamilies(fam) {
@@ -188,20 +183,23 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 		}
 	}
 
+	function _checkCalculatedAttributes(){
+		if(_checkHealthAdvantage()) scope.character.health = 0;
+		if(_checkInitiativeAdvantage()) scope.character.initiative = 0;
+	}
+
 	function _checkHealthAdvantage(){
-		var adv = _getAdvantageEffect(scope.bigAdv);
-		var med =_getAdvantageEffect(scope.midAdv);
-		var dis = _getAdvantageEffect(scope.disAdv);
-		debugger;
-		return (adv == "health" || med == "health" || dis == "health");		
+		if(scope.advDes != undefined && scope.medDes != undefined && scope.disDes != undefined){
+			return (scope.advantages.big == "health" || scope.advantages.med == "health" || scope.advantages.dis == "health");	
+		}
+		return false;
 	}
 
 	function _checkInitiativeAdvantage(){
-		var adv = _getAdvantageEffect(scope.bigAdv);
-		var med =_getAdvantageEffect(scope.midAdv);
-		var dis = _getAdvantageEffect(scope.disAdv);
-		debugger;
-		return (adv == "initiative" || med == "initiative" || dis == "initiative");	
+		if(scope.advDes != undefined && scope.medDes != undefined && scope.disDes != undefined){
+			return (scope.advantages.big  == "initiative" || scope.advantages.med  == "initiative" || scope.advantages.dis == "initiative");
+		}	
+		return false;
 	}
 	
 	function _handlerError(data, status) {

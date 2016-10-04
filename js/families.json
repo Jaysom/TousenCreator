@@ -4,7 +4,8 @@
 		"vent": {
 			"big": {
 				"key":"Visión Total",
-				"value": "El héroe tiene un campo de visión de 360º y nunca se ve afectado por un Ataque sorpresa."
+				"value": "El héroe tiene un campo de visión de 360º y nunca se ve afectado por un Ataque sorpresa.",
+				"effect": null
 			},
 			"med": {
 				"key":"Táctico",
@@ -15,7 +16,8 @@
 			},
 			"dis": {
 				"key":"Desafortunado",
-				"value": "Debe realizar dos tiradas en la tabla de Supervivencia al final de la partida y escoger el resultado más bajo. Si tuviera la ventaja Afortunado, solamente realizará una tirada."
+				"value": "Debe realizar dos tiradas en la tabla de Supervivencia al final de la partida y escoger el resultado más bajo. Si tuviera la ventaja Afortunado, solamente realizará una tirada.",
+				"effect":null
 			}
 		}
 	}, {
@@ -48,11 +50,13 @@
 		"vent": {
 			"big": {
 				"key":"Concentrado",
-				"value": "Modifica de Descuido a Acierto un resultado en cualquier tirada que realice con el atributo de Serenidad."
+				"value": "Modifica de Descuido a Acierto un resultado en cualquier tirada que realice con el atributo de Serenidad.",
+				"effect":null
 			},
 			"med": {
 				"key":"Conoce la magia",
-				"value": "Cuando el héroe sea objetivo de un hechizo, aumenta o disminuye en uno la dificultad del hechizo."
+				"value": "Cuando el héroe sea objetivo de un hechizo, aumenta o disminuye en uno la dificultad del hechizo.",
+				"effect":null
 			},
 			"dis": {
 				"key":"Parado",
@@ -92,7 +96,8 @@
 		"vent": {
 			"big": {
 				"key":"Convincente",
-				"value": "Modifica de Descuido a Acierto un resultado en cualquier tirada que realice con el atributo de Honor."
+				"value": "Modifica de Descuido a Acierto un resultado en cualquier tirada que realice con el atributo de Honor.",
+				"effect":null
 			},
 			"med": {
 				"key":"Astuto",
@@ -103,7 +108,8 @@
 			},
 			"dis": {
 				"key":"Cobarde",
-				"value": "Aumenta en un punto la habilidad de Miedo de aquellas miniaturas con las que se vaya a trabar en combate.Si la miniatura no tenía la habilidad de Miedo, se onsidera que ahora la tiene a nivel 1."
+				"value": "Aumenta en un punto la habilidad de Miedo de aquellas miniaturas con las que se vaya a trabar en combate.Si la miniatura no tenía la habilidad de Miedo, se onsidera que ahora la tiene a nivel 1.",
+				"effect":null
 			}
 		}
 	}, {
@@ -111,11 +117,13 @@
 		"vent": {
 			"big": {
 				"key":"Bruto",
-				"value": "Modifica de Descuido a Acierto un resultado en cualquier tirada que realice con el atributo de Constitución."
+				"value": "Modifica de Descuido a Acierto un resultado en cualquier tirada que realice con el atributo de Constitución.",
+				"effect":null
 			},
 			"med": {
 				"key":"Fuerte",
-				"value": "Aumenta en dos puntos la Fuerza de cada Acción de Ataque que realice el héroe."
+				"value": "Aumenta en dos puntos la Fuerza de cada Acción de Ataque que realice el héroe.",
+				"effect":null
 			},
 			"dis": {
 				"key":"Tonto",
@@ -137,7 +145,8 @@
 			},
 			"med": {
 				"key":"Rápido",
-				"value":"Aumenta en dos puntos la Velocidad de cada Acción de Combate que realice el héroe."
+				"value":"Aumenta en dos puntos la Velocidad de cada Acción de Combate que realice el héroe.",
+				"effect":null
 			},
 			"dis": {
 				"key":"Blando",
@@ -159,7 +168,8 @@
 			},
 			"med": {
 				"key":"Resistente",
-				"value": "Aumenta en dos puntos la Resistencia del héroe."
+				"value": "Aumenta en dos puntos la Resistencia del héroe.",
+				"effect":null
 			},
 			"dis": {
 				"key":"Lento",
@@ -181,7 +191,8 @@
 			},
 			"med": {
 				"key":"Valiente",
-				"value": "Disminuye en un punto el atributo de Miedo de aquellas miniaturas con las que vayan a trabarse en combate. Si se reduce a cero no es necesario hacer ninguna tirada."
+				"value": "Disminuye en un punto el atributo de Miedo de aquellas miniaturas con las que vayan a trabarse en combate. Si se reduce a cero no es necesario hacer ninguna tirada.",
+				"effect":null
 			},
 			"dis": {
 				"key":"Ingenuo",
@@ -203,11 +214,13 @@
 			},
 			"med": {
 				"key":"Carismático",
-				"value": "Modifica de Acierto a Crítico el resultado en cualquier tirada de Lealtad que realicen sus seguidores."
+				"value": "Modifica de Acierto a Crítico el resultado en cualquier tirada de Lealtad que realicen sus seguidores.",
+				"effect":null
 			},
 			"dis": {
 				"key":"Desprotegido contra la magia",
-				"value": "Cuando el héroe sea objetivo de un hechizo, aumenta o disminuye en uno a elección del personaje que ejecuta el hechizo su dificultad."
+				"value": "Cuando el héroe sea objetivo de un hechizo, aumenta o disminuye en uno a elección del personaje que ejecuta el hechizo su dificultad.",
+				"effect":null
 			}
 		}
 	}, {
@@ -240,11 +253,13 @@
 		"vent": {
 			"big": {
 				"key":"Preciso",
-				"value": "Modifica de Descuido a Acierto un resultado en cualquier tirada que realice con el atributo de Atención."
+				"value": "Modifica de Descuido a Acierto un resultado en cualquier tirada que realice con el atributo de Atención.",
+				"effect":null
 			},
 			"med": {
 				"key":"Afortunado",
-				"value": "Puede realizar dos tiradas en la tabla de Supervivencia al final de la partida y escoger el resultado."
+				"value": "Puede realizar dos tiradas en la tabla de Supervivencia al final de la partida y escoger el resultado.",
+				"effect":null
 			},
 			"dis": {
 				"key":"Débil",
@@ -259,11 +274,13 @@
 		"vent": {
 			"big": {
 				"key":"Ingenioso",
-				"value": "Modifica de Descuido a Acierto un resultado en cualquier tirada que realice con el atributo de Intelecto."
+				"value": "Modifica de Descuido a Acierto un resultado en cualquier tirada que realice con el atributo de Intelecto.",
+				"effect":null
 			},
 			"med": {
 				"key":"Cordial",
-				"value": "Considera que los habitantes tienen un marcador de Aversión menos cuando trate de reclutarlos."
+				"value": "Considera que los habitantes tienen un marcador de Aversión menos cuando trate de reclutarlos.",
+				"effect":null
 			},
 			"dis": {
 				"key":"Distraído",
@@ -278,11 +295,13 @@
 		"vent": {
 			"big": {
 				"key":"Firme",
-				"value": "Modifica de Descuido a Acierto un resultado en cualquier tirada que realice con el atributo de Perseverancia."
+				"value": "Modifica de Descuido a Acierto un resultado en cualquier tirada que realice con el atributo de Perseverancia.",
+				"effect":null
 			},
 			"med": {
 				"key":"Voz potente",
-				"value": "Aumenta la distancia para declarar un duelo y el alcance de las habilidades de la senda de la palabra y la habilidad Orden imperativa de la senda de la corrupción en 10 cm."
+				"value": "Aumenta la distancia para declarar un duelo y el alcance de las habilidades de la senda de la palabra y la habilidad Orden imperativa de la senda de la corrupción en 10 cm.",
+				"effect":null
 			},
 			"dis": {
 				"key":"Impulsivo",
@@ -297,15 +316,18 @@
 		"vent": {
 			"big": {
 				"key":"Ligero",
-				"value": "Modifica de Descuido a Acierto un resultado en cualquier tirada que realice con el atributo de Reacción."
+				"value": "Modifica de Descuido a Acierto un resultado en cualquier tirada que realice con el atributo de Reacción.",
+				"effect":null
 			},
 			"med": {
 				"key":"Tenaz",
-				"value": "Aumenta en un punto el Aguante del héroe."
+				"value": "Aumenta en un punto el Aguante del héroe.",
+				"effect":null
 			},
 			"dis": {
 				"key":"Vulgar",
-				"value": "Modifica de Descuido a Fallo el resultado en cualquier tirada de Lealtad que realicen sus seguidores."
+				"value": "Modifica de Descuido a Fallo el resultado en cualquier tirada de Lealtad que realicen sus seguidores.",
+				"effect":null
 			}
 		}
 	}]

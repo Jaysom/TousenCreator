@@ -204,6 +204,12 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 			case "initiative":
 				selectedPlayer[k] = adv.effect[k];
 				break;
+			case "honor":
+				selectedPlayer[k] = adv.effect[k];
+				break;
+			case "richness":
+				selectedPlayer[k] = adv.effect[k];
+				break;
 			default:
 				selectedPlayer[k] = scope.selectedRace.attrs[k] + adv.effect[k];
 				_checkCalculatedAttributes();

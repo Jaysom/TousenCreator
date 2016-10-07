@@ -119,7 +119,7 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 		scope.weapons = clan.vals.Weapons;
 		scope.clothes = clan.vals.Clothes;
 		scope.character.mainWay = clan.vals.Principal;
-		if(clan.vals.Secondary.length == 1){ scope.character.secondaryWay = clan.vals.Secondary;}
+		if(clan.vals.Secondary.length == 1){ scope.character.secondaryWay = clan.vals.Secondary[0];}
 	}
 
 	function _handerKindsuccess(res) 

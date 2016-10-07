@@ -13,7 +13,7 @@
 						"Default":3
 					},
 					"Principal": "Calma",
-					"Secundaria": "Palabra",
+					"Secondary": ["Palabra"],
 					"Dishonor": ["Interferir","Ignorar","HeridoSeguidor","Cobarde","Saqueo","Corrupto"],
 					"Weapons": ["Katana","Yari","Tessen"],
 					"Clothes": ["ALigera", "KGala"]
@@ -27,7 +27,7 @@
 						"Default":3
 					},
 					"Principal": "Lucha",
-					"Secundaria": "Perfección",
+					"Secondary": ["Perfección"],
 					"Dishonor":["Desarmado","Cobarde","Saqueo","Corrupto"],
 					"Weapons": ["Katana","Wakizashi","Kodachi"],
 					"Clothes": ["ALigera"]
@@ -42,7 +42,7 @@
 						"Default":3
 					},
 					"Principal": "Calma",
-					"Secundaria": "Palabra",
+					"Secondary": ["Palabra"],
 					"Dishonor": ["Interferir","Saqueo","Corrupto"],
 					"Weapons": ["Tanto","Tessen"],
 					"Clothes": ["ALigera"]
@@ -55,7 +55,7 @@
 						"Default":3
 					},
 					"Principal": "Lucha",
-					"Secundaria": "Sombra",
+					"Secondary": ["Sombra"],
 					"Dishonor": ["Desarmado","HeridoSeguidor","Corrupto"],
 					"Weapons": ["Katana","Wakizashi","Kodachi"],
 					"Extras":[
@@ -80,7 +80,7 @@
 						"Default":3
 					},
 					"Principal": "Lucha",
-					"Secundaria": "Protección",
+					"Secondary": ["Protección"],
 					"Dishonor": ["Interferir","Ignorar","Cobarde","Saqueo","Corrupto"],
 					"Weapons": ["Arma no cortante"],
 					"Clothes": ["ALigera"],
@@ -96,7 +96,7 @@
 						"Default":2
 					},
 					"Principal": "Protección",
-					"Secundaria": "Calma",
+					"Secondary": ["Calma"],
 					"Dishonor":["Interferir","Ignorar","Cobarde","Saqueo","Corrupto"],
 					"Weapons": ["Katana","Wakizashi","Kodachi"],
 					"Clothes": ["ALigera"],
@@ -121,15 +121,15 @@
 						"Ishikawa":4
 					},
 					"Principal": "Magia",
-					"Secundaria": ["Fuego","Tierra","Aire","Agua","Naturaleza"],
+					"Secondary": ["Fuego","Tierra","Aire","Agua","Naturaleza"],
 					"Dishonor": ["Ignorar","HeridoSeguidor","Cobarde","Saqueo","Corrupto"],
 					"Weapons": ["Tanto","Tessen"],
 					"Clothes": ["KGala"],
-					"Extras":{
-						"Ofuda":3,
-						"Pergamino":1,
-						"Ungüento de los arrecifes":3
-					}
+					"Extras":[
+						{"Ofuda":3},
+						{"Pergamino":1},
+						{"Ungüento de los arrecifes":3}
+					]
 				},
 				"Guardianes del segundo sello": {
 					"Honor":{
@@ -139,7 +139,7 @@
 						"Default":3
 					},						
 					"Principal": "Protección",
-					"Secundaria": "Tierra",
+					"Secondary": ["Tierra"],
 					"Dishonor":["Interferir","Cobarde","Saqueo","Corrupto"],
 					"Weapons": ["Katana","Yari","Kodachi"],
 					"Clothes": ["ALigera"],
@@ -167,7 +167,7 @@
 						"Default":3
 					},
 					"Principal": "Palabra",
-					"Secundaria": "Lucha",
+					"Secondary": ["Lucha"],
 					"Dishonor": ["Ignorar","Saqueo"],
 					"Weapons": ["Katana","Kodachi","Tessen"],
 					"Clothes": ["KGala"]
@@ -181,7 +181,7 @@
 						"Default":3
 					},						
 					"Principal": "Protección",
-					"Secundaria": "Tierra",
+					"Secondary": ["Tierra"],
 					"Dishonor":["Ignorar","Saqueo"],
 					"Weapons": ["Katana","Yari","Kodachi"],
 					"Clothes": ["ALigera"]					
@@ -203,7 +203,7 @@
 						"Default":3
 					},
 					"Principal": "Sombra",
-					"Secundaria": "Perfección",
+					"Secondary": ["Perfección"],
 					"Dishonor": ["Desarmado","HeridoSeguidor","Cobarde"],
 					"Weapons": ["Jitte","Nunchaku","Torashuko","Tonfa","Ninjatō"],
 					"Extras":[
@@ -220,7 +220,7 @@
 						"Default":3
 					},						
 					"Principal": "Perfección",
-					"Secundaria": "Sombra",
+					"Secondary": ["Sombra"],
 					"Dishonor":["Ignorar","Desarmado","HeridoSeguidor","Cobarde"],
 					"Weapons": ["Katana","Yari","Naginata"]				
 				}
@@ -241,7 +241,7 @@
 						"Default":3
 					},
 					"Principal": "Perfección",
-					"Secundaria": "Palabra",
+					"Secondary": ["Palabra"],
 					"Dishonor": ["Interferir","Ignorar","Desarmado","HeridoSeguidor","Cobarde","Saqueo","Corrupto"],
 					"Weapons": ["Katana","Ken","","Tonfa","Ninjatō"],
 					"Clothes":["Uma-jirushi"]
@@ -254,7 +254,7 @@
 						"Default":3
 					},						
 					"Principal": "Caza",
-					"Secundaria": "Naturaleza",
+					"Secondary": ["Naturaleza"],
 					"Dishonor":["Interferir","Desarmado","Cobarde","Corrupto"],
 					"Weapons": ["Katana","Ken","Yumi-Ya[3]"]				
 				}
@@ -275,7 +275,7 @@
 						"Default":3
 					},
 					"Principal": "Lucha",
-					"Secundaria": "Caza",
+					"Secondary": ["Caza"],
 					"Dishonor": ["Ignorar","Desarmado","Cobarde","Saqueo","Corrupto"],
 					"Weapons": ["Tachi","Yari","Yumi-Ya[3]"]
 				},
@@ -287,7 +287,7 @@
 						"Default":3
 					},						
 					"Principal": "Caza",
-					"Secundaria": "Perfección",
+					"Secondary": ["Perfección"],
 					"Dishonor":["Ignorar","Desarmado","Cobarde","Saqueo","Corrupto"],
 					"Weapons":["Tachi","Yari","Yumi-Ya[3]"],
 					"Extras":{
@@ -311,7 +311,7 @@
 						"Default":2
 					},
 					"Principal": "Sombra",
-					"Secundaria": "Caza",
+					"Secondary": ["Caza"],
 					"Dishonor": ["Desarmado","Cobarde"],
 					"Weapons": ["Nunchaku","Kama","Torashuko","Shuriken[3]","Kunai[3]","Makibishi[3]","Yumi-Ya[3]"]
 				},
@@ -323,7 +323,7 @@
 						"Default":2
 					},						
 					"Principal": "Palabra",
-					"Secundaria": "Perfección",
+					"Secondary": ["Perfección"],
 					"Dishonor":["Ignorar","Desarmado","Cobarde","Saqueo"],
 					"Weapons":["Katana","Yari"]
 				}
@@ -343,7 +343,7 @@
 						"Default":3
 					},
 					"Principal": "Lucha",
-					"Secundaria": "Agua",
+					"Secondary": ["Agua"],
 					"Dishonor": ["Interferir","HeridoSeguidor","Desarmado","Cobarde"],
 					"Weapons": ["Yari", "Sodegarami","Tsukubō"]
 				}
@@ -364,7 +364,7 @@
 						"Default":2
 					},
 					"Principal": "Perfección",
-					"Secundaria": "Sombra",
+					"Secondary": ["Sombra"],
 					"Dishonor": ["Interferir","Desarmado","Ignorar","HeridoSeguidor","Cobarde","Corrupto"],
 					"Weapons": ["Katana", "Kodachi","Bo"]
 				},
@@ -377,7 +377,7 @@
 						"Default":2
 					},
 					"Principal": "Calma",
-					"Secundaria": "Caza",
+					"Secondary": ["Caza"],
 					"Dishonor": ["Interferir","Desarmado","Ignorar","HeridoSeguidor","Cobarde","Corrupto"],
 					"Weapons": ["Katana", "Kodachi","Bo"]
 				},
@@ -390,7 +390,7 @@
 						"Default":2
 					},
 					"Principal": "Espíritus",
-					"Secundaria": "Palabra",
+					"Secondary": ["Palabra"],
 					"Dishonor": ["Interferir","Desarmado","Ignorar","HeridoSeguidor","Cobarde","Corrupto"],
 					"Weapons": ["Katana", "Kodachi","Bo"]
 				},
@@ -403,7 +403,7 @@
 						"Default":2
 					},
 					"Principal": "Fuego",
-					"Secundaria": "Magia",
+					"Secondary": ["Magia"],
 					"Dishonor": ["Interferir","Desarmado","Ignorar","HeridoSeguidor","Cobarde","Corrupto"],
 					"Weapons": ["Katana", "Kodachi","Bo"]
 				}
@@ -425,7 +425,7 @@
 						"Default":2
 					},
 					"Principal": "Caza",
-					"Secundaria": "Cuerpo",
+					"Secondary": ["Cuerpo"],
 					"Dishonor": ["Corrupto"]
 				},
 				"Casta Hyousube": {
@@ -437,7 +437,7 @@
 						"Default":2
 					},
 					"Principal": "Lucha",
-					"Secundaria": "Cuerpo",
+					"Secondary": ["Cuerpo"],
 					"Dishonor": ["Corrupto"]
 				},
 				"Casta Kawatarou": {
@@ -449,7 +449,7 @@
 						"Default":2
 					},
 					"Principal": "Sombra",
-					"Secundaria": "Cuerpo",
+					"Secondary": ["Cuerpo"],
 					"Dishonor": ["Corrupto"]
 				}
 			}

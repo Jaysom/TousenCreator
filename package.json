@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Jaysom/AngularSample.git"
+    "url": "git+https://github.com/Jaysom/TousenCreator.git"
   },
   "author": "Jaysom",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Jaysom/AngularSample/issues"
+    "url": "https://github.com/Jaysom/TousenCreator/issues"
   },
-  "homepage": "https://github.com/Jaysom/AngularSample#readme",
+  "homepage": "https://github.com/Jaysom/TousenCreator#readme",
   "devDependencies": {
     "http-server": "^0.8.5"
   }

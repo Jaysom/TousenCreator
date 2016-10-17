@@ -41,17 +41,17 @@
 					<option value="{{motherVent[2]}}">	{{motherVent[2]}} </option>
 				</select>
 			</div>
-			<div ng-if="clanSelected.vals.Secondary.length > 1"> 
-				<b>Senda Secundaria: </b><select ng-options="way for way in clanSelected.vals.Secondary" ng-model="character.secondaryWay"></select>
-			</div>
 		</div>
-		<div>
-			<div class="row">
-				<button ng-click="loadOrganizations()" class="btn btn-primary">Cargar Organizaciones</button>
-			</div>
+		<div class="row">
+			<button ng-click="loadOrganizations()" class="btn btn-primary">Cargar Organizaciones</button>
+		</div>
+		<div ng-if="organizationsEnabled === true">
 			<div>
 				<span> <b>Organization: </b> <select ng-options="org as org.Name for org in orgs" ng-model="selectedOrg" ng-change="getOrganizationClans(selectedOrg)"></select></span></br>
 				<span> <b>Clans: </b> <select ng-options="clan as clan.clan  for clan in clans" ng-model="selectedClan" ng-change="handleClan(selectedClan)"></select></span></br>
+			</div>
+			<div ng-if="clanSelected.vals.Secondary.length > 1"> 
+				<b>Senda Secundaria: </b><select ng-options="way for way in clanSelected.vals.Secondary" ng-model="character.secondaryWay"></select>
 			</div>
 		</div>
 		<div id="main-card" ng-if="selectedRace">

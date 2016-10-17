@@ -159,6 +159,7 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 				}
 			}
 		});
+		scope.organizationsEnabled = true;
 	}
 	
 	function _handleCharacterHonor(honor)

@@ -193,7 +193,7 @@
 		"Name":"Hijos de la Sombra",
 		"values": {
 			"kinds": "Humano",
-			"families":"Kimura",
+			"families":["Kimura"],
 			"clans": {
 				"Ninjas": {
 					"Honor": {

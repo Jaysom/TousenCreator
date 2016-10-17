@@ -152,15 +152,16 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 	function _handleOrganizationsSuccess(res)
 	{
 		angular.forEach(res.Organizations, function(val){
-			if(val.values.kinds == scope.selectedRace.name && val.values.families === undefined){
-				scope.orgs.push(val);
-			}else{
-				if(_checkFamilies(val.values.families)) scope.orgs.push(val);
+			if(val.values.kinds == scope.selectedRace.name){
+				if(val.values.families === undefined) scope.orgs.push(val);
+				else {
+					if(_checkFamilies(val.values.families)) scope.orgs.push(val);
+				}
 			}
 		});
 	}
 	
-	function _handleCharacterHonor(honor) 
+	function _handleCharacterHonor(honor)
 	{
 		var a = Object.keys(honor);
 		if(_checkFamilies(a))

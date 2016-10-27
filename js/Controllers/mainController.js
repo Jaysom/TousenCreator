@@ -1,7 +1,7 @@
 'use strict';
 var TousenApp = angular.module('TousenApp', []);
 
-TousenApp.controller('mainController', ['$scope','CardService', function(scope, CardService){
+TousenApp.controller('mainController', ['$scope','CharacterService', function(scope, CharacterService){
 	scope.character = {};
 	scope.advantages = {}
 	scope.character.richness = 0;
@@ -11,7 +11,7 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 
 	scope.loadKinds = function()
 	{
-		CardService.getKinds()
+		CharacterService.getKinds()
 			.success(_handerKindsuccess)
 			.error(_handlerError);
 		scope.loadFamilies();
@@ -19,7 +19,7 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 
 	scope.loadFamilies = function()
 	{
-		CardService.getFamilies()
+		CharacterService.getFamilies()
 			.success(_handlerFamilySuccess)
 			.error(_handlerError);
 	}
@@ -104,7 +104,7 @@ TousenApp.controller('mainController', ['$scope','CardService', function(scope, 
 	}
 
 	scope.loadOrganizations = function(){
-		CardService.getOrganizations()
+		CharacterService.getOrganizations()
 			.success(_handleOrganizationsSuccess)
 			.error(_handlerError);
 	}

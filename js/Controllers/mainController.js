@@ -126,7 +126,6 @@ TousenApp.controller('mainController', ['$scope','CharacterService', function(sc
 	{
 		scope.races = res.kinds;
 	}
-
 	
 	function _handleCharacter(res) 
 	{

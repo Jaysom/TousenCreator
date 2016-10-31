@@ -12,6 +12,7 @@ TousenApp.controller('mainController', ['$scope','CharacterService', function(sc
 	scope.character.honor = 0;
 	scope.orgs = [];
 	scope.clans = [];
+	scope.Dishonor = [];
 
 	scope.loadKinds = function()
 	{
@@ -64,7 +65,6 @@ TousenApp.controller('mainController', ['$scope','CharacterService', function(sc
 			angular.forEach(res.vent.dis, function(value){
 				scope.advantages.dis.push(value);
 			});
-			
 		}
 		else
 		{
@@ -128,7 +128,8 @@ TousenApp.controller('mainController', ['$scope','CharacterService', function(sc
 		});
 	}
 
-	scope.loadOrganizations = function(){
+	scope.loadOrganizations = function()
+	{
 		CharacterService.getOrganizations()
 			.success(_handleOrganizationsSuccess)
 			.error(_handlerError);
@@ -145,6 +146,7 @@ TousenApp.controller('mainController', ['$scope','CharacterService', function(sc
 		scope.clothes = clan.vals.Clothes;
 		scope.character.mainWay = clan.vals.Principal;
 		if(clan.vals.Secondary.length == 1){ scope.character.secondaryWay = clan.vals.Secondary[0];}
+		scope.Dishonor = clan.vals.Dishonor;
 	}
 
 	function _handerKindsuccess(res) 
@@ -223,11 +225,11 @@ TousenApp.controller('mainController', ['$scope','CharacterService', function(sc
 			if(a.indexOf(scope.selectedFatherFamily.Familia) != -1)
 			{
 				return rich[scope.selectedFatherFamily.Familia];
-			}else if(a.indexOf(scope.selectedMotherFamily.Familia) != -1)
+			} else if(a.indexOf(scope.selectedMotherFamily.Familia) != -1)
 			{
 				return rich[scope.selectedMotherFamily.Familia];
 			}
-		}else{
+		} else {
 			return scope.clanSelected.vals.Richness.Default;
 		}
 	}

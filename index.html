@@ -39,8 +39,8 @@
 		</div>
 		<div ng-if="organizationsEnabled === true">
 			<div>
-				<span> <b>Organization: </b> <select ng-options="org as org.Name for org in orgs" ng-model="selectedOrg" ng-change="getOrganizationClans(selectedOrg)"></select></span></br>
-				<span> <b>Clans: </b> <select ng-options="clan as clan.clan  for clan in clans" ng-model="selectedClan" ng-change="handleClan(selectedClan)"></select></span></br>
+				<span> <b>Organization: </b> <select ng-options="org as org.Name for org in orgs" ng-model="selectedOrg" ng-change="getOrganizationClans(selectedOrg)"></select></span>
+				<span> <b>Clan: </b> <select ng-options="clan as clan.clan  for clan in clans" ng-model="selectedClan" ng-change="handleClan(selectedClan)"></select></span></br>
 			</div>
 			<div ng-if="clanSelected.vals.Secondary.length > 1"> 
 				<b>Senda Secundaria: </b><select ng-options="way for way in clanSelected.vals.Secondary" ng-model="character.secondaryWay"></select>
@@ -84,10 +84,18 @@
 				<span ng-if="majorAvantage"><b>{{Advantage.key}}</b> - {{Advantage.value}} </span></br>
 				<span ng-if="minorAvantage"><b>{{Minor.key}}</b> - {{Minor.value}}</span></br>
 				<span ng-if="disAvantage"><b>{{Disadvantage.key}}</b> - {{Disadvantage.value}}</span></br>
-				<span><b>Organización:</b> {{organizationSelected.Name}}</span></br>
-				<span><b>Clan:</b> {{clanSelected.clan}}</span></br>
-				<span><b>Senda Principal: </b> {{ character.mainWay }} </span></br> 
-				<span><b>Senda Secundaria: </b> {{ character.secondaryWay }} </span>
+				<div ng-if="organizationSelected != undefined">
+					<span><b>Organización:</b> {{organizationSelected.Name}}</span></br>
+					<span><b>Clan:</b> {{clanSelected.clan}}</span></br>
+					<span><b>Senda Principal: </b> {{ character.mainWay }} </span></br> 
+					<span><b>Senda Secundaria: </b> {{ character.secondaryWay }} </span>
+					<div ng-if="Dishonor.length > 1">
+						<span><b>Causas de deshonor: <b></span> 
+						<ul >
+							<li ng-repeat="dishonor in Dishonor"> {{dishonor}} </li>
+						</ul>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

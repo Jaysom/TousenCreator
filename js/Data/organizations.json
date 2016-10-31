@@ -28,7 +28,7 @@
 					},
 					"Principal": "Lucha",
 					"Secondary": ["Perfección"],
-					"Dishonor":["Desarmado","Ser un cobarde","Saquear un cadáver","Estar corrupto"],
+					"Dishonor":["Ser desarmado","Ser un cobarde","Saquear un cadáver","Estar corrupto"],
 					"Weapons": ["Katana","Wakizashi","Kodachi"],
 					"Clothes": ["ALigera"]
 					
@@ -56,7 +56,7 @@
 					},
 					"Principal": "Lucha",
 					"Secondary": ["Sombra"],
-					"Dishonor": ["Desarmado","Ser herido por un seguidor","Estar corrupto"],
+					"Dishonor": ["Ser desarmado","Ser herido por un seguidor","Estar corrupto"],
 					"Weapons": ["Katana","Wakizashi","Kodachi"],
 					"Extras":[
 						{"Endan":3},
@@ -204,7 +204,7 @@
 					},
 					"Principal": "Sombra",
 					"Secondary": ["Perfección"],
-					"Dishonor": ["Desarmado","Ser herido por un seguidor","Ser un cobarde"],
+					"Dishonor": ["Ser desarmado","Ser herido por un seguidor","Ser un cobarde"],
 					"Weapons": ["Jitte","Nunchaku","Torashuko","Tonfa","Ninjatō"],
 					"Extras":[
 						{"Veneno":3},
@@ -221,7 +221,7 @@
 					},						
 					"Principal": "Perfección",
 					"Secondary": ["Sombra"],
-					"Dishonor":["Ignorar un duelo un duelo","Desarmado","Ser herido por un seguidor","Ser un cobarde"],
+					"Dishonor":["Ignorar un duelo un duelo","Ser desarmado","Ser herido por un seguidor","Ser un cobarde"],
 					"Weapons": ["Katana","Yari","Naginata"]				
 				}
 			}
@@ -242,7 +242,7 @@
 					},
 					"Principal": "Perfección",
 					"Secondary": ["Palabra"],
-					"Dishonor": ["Interferir en un duelo","Ignorar un duelo un duelo","Desarmado","Ser herido por un seguidor","Ser un cobarde","Saquear un cadáver","Estar corrupto"],
+					"Dishonor": ["Interferir en un duelo","Ignorar un duelo un duelo","Ser desarmado","Ser herido por un seguidor","Ser un cobarde","Saquear un cadáver","Estar corrupto"],
 					"Weapons": ["Katana","Ken","","Tonfa","Ninjatō"],
 					"Clothes":["Uma-jirushi"]
 				},
@@ -255,7 +255,7 @@
 					},						
 					"Principal": "Caza",
 					"Secondary": ["Naturaleza"],
-					"Dishonor":["Interferir en un duelo","Desarmado","Ser un cobarde","Estar corrupto"],
+					"Dishonor":["Interferir en un duelo","Ser desarmado","Ser un cobarde","Estar corrupto"],
 					"Weapons": ["Katana","Ken","Yumi-Ya[3]"]				
 				}
 			}
@@ -276,7 +276,7 @@
 					},
 					"Principal": "Lucha",
 					"Secondary": ["Caza"],
-					"Dishonor": ["Ignorar un duelo un duelo","Desarmado","Ser un cobarde","Saquear un cadáver","Estar corrupto"],
+					"Dishonor": ["Ignorar un duelo un duelo","Ser desarmado","Ser un cobarde","Saquear un cadáver","Estar corrupto"],
 					"Weapons": ["Tachi","Yari","Yumi-Ya[3]"]
 				},
 				"Domadores de la llanura": {
@@ -288,7 +288,7 @@
 					},						
 					"Principal": "Caza",
 					"Secondary": ["Perfección"],
-					"Dishonor":["Ignorar un duelo un duelo","Desarmado","Ser un cobarde","Saquear un cadáver","Estar corrupto"],
+					"Dishonor":["Ignorar un duelo un duelo","Ser desarmado","Ser un cobarde","Saquear un cadáver","Estar corrupto"],
 					"Weapons":["Tachi","Yari","Yumi-Ya[3]"],
 					"Extras":{
 						"Caballo":{"Dishonor":"PerderCaballo"}
@@ -312,7 +312,7 @@
 					},
 					"Principal": "Sombra",
 					"Secondary": ["Caza"],
-					"Dishonor": ["Desarmado","Ser un cobarde"],
+					"Dishonor": ["Ser desarmado","Ser un cobarde"],
 					"Weapons": ["Nunchaku","Kama","Torashuko","Shuriken[3]","Kunai[3]","Makibishi[3]","Yumi-Ya[3]"]
 				},
 				"Garzas Grises": {
@@ -324,7 +324,7 @@
 					},						
 					"Principal": "Palabra",
 					"Secondary": ["Perfección"],
-					"Dishonor":["Ignorar un duelo un duelo","Desarmado","Ser un cobarde","Saquear un cadáver"],
+					"Dishonor":["Ignorar un duelo un duelo","Ser desarmado","Ser un cobarde","Saquear un cadáver"],
 					"Weapons":["Katana","Yari"]
 				}
 			}
@@ -344,7 +344,7 @@
 					},
 					"Principal": "Lucha",
 					"Secondary": ["Agua"],
-					"Dishonor": ["Interferir en un duelo","Ser herido por un seguidor","Desarmado","Ser un cobarde"],
+					"Dishonor": ["Interferir en un duelo","Ser herido por un seguidor","Ser desarmado","Ser un cobarde"],
 					"Weapons": ["Yari", "Sodegarami","Tsukubō"]
 				}
 			}
@@ -365,7 +365,7 @@
 					},
 					"Principal": "Perfección",
 					"Secondary": ["Sombra"],
-					"Dishonor": ["Interferir en un duelo","Desarmado","Ignorar un duelo un duelo","Ser herido por un seguidor","Ser un cobarde","Estar corrupto"],
+					"Dishonor": ["Interferir en un duelo","Ser desarmado","Ignorar un duelo un duelo","Ser herido por un seguidor","Ser un cobarde","Estar corrupto"],
 					"Weapons": ["Katana", "Kodachi","Bo"]
 				},
 				"Clan Konohatengu": {
@@ -378,7 +378,7 @@
 					},
 					"Principal": "Calma",
 					"Secondary": ["Caza"],
-					"Dishonor": ["Interferir en un duelo","Desarmado","Ignorar un duelo","Ser herido por un seguidor","Ser un cobarde","Estar corrupto"],
+					"Dishonor": ["Interferir en un duelo","Ser desarmado","Ignorar un duelo","Ser herido por un seguidor","Ser un cobarde","Estar corrupto"],
 					"Weapons": ["Katana", "Kodachi","Bo"]
 				},
 				"Clan Kawatengu": {
@@ -391,7 +391,7 @@
 					},
 					"Principal": "Espíritus",
 					"Secondary": ["Palabra"],
-					"Dishonor": ["Interferir en un duelo","Desarmado","Ignorar un duelo","Ser herido por un seguidor","Ser un cobarde","Estar corrupto"],
+					"Dishonor": ["Interferir en un duelo","Ser desarmado","Ignorar un duelo","Ser herido por un seguidor","Ser un cobarde","Estar corrupto"],
 					"Weapons": ["Katana", "Kodachi","Bo"]
 				},
 				"Clan Taimatsumaru": {
@@ -404,7 +404,7 @@
 					},
 					"Principal": "Fuego",
 					"Secondary": ["Magia"],
-					"Dishonor": ["Interferir en un duelo","Desarmado","Ignorar un duelo","Ser herido por un seguidor","Ser un cobarde","Estar corrupto"],
+					"Dishonor": ["Interferir en un duelo","Ser desarmado","Ignorar un duelo","Ser herido por un seguidor","Ser un cobarde","Estar corrupto"],
 					"Weapons": ["Katana", "Kodachi","Bo"]
 				}
 				

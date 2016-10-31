@@ -29,18 +29,9 @@
 				Materna: <select ng-options="family as family.Familia for family in families" ng-change="handleMotherFamily(selectedMotherFamily)" ng-model="selectedMotherFamily"></select>
 			</div>
 			<div>
-				<select ng-model="majorAvantage" ng-change="setAdv()">
-					<option value="{{fatherVent[0]}}">	{{fatherVent[0]}} </option>
-					<option value="{{motherVent[0]}}">	{{motherVent[0]}} </option>
-				</select>
-				<select ng-model="minorAvantage" ng-change="setMed()"> 
-					<option value="{{fatherVent[1]}}">	{{fatherVent[1]}} </option>
-					<option value="{{motherVent[1]}}">	{{motherVent[1]}} </option>
-				</select>
-				<select ng-model="disAvantage" ng-change="setDis()">
-					<option value="{{fatherVent[2]}}">	{{fatherVent[2]}} </option>
-					<option value="{{motherVent[2]}}">	{{motherVent[2]}} </option>
-				</select>
+				<select ng-model="majorAvantage"  ng-options="adv as adv.key for adv in advantages.big" ng-change="setAdv()"></select>
+				<select ng-model="minorAvantage" ng-options="med as med.key for med in advantages.med" ng-change="setMed()"></select>
+				<select ng-model="disAvantage" ng-options="disav as disav.key for disav in advantages.dis" ng-change="setDis()"></select>
 			</div>
 		</div>
 		<div class="row">
@@ -90,9 +81,9 @@
 			<div ng-show="selectedRace.name === 'Humano'">
 				<span><b>Familia Paterna: </b>{{ selectedFatherFamily.Familia }}</span></br>
 				<span><b>Familia Materna: </b>{{ selectedMotherFamily.Familia }}</span></br>
-				<span ng-if="majorAvantage"><b>{{majorAvantage}}</b> - {{advDes.value}} </span></br>
-				<span ng-if="minorAvantage"><b>{{minorAvantage}}</b> - {{medDes.value}}</span></br>
-				<span ng-if="disAvantage"><b>{{disAvantage}}</b> - {{disDes.value}}</span></br>
+				<span ng-if="majorAvantage"><b>{{Advantage.key}}</b> - {{Advantage.value}} </span></br>
+				<span ng-if="minorAvantage"><b>{{Minor.key}}</b> - {{Minor.value}}</span></br>
+				<span ng-if="disAvantage"><b>{{Disadvantage.key}}</b> - {{Disadvantage.value}}</span></br>
 				<span><b>Organización:</b> {{organizationSelected.Name}}</span></br>
 				<span><b>Clan:</b> {{clanSelected.clan}}</span></br>
 				<span><b>Senda Principal: </b> {{ character.mainWay }} </span></br> 

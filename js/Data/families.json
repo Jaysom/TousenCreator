@@ -330,5 +330,35 @@
 				"effect":null
 			}
 		}
-	}]
+	},
+	{
+	"Familia": "Menor",
+	"vent": {
+		"dis": [
+		{
+			"key":"Obstinado",
+			"value": "Modifica de Descuido a Acierto un resultado en cualquier tirada que realice con un dado de Aguante."
+		}, 
+		{
+			"key":"Empático",
+			"value": "No añade marcadores de Aversión cuando falle la tirada para reclutar un habitante."
+		}, 
+		{
+			"key":"Bendecido",
+			"value": "Puede repetir un dado durante o después de la partida."
+		}, 
+		{
+			"key":"Equilibrado",
+			"value":"Aumenta en un punto la Fuerza y la Velocidad de cada Acción de Ataque que realice el héroe."
+		}, 
+		{
+			"key":"Traicionero",
+			"value": "Modifica de Fallo a Descuido un resultado en cualquier tirada de una Acción de Combate que se beneficie de un Ataque sorpresa."
+		}, 
+		{
+			"key":"Anodino",
+			"value":"Disminuye en un punto la habilidad de Miedo de este personaje, hasta un mínimo de cero."
+		}]
+	}
+}]
 }

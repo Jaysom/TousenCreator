@@ -3,7 +3,11 @@ var TousenApp = angular.module('TousenApp', []);
 
 TousenApp.controller('mainController', ['$scope','CharacterService', function(scope, CharacterService){
 	scope.character = {};
-	scope.advantages = {}
+	scope.advantages = {
+		big:[],
+		med:[],
+		dis:[]
+	}
 	scope.character.richness = 0;
 	scope.character.honor = 0;
 	scope.orgs = [];
@@ -30,60 +34,81 @@ TousenApp.controller('mainController', ['$scope','CharacterService', function(sc
         _handleCharacter(selectedRace);
 	}
 
-	scope.handleFatherFamily = function(res){
+	scope.handleFatherFamily = function(res)
+	{
 		scope.selectedFatherFamily = res;
-		scope.fatherVent = [res.vent.big.key,res.vent.med.key,res.vent.dis.key];
+		if(scope.selectedFatherFamily.Familia === "Menor")
+		{
+			scope.advantages.dis = [];
+			_checkOpositeFamily(scope.selectedFatherFamily);
+			angular.forEach(res.vent.dis, function(value){
+				scope.advantages.dis.push(value);
+			});
+		}
+		else
+		{
+			scope.advantages.big.push(res.vent.big);
+			scope.advantages.med.push(res.vent.med);
+			scope.advantages.dis.push(res.vent.dis);
+		} 
+		
 	}
 	
-	scope.handleMotherFamily = function(res){
+	scope.handleMotherFamily = function(res)
+	{
 		scope.selectedMotherFamily = res;
-		scope.motherVent = [res.vent.big.key,res.vent.med.key,res.vent.dis.key];
+		if(scope.selectedMotherFamily.Familia === "Menor")
+		{
+			scope.advantages.dis = [];
+			_checkOpositeFamily(scope.selectedFatherFamily);
+			angular.forEach(res.vent.dis, function(value){
+				scope.advantages.dis.push(value);
+			});
+			
+		}
+		else
+		{
+			scope.advantages.big.push(res.vent.big);
+			scope.advantages.med.push(res.vent.med);
+			scope.advantages.dis.push(res.vent.dis);
+		}
 	}
 	
 	scope.setAdv = function()
 	{
-        scope.vents =  [scope.selectedFatherFamily.vent.big, scope.selectedMotherFamily.vent.big];
-		scope.advDes = scope.vents.find(i => i.key == scope.majorAvantage);
-		if(scope.advDes.effect != null) 
+		scope.Advantage = scope.advantages.big.find(i => i.key == scope.majorAvantage.key);
+		if(scope.Advantage.effect != null) 
 		{
-			_applyAdvantage(scope.character, scope.advDes);
-			scope.advantages.big = _getAdvantageEffect(scope.advDes);
+			_applyAdvantage(scope.character, scope.Advantage);
 		}
 		else 
 		{
 			_checkCalculatedAttributes();
-			scope.advantages.big
 		}
 	}
 	
 	scope.setMed = function()
 	{
-		scope.meds =  [scope.selectedFatherFamily.vent.med, scope.selectedMotherFamily.vent.med];
-		scope.medDes = scope.meds.find(i => i.key == scope.minorAvantage);
-		if(scope.medDes.effect != null)
+		scope.Minor = scope.advantages.med.find(i => i.key == scope.minorAvantage.key);
+		if(scope.Minor.effect != null)
 		{
-			_applyAdvantage(scope.character, scope.medDes);
-			scope.advantages.med = _getAdvantageEffect(scope.medDes);
+			_applyAdvantage(scope.character, scope.Minor);
 		}
 		else
 		{
-			scope.advantages.med = null;
 			_checkCalculatedAttributes();
 		} 
 	}
 	
 	scope.setDis = function()
 	{
-        scope.disavs =  [scope.selectedFatherFamily.vent.dis, scope.selectedMotherFamily.vent.dis];
-		scope.disDes = scope.disavs.find(i => i.key == scope.disAvantage);
-		if(scope.disDes.effect !=null)
+		scope.Disadvantage = scope.advantages.dis.find(i => i.key == scope.disAvantage.key);
+		if(scope.Disadvantage.effect != null)
 		{ 
-			_applyAdvantage(scope.character, scope.disDes);
-			scope.advantages.dis = _getAdvantageEffect(scope.disDes);
+			_applyAdvantage(scope.character, scope.Disadvantage);
 		}
 		else
 		{
-			scope.advantages.dis = null;
 			 _checkCalculatedAttributes();
 		}
 	}
@@ -148,6 +173,18 @@ TousenApp.controller('mainController', ['$scope','CharacterService', function(sc
 		scope.richness = 0;
 	}
 	
+	function _checkOpositeFamily(family)
+	{
+		if(family != undefined){
+			scope.advantages.big = [];
+			scope.advantages.med = [];
+			scope.advantages.big.push(family.vent.big);
+			scope.advantages.med.push(family.vent.med);
+			scope.advantages.dis.push(family.vent.dis);
+		}
+			
+	}
+
 	function _handleOrganizationsSuccess(res)
 	{
 		angular.forEach(res.Organizations, function(val){
@@ -218,7 +255,8 @@ TousenApp.controller('mainController', ['$scope','CharacterService', function(sc
 		}			
     }
 	
-	function _checkFamilies(fam) {
+	function _checkFamilies(fam) 
+	{
 		return fam.indexOf(scope.selectedFatherFamily.Familia) != -1 || fam.indexOf(scope.selectedMotherFamily.Familia) != -1;
 	}
 

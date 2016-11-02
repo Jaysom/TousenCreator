@@ -1,6 +1,11 @@
-TousenApp.service('CharacterService', ['$http', function($http) {
+angular
+	.module('TousenApp')
+	.service('CharacterService', CharacterService);
 
-	this.getKinds = function(){
+	CharacterService.$inject = ['$http'];
+
+function CharacterService($http){
+		this.getKinds = function(){
 		return $http.get('js/Data/kind.json');
 	}
 	
@@ -15,5 +20,5 @@ TousenApp.service('CharacterService', ['$http', function($http) {
 	this.getOrganizations = function() {
 		return $http.get('js/Data/organizations.json');
 	}
-}]);
+}
     

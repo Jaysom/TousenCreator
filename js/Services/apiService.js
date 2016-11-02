@@ -1,6 +1,11 @@
-TousenApp.service('ApiService', ['$http', function($http) {
-	this.requestApi = function(method, url, data, headers) {
+angular
+	.module('TousenApp')
+	.service('ApiService', ApiService);
 
+ApiService.$inject('$http');
+
+function ApiService($http){
+	this.requestApi = function(method, url, data, headers) {
 		var configRequest = {
 			method: method,
 			url: url,
@@ -9,6 +14,4 @@ TousenApp.service('ApiService', ['$http', function($http) {
 		configRequest[method === 'get' ? 'params': 'data'] = data;
 		return $http(configRequest);
 	}
-
-
-}]);
+}

@@ -23,4 +23,6 @@ function ArmoryService($http){
      function getExtras(){
 		return $http.get('js/Data/extras.json');
 	}
+
+	return armory;
 }

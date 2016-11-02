@@ -22,7 +22,7 @@
 
 		vm.loadKinds = function()
 		{
-			CharacterService.character.getKinds()
+			CharacterService.getKinds()
 				.success(_handerKindsuccess)
 				.error(_handlerError);
 			vm.loadFamilies();
@@ -30,7 +30,7 @@
 
 		vm.loadFamilies = function()
 		{
-			CharacterService.character.getFamilies()
+			CharacterService.getFamilies()
 				.success(_handlerFamilySuccess)
 				.error(_handlerError);
 		}
@@ -119,7 +119,7 @@
 
 		vm.loadOrganizations = function()
 		{
-			CharacterService.character.getOrganizations()
+			CharacterService.getOrganizations()
 				.success(_handleOrganizationsSuccess)
 				.error(_handlerError);
 		}
@@ -195,7 +195,7 @@
 			if(_checkFamilies(a)) {
 				if(a.indexOf(vm.selectedFatherFamily.Familia) != -1){
 					return honor[vm.selectedFatherFamily.Familia]; 
-				} else if(a.indexOf(vm.selectedMotherFamily.Familia) != -1) {
+				} else if (a.indexOf(vm.selectedMotherFamily.Familia) != -1) {
 					return honor[vm.selectedMotherFamily.Familia];
 				}
 			} else {
@@ -209,7 +209,7 @@
 			if(_checkFamilies(a)) {
 				if(a.indexOf(vm.selectedFatherFamily.Familia) != -1) {
 					return rich[vm.selectedFatherFamily.Familia];
-				} else if(a.indexOf(vm.selectedMotherFamily.Familia) != -1) {
+				} else if (a.indexOf(vm.selectedMotherFamily.Familia) != -1) {
 					return rich[vm.selectedMotherFamily.Familia];
 				}
 			} else {
@@ -261,16 +261,15 @@
 		function _checkHealthAdvantage()
 		{
 			if(vm.majorAvantage != undefined && vm.minorAvantage != undefined && vm.disAvantage != undefined) {
-				return (vm.advantages.big == "health" || vm.advantages.med == "health" || vm.advantages.dis == "health");	
+				return (_getAdvantageEffect(vm.majorAvantage) === "health" || _getAdvantageEffect(vm.minorAvantage) === "health" || _getAdvantageEffect(vm.disAvantage) === "health");	
 			}
 			return false;
 		}
 
 		function _checkInitiativeAdvantage()
 		{
-			if(vm.majorAvantage != undefined && vm.minorAvantage != undefined && vm.disAvantage != undefined)
-			{
-				return (vm.advantages.big  == "initiative" || vm.advantages.med  == "initiative" || vm.advantages.dis == "initiative");
+			if(vm.majorAvantage != undefined && vm.minorAvantage != undefined && vm.disAvantage != undefined) {
+				return (_getAdvantageEffect(vm.majorAvantage) === "initiative" ||_getAdvantageEffect(vm.minorAvantage) === "initiative" || _getAdvantageEffect(vm.disAvantage) === "initiative");
 			}	
 			return false;
 		}

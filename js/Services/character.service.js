@@ -7,7 +7,7 @@ angular
 function CharacterService($http){
 
 	var character = {
-		getkinds: getkinds,
+		getKinds: getKinds,
 		getFamilies: getFamilies,
 		getCreatures: getCreatures,
 		getOrganizations: getOrganizations
@@ -29,5 +29,7 @@ function CharacterService($http){
 	function getOrganizations() {
 		return $http.get('js/Data/organizations.json');
 	}
+
+	return character;
 }
     

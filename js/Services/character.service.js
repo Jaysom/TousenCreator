@@ -5,19 +5,28 @@ angular
 	CharacterService.$inject = ['$http'];
 
 function CharacterService($http){
-		this.getKinds = function(){
+
+	var character = {
+		getkinds: getkinds,
+		getFamilies: getFamilies,
+		getCreatures: getCreatures,
+		getOrganizations: getOrganizations
+
+	};
+
+	function getKinds(){
 		return $http.get('js/Data/kind.json');
 	}
 	
-	this.getFamilies = function(){
+	function getFamilies(){
 		return $http.get('js/Data/families.json');
 	}
 	
-	this.getCreatures = function() {
+	function getCreatures() {
 		return $http.get('js/Data/creatures.json');
 	}
 	
-	this.getOrganizations = function() {
+	function getOrganizations() {
 		return $http.get('js/Data/organizations.json');
 	}
 }

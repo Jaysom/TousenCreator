@@ -22,7 +22,7 @@
 
 		vm.loadKinds = function()
 		{
-			CharacterService.getKinds()
+			CharacterService.character.getKinds()
 				.success(_handerKindsuccess)
 				.error(_handlerError);
 			vm.loadFamilies();
@@ -30,7 +30,7 @@
 
 		vm.loadFamilies = function()
 		{
-			CharacterService.getFamilies()
+			CharacterService.character.getFamilies()
 				.success(_handlerFamilySuccess)
 				.error(_handlerError);
 		}
@@ -119,7 +119,7 @@
 
 		vm.loadOrganizations = function()
 		{
-			CharacterService.getOrganizations()
+			CharacterService.character.getOrganizations()
 				.success(_handleOrganizationsSuccess)
 				.error(_handlerError);
 		}

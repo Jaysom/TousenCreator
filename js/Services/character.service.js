@@ -11,7 +11,6 @@ function CharacterService($http){
 		getFamilies: getFamilies,
 		getCreatures: getCreatures,
 		getOrganizations: getOrganizations
-
 	};
 
 	function getKinds(){

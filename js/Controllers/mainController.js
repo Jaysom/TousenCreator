@@ -44,32 +44,35 @@
 		vm.handleFatherFamily = function(res)
 		{
 			vm.selectedFatherFamily = res;
-			if(vm.selectedFatherFamily.Familia === "Menor") {
+			if(vm.selectedMotherFamily !== undefined && vm.selectedFatherFamily.Familia === "Menor") {
 				vm.advantages.dis = [];
-				_checkOpositeFamily(vm.selectedFatherFamily);
-				angular.forEach(res.vent.dis, function(value){
-					vm.advantages.dis.push(value);
-				});
+				_checkOpositeFamily(vm.selectedFatherFamily, 1);
+				GetMinorDisadvantages(res.vent.dis);
 			} else {
-				vm.advantages.big.push(res.vent.big);
-				vm.advantages.med.push(res.vent.med);
-				vm.advantages.dis.push(res.vent.dis);
+				vm.advantages.big[0] = res.vent.big;
+				vm.advantages.med[0] = res.vent.med;
+				if(vm.selectedMotherFamily !== undefined && vm.selectedMotherFamily.Familia === "Menor"){
+					vm.advantages.dis = [];
+					vm.advantages.dis.push(res.vent.dis);
+				}
+				else vm.advantages.dis[0] = res.vent.dis;
 			} 		
 		}
 		
 		vm.handleMotherFamily = function(res)
 		{
 			vm.selectedMotherFamily = res;
-			if(vm.selectedMotherFamily.Familia === "Menor") {
-				vm.advantages.dis = [];
-				_checkOpositeFamily(vm.selectedFatherFamily);
-				angular.forEach(res.vent.dis, function(value){
-					vm.advantages.dis.push(value);
-				});
+			if(vm.selectedFatherFamily !== undefined && vm.selectedMotherFamily.Familia === "Menor") {
+				_checkOpositeFamily(vm.selectedFatherFamily, 0);
+				GetMinorDisadvantages(res.vent.dis);
 			} else {
-				vm.advantages.big.push(res.vent.big);
-				vm.advantages.med.push(res.vent.med);
-				vm.advantages.dis.push(res.vent.dis);
+				vm.advantages.big[1] = res.vent.big;
+				vm.advantages.med[1] = res.vent.med;
+				if(vm.selectedFatherFamily !== undefined && vm.selectedFatherFamily.Familia === "Menor"){
+					vm.advantages.dis = [];
+					vm.advantages.dis.push(res.vent.dis);
+				}
+				else vm.advantages.dis[1] = res.vent.dis;
 			}
 		}
 		
@@ -164,15 +167,23 @@
 			vm.richness = 0;
 		}
 		
-		function _checkOpositeFamily(family)
+		function _checkOpositeFamily(family, value)
 		{
 			if(family != undefined) {
 				vm.advantages.big = [];
 				vm.advantages.med = [];
-				vm.advantages.big.push(family.vent.big);
-				vm.advantages.med.push(family.vent.med);
-				vm.advantages.dis.push(family.vent.dis);
+				vm.majorAvantage = family.vent.big;
+				vm.minorAvantage = family.vent.med;
+				vm.advantages.big[value] = family.vent.big;
+				vm.advantages.med[value] = family.vent.med;
+				vm.advantages.dis[0] = family.vent.dis;
 			}			
+		}
+
+		function GetMinorDisadvantages(disadvantagesList){
+			angular.forEach(disadvantagesList, function(value){
+				vm.advantages.dis.push(value);
+			});
 		}
 
 		function _handleOrganizationsSuccess(res)
@@ -219,6 +230,7 @@
 		
 		function _applyAdvantage(selectedPlayer, adv)  
 		{
+			_checkCalculatedAttributes();
 			var k = _getAdvantageEffect(adv);
 			switch(k) {
 				case "health":
@@ -235,7 +247,6 @@
 					break;
 				default:
 					selectedPlayer[k] = vm.selectedRace.attrs[k] + adv.effect[k];
-					_checkCalculatedAttributes();
 					break;
 			}			
 		}

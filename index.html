@@ -82,9 +82,9 @@
 			<div ng-show="vm.selectedRace.name === 'Humano'">
 				<span><b>Familia Paterna: </b>{{vm.selectedFatherFamily.Familia}}</span></br>
 				<span><b>Familia Materna: </b>{{vm.selectedMotherFamily.Familia}}</span></br>
-				<span ng-if="vm.majorAvantage"><b>{{vm.Advantage.key}}</b> - {{vm.Advantage.value}} </span></br>
-				<span ng-if="vm.minorAvantage"><b>{{vm.Minor.key}}</b> - {{vm.Minor.value}}</span></br>
-				<span ng-if="vm.disAvantage"><b>{{vm.Disadvantage.key}}</b> - {{vm.Disadvantage.value}}</span></br>
+				<span ng-if="vm.majorAvantage"><b>{{vm.majorAvantage.key}}</b> - {{vm.majorAvantage.value}} </span></br>
+				<span ng-if="vm.minorAvantage"><b>{{vm.minorAvantage.key}}</b> - {{vm.minorAvantage.value}}</span></br>
+				<span ng-if="vm.disAvantage"><b>{{vm.disAvantage.key}}</b> - {{vm.disAvantage.value}}</span></br>
 				<div ng-if="vm.organizationSelected != undefined">
 					<span><b>Organización:</b> {{vm.organizationSelected.Name}}</span></br>
 					<span><b>Clan:</b> {{vm.clanSelected.clan}}</span></br>

@@ -256,11 +256,13 @@
 		{
 			if(!_checkHealthAdvantage()) vm.character.health = 0;
 			if(!_checkInitiativeAdvantage()) vm.character.initiative = 0;
+			if(!_checkHonorAdvantage()) vm.character.honor = 0;
+			if(!_checkRichnessAdvantage) vm.character.richness = 0;
 		}
 
 		function _checkHealthAdvantage()
 		{
-			if(vm.majorAvantage != undefined && vm.minorAvantage != undefined && vm.disAvantage != undefined) {
+			if(_checkAllAdvantages()) {
 				return (_getAdvantageEffect(vm.majorAvantage) === "health" || _getAdvantageEffect(vm.minorAvantage) === "health" || _getAdvantageEffect(vm.disAvantage) === "health");	
 			}
 			return false;
@@ -268,10 +270,29 @@
 
 		function _checkInitiativeAdvantage()
 		{
-			if(vm.majorAvantage != undefined && vm.minorAvantage != undefined && vm.disAvantage != undefined) {
-				return (_getAdvantageEffect(vm.majorAvantage) === "initiative" ||_getAdvantageEffect(vm.minorAvantage) === "initiative" || _getAdvantageEffect(vm.disAvantage) === "initiative");
+			if(_checkAllAdvantages()) {
+				return (_getAdvantageEffect(vm.majorAvantage) === "initiative" || _getAdvantageEffect(vm.minorAvantage) === "initiative" || _getAdvantageEffect(vm.disAvantage) === "initiative");
 			}	
 			return false;
+		}
+
+		function _checkHonorAdvantage()
+		{
+			if(_checkAllAdvantages()){
+				return (_getAdvantageEffect(vm.majorAvantage) === "honor" || _getAdvantageEffect(vm.minorAvantage) === "honor" || _getAdvantageEffect(vm.disAvantage) === "honor");
+			}
+			return false;
+		}
+
+		function _checkRichnessAdvantage(){
+			if(_checkAllAdvantages()){
+				return (_getAdvantageEffect(vm.majorAvantage) === "richness" || _getAdvantageEffect(vm.minorAvantage) === "richness" || _getAdvantageEffect(vm.disAvantage) === "richness");
+			}
+			return false;
+		}
+
+		function _checkAllAdvantages(){
+			return vm.majorAvantage != undefined && vm.minorAvantage != undefined && vm.disAvantage != undefined; 
 		}
 		
 		function _handlerError(data, status) 

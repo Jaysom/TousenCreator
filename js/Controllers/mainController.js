@@ -26,12 +26,19 @@
 				.success(_handerKindsuccess)
 				.error(_handlerError);
 			vm.loadFamilies();
+			GetMinors();
 		}
 
 		vm.loadFamilies = function()
 		{
 			CharacterService.getFamilies()
 				.success(_handlerFamilySuccess)
+				.error(_handlerError);
+		}
+
+		function GetMinors(){
+			CharacterService.getFamilies()
+				.success(_handleMinors)
 				.error(_handlerError);
 		}
 		
@@ -44,35 +51,28 @@
 		vm.handleFatherFamily = function(res)
 		{
 			vm.selectedFatherFamily = res;
-			if(vm.selectedMotherFamily !== undefined && vm.selectedFatherFamily.Familia === "Menor") {
-				vm.advantages.dis = [];
-				_checkOpositeFamily(vm.selectedFatherFamily, 1);
-				GetMinorDisadvantages(res.vent.dis);
+			resetAdvantages();
+			if(vm.selectedFatherFamily.Familia === "Menor") {
+				_checkOpositeFamily(vm.selectedMotherFamily, res, 1);
 			} else {
 				vm.advantages.big[0] = res.vent.big;
 				vm.advantages.med[0] = res.vent.med;
-				if(vm.selectedMotherFamily !== undefined && vm.selectedMotherFamily.Familia === "Menor"){
-					vm.advantages.dis = [];
-					vm.advantages.dis.push(res.vent.dis);
-				}
-				else vm.advantages.dis[0] = res.vent.dis;
+				vm.advantages.dis[0] = res.vent.dis;
+				_checkOpositeFamily(vm.selectedMotherFamily, res, 1);
 			} 		
 		}
 		
 		vm.handleMotherFamily = function(res)
 		{
 			vm.selectedMotherFamily = res;
-			if(vm.selectedFatherFamily !== undefined && vm.selectedMotherFamily.Familia === "Menor") {
-				_checkOpositeFamily(vm.selectedFatherFamily, 0);
-				GetMinorDisadvantages(res.vent.dis);
+			resetAdvantages();
+			if(vm.selectedMotherFamily.Familia === "Menor") {
+				_checkOpositeFamily(vm.selectedFatherFamily, res, 0);
 			} else {
 				vm.advantages.big[1] = res.vent.big;
 				vm.advantages.med[1] = res.vent.med;
-				if(vm.selectedFatherFamily !== undefined && vm.selectedFatherFamily.Familia === "Menor"){
-					vm.advantages.dis = [];
-					vm.advantages.dis.push(res.vent.dis);
-				}
-				else vm.advantages.dis[1] = res.vent.dis;
+				vm.advantages.dis[1] = res.vent.dis;
+				_checkOpositeFamily(vm.selectedFatherFamily, res, 0);
 			}
 		}
 		
@@ -166,18 +166,37 @@
 			vm.honor = 0;
 			vm.richness = 0;
 		}
+
+		function _handleMinors(res){
+			vm.ListMinors = res.Families.find(a => a.Familia === "Menor").vent.dis;
+		}
 		
-		function _checkOpositeFamily(family, value)
+		function _checkOpositeFamily(family, current, value)
 		{
-			if(family != undefined) {
-				vm.advantages.big = [];
-				vm.advantages.med = [];
-				vm.majorAvantage = family.vent.big;
-				vm.minorAvantage = family.vent.med;
-				vm.advantages.big[value] = family.vent.big;
-				vm.advantages.med[value] = family.vent.med;
-				vm.advantages.dis[0] = family.vent.dis;
-			}			
+			if(family !== undefined) {
+				vm.advantages.dis = [];
+				if(family.Familia === "Menor" && current.Familia === "Menor"){
+					vm.advantages.big = [];
+					vm.advantages.med = [];
+					resetAdvantages();
+				} else {
+					if(family.Familia !== "Menor"){
+						vm.advantages.big[value] = family.vent.big;
+						vm.advantages.med[value] = family.vent.med;
+						if(current.Familia === "Menor") {
+							vm.advantages.dis[0] = current.vent.dis;
+							vm.advantages.dis[1] = family.vent.dis;
+						} else vm.advantages.dis[0] = family.vent.dis;
+					} else {
+						GetMinorDisadvantages(vm.ListMinors);
+					}
+				} if(current.Familia === "Menor"){
+					GetMinorDisadvantages(vm.ListMinors);
+					setDefaultAdvantages(false);					
+				} else {
+					setDefaultAdvantages(true);
+				}
+			} 
 		}
 
 		function GetMinorDisadvantages(disadvantagesList){
@@ -255,6 +274,17 @@
 		{
 			return fam.indexOf(vm.selectedFatherFamily.Familia) != -1 || fam.indexOf(vm.selectedMotherFamily.Familia) != -1;
 		}
+		
+		function resetAdvantages(){
+			vm.majorAvantage = null;
+			vm.minorAvantage = null;
+			vm.disAvantage = null;
+		}
+
+		function setDefaultAdvantages(family){
+			vm.majorAvantage =  family === true ? vm.selectedFatherFamily.vent.big : vm.selectedFatherFamily.vent.big;
+			vm.minorAvantage =  family === true ? vm.selectedFatherFamily.vent.med : vm.selectedFatherFamily.vent.med;
+		}
 
 		function _getAdvantageEffect(advantage)
 		{
@@ -313,5 +343,5 @@
 		}
 		
 		vm.loadKinds();
-		}
+		};
 })();

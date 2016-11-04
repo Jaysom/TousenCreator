@@ -8,6 +8,7 @@
 
 	function MainController(CharacterService) {
 		var vm = this;
+		var minor = "Menor";
 		vm.character = {};
 		vm.advantages = {
 			big:[],
@@ -51,29 +52,57 @@
 		vm.handleFatherFamily = function(res)
 		{
 			vm.selectedFatherFamily = res;
-			resetAdvantages();
-			if(vm.selectedFatherFamily.Familia === "Menor") {
-				_checkOpositeFamily(vm.selectedMotherFamily, res, 1);
+			ResetAdvantages();
+			if (res.Familia !== minor) {
+				if (vm.selectedMotherFamily === undefined) {
+					vm.advantages.big[0] = res.vent.big;
+					vm.advantages.med[0] = res.vent.med;
+					vm.advantages.dis[0] = res.vent.dis;
+				} else {
+					if (vm.selectedMotherFamily.Familia === minor) {
+						GetMinorDisadvantages(vm.ListMinors);
+					} else {
+						vm.advantages.big[0] = res.vent.big;
+						vm.advantages.med[0] = res.vent.med;
+						vm.advantages.dis[0] = res.vent.dis;
+						vm.advantages.big[1] = vm.selectedMotherFamily.vent.big;
+						vm.advantages.med[1] = vm.selectedMotherFamily.vent.med;
+						vm.advantages.dis[1] = vm.selectedMotherFamily.vent.dis;
+					}
+				}				
 			} else {
-				vm.advantages.big[0] = res.vent.big;
-				vm.advantages.med[0] = res.vent.med;
-				vm.advantages.dis[0] = res.vent.dis;
-				_checkOpositeFamily(vm.selectedMotherFamily, res, 1);
-			} 		
+				if (vm.selectedMotherFamily !== undefined && vm.selectedMotherFamily.Familia === minor) { 
+					SetDefaultAdvantages(false);
+				}
+			}		
 		}
 		
 		vm.handleMotherFamily = function(res)
 		{
 			vm.selectedMotherFamily = res;
-			resetAdvantages();
-			if(vm.selectedMotherFamily.Familia === "Menor") {
-				_checkOpositeFamily(vm.selectedFatherFamily, res, 0);
+			ResetAdvantages();
+			if (res.Familia !== minor) {
+				if (vm.selectedFatherFamily === undefined) {
+					vm.advantages.big[0] = res.vent.big;
+					vm.advantages.med[0] = res.vent.med;
+					vm.advantages.dis[0] = res.vent.dis;
+				} else {
+					if (vm.selectedFatherFamily.Familia === minor) {
+						GetMinorDisadvantages(vm.ListMinors);
+					} else {
+						vm.advantages.big[0] = res.vent.big;
+						vm.advantages.med[0] = res.vent.med;
+						vm.advantages.dis[0] = res.vent.dis;
+						vm.advantages.big[1] = vm.selectedFatherFamily.vent.big;
+						vm.advantages.med[1] = vm.selectedFatherFamily.vent.med;
+						vm.advantages.dis[1] = vm.selectedFatherFamily.vent.dis;
+					}
+				}				
 			} else {
-				vm.advantages.big[1] = res.vent.big;
-				vm.advantages.med[1] = res.vent.med;
-				vm.advantages.dis[1] = res.vent.dis;
-				_checkOpositeFamily(vm.selectedFatherFamily, res, 0);
-			}
+				if (vm.selectedFatherFamily !== undefined && vm.selectedFatherFamily.Familia === minor) { 
+					SetDefaultAdvantages(false);
+				}
+			}	
 		}
 		
 		vm.setAdv = function()
@@ -168,19 +197,19 @@
 		}
 
 		function _handleMinors(res){
-			vm.ListMinors = res.Families.find(a => a.Familia === "Menor").vent.dis;
+			vm.ListMinors = res.Families.find(a => a.Familia === minor).vent.dis;
 		}
 		
-		function _checkOpositeFamily(family, current, value)
+		/*function _checkOpositeFamily(family, current, value)
 		{
 			if(family !== undefined) {
 				vm.advantages.dis = [];
-				if(family.Familia === "Menor" && current.Familia === "Menor"){
+				if(family.Familia === minor && current.Familia === minor){
 					vm.advantages.big = [];
 					vm.advantages.med = [];
-					resetAdvantages();
+					ResetAdvantages();
 				} else {
-					if(family.Familia !== "Menor"){
+					if(family.Familia !== minor){
 						vm.advantages.big[value] = family.vent.big;
 						vm.advantages.med[value] = family.vent.med;
 						if(current.Familia === "Menor") {
@@ -188,22 +217,17 @@
 							vm.advantages.dis[1] = family.vent.dis;
 						} else vm.advantages.dis[0] = family.vent.dis;
 					} else {
-						GetMinorDisadvantages(vm.ListMinors);
+						
 					}
-				} if(current.Familia === "Menor"){
+				} 
+				if(current.Familia === "Menor"){
 					GetMinorDisadvantages(vm.ListMinors);
-					setDefaultAdvantages(false);					
+					SetDefaultAdvantages(false);					
 				} else {
-					setDefaultAdvantages(true);
+					
 				}
 			} 
-		}
-
-		function GetMinorDisadvantages(disadvantagesList){
-			angular.forEach(disadvantagesList, function(value){
-				vm.advantages.dis.push(value);
-			});
-		}
+		}*/
 
 		function _handleOrganizationsSuccess(res)
 		{
@@ -275,13 +299,20 @@
 			return fam.indexOf(vm.selectedFatherFamily.Familia) != -1 || fam.indexOf(vm.selectedMotherFamily.Familia) != -1;
 		}
 		
-		function resetAdvantages(){
+		function GetMinorDisadvantages(disadvantagesList){
+			angular.forEach(disadvantagesList, function(value){
+				vm.advantages.dis.push(value);
+			});
+		}
+
+		
+		function ResetAdvantages(){
 			vm.majorAvantage = null;
 			vm.minorAvantage = null;
 			vm.disAvantage = null;
 		}
 
-		function setDefaultAdvantages(family){
+		function SetDefaultAdvantages(family){
 			vm.majorAvantage =  family === true ? vm.selectedFatherFamily.vent.big : vm.selectedFatherFamily.vent.big;
 			vm.minorAvantage =  family === true ? vm.selectedFatherFamily.vent.med : vm.selectedFatherFamily.vent.med;
 		}

@@ -32,7 +32,7 @@
 			<div>
 				<select ng-model="vm.fatherAdvantage"  ng-options="adv as adv.key for adv in vm.advantages.father" ng-change="vm.setAdv(vm.fatherAdvantage)" class="form-control"></select>
 				<select ng-model="vm.motherAdvantage" ng-options="med as med.key for med in vm.advantages.mother" ng-change="vm.setMed(vm.motherAdvantage)" class="form-control"></select>
-				<select ng-model="vm.disAdvantage" ng-options="disav as disav.key for disav in vm.advantages.disadvantages" ng-change="vm.setDis(vm.disAdvantage) class="form-control""></select>
+				<select ng-model="vm.disAdvantage" ng-options="disav as disav.key for disav in vm.advantages.disadvantages" ng-change="vm.setDis(vm.disAdvantage)" class="form-control"></select>
 			</div>
 		</div>
 		<div class="row">
@@ -85,16 +85,30 @@
 				<span ng-if="vm.Advantage"><b>{{vm.Advantage.key}}</b> - {{vm.Advantage.value}} </span></br>
 				<span ng-if="vm.Minor"><b>{{vm.Minor.key}}</b> - {{vm.Minor.value}}</span></br>
 				<span ng-if="vm.Disadvantage"><b>{{vm.Disadvantage.key}}</b> - {{vm.Disadvantage.value}}</span></br>
-				<div ng-if="vm.organizationSelected != undefined">
+				<div ng-if="vm.clanSelected != undefined" class="row">
 					<span><b>Organización:</b> {{vm.organizationSelected.Name}}</span></br>
 					<span><b>Clan:</b> {{vm.clanSelected.clan}}</span></br>
 					<span><b>Senda Principal: </b> {{vm.character.mainWay}} </span></br> 
 					<span><b>Senda Secundaria: </b> {{vm.character.secondaryWay}} </span>
-					<div ng-if="vm.Dishonor.length > 1">
-						<span><b>Causas de deshonor: <b></span> 
-						<ul >
-							<li ng-repeat="dishonor in vm.Dishonor"> {{dishonor}} </li>
-						</ul>
+					<div class="col-xs-12" ng-if="vm.Dishonor.length > 1">
+						<div class="col-xs-4">
+							<span><b>Causas de deshonor: <b></span> 
+							<ul>
+								<li ng-repeat="dishonor in vm.Dishonor"> {{dishonor}} </li>
+							</ul>
+						</div>
+						<div class="col-xs-4">
+							<span><b>Armas: <b></span> 
+							<ul>
+								<li ng-repeat="weapon in vm.weapons"> {{weapon}} </li>
+							</ul>
+						</div>
+						<div class="col-xs-4">
+							<span><b>Armaduras: <b></span> 
+							<ul>
+								<li ng-repeat="armor in vm.armors"> {{armor}} </li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>

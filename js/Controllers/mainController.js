@@ -146,13 +146,14 @@
 			
 		vm.handleClan = function(clan) 
 		{
+			
 			vm.clanSelected = clan;
 			if (Object.keys(clan.vals.Honor).length > 1) vm.honor = _handleCharacterHonor(vm.clanSelected.vals.Honor);
 			else vm.honor = vm.clanSelected.vals.Honor.Default;
 			if (Object.keys(clan.vals.Richness).length > 1) vm.richness = _handleCharacterRichness(vm.clanSelected.vals.Richness);
 			else vm.richness = vm.clanSelected.vals.Richness.Default;
 			vm.weapons = clan.vals.Weapons;
-			vm.clothes = clan.vals.Clothes;
+			vm.armors = clan.vals.Clothes;
 			vm.character.mainWay = clan.vals.Principal;
 			if (clan.vals.Secondary.length == 1) vm.character.secondaryWay = clan.vals.Secondary[0];
 			vm.Dishonor = clan.vals.Dishonor;

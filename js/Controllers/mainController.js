@@ -146,7 +146,6 @@
 			
 		vm.handleClan = function(clan) 
 		{
-			
 			vm.clanSelected = clan;
 			if (Object.keys(clan.vals.Honor).length > 1) vm.honor = _handleCharacterHonor(vm.clanSelected.vals.Honor);
 			else vm.honor = vm.clanSelected.vals.Honor.Default;
@@ -193,10 +192,13 @@
 		{
 			angular.forEach(res.Organizations, function(val) 
 			{
-				if(val.values.kinds == vm.selectedRace.name) {
-					if(val.values.families === undefined) vm.organizations.push(val);
-					else {
-						if(_checkFamilies(val.values.families)) vm.organizations.push(val);
+				if (val.values.kinds == vm.selectedRace.name) {
+					if (val.values.families === undefined) {
+						vm.organizations.push(val);
+					} else {
+						if (_checkFamilies(val.values.families)){
+							 vm.organizations.push(val);
+						}
 					}
 				}
 			});
@@ -206,8 +208,8 @@
 		function _handleCharacterHonor(honor)
 		{
 			var a = Object.keys(honor);
-			if(_checkFamilies(a)) {
-				if(a.indexOf(vm.selectedFatherFamily.Family) != -1){
+			if (_checkFamilies(a)) {
+				if (a.indexOf(vm.selectedFatherFamily.Family) != -1){
 					return honor[vm.selectedFatherFamily.Family]; 
 				} else if (a.indexOf(vm.selectedMotherFamily.Family) != -1) {
 					return honor[vm.selectedMotherFamily.Family];
@@ -220,8 +222,8 @@
 		function _handleCharacterRichness(rich) 
 		{
 			var a = Object.keys(rich);
-			if(_checkFamilies(a)) {
-				if(a.indexOf(vm.selectedFatherFamily.Family) != -1) {
+			if (_checkFamilies(a)) {
+				if (a.indexOf(vm.selectedFatherFamily.Family) != -1) {
 					return rich[vm.selectedFatherFamily.Family];
 				} else if (a.indexOf(vm.selectedMotherFamily.Family) != -1) {
 					return rich[vm.selectedMotherFamily.Family];
@@ -294,10 +296,18 @@
 
 		function _checkCalculatedAttributes()
 		{
-			if(!_checkHealthAdvantage()) vm.character.health = 0;
-			if(!_checkInitiativeAdvantage()) vm.character.initiative = 0;
-			if(!_checkHonorAdvantage()) vm.character.honor = 0;
-			if(!_checkRichnessAdvantage) vm.character.richness = 0;
+			if (!_checkHealthAdvantage()) {
+				vm.character.health = 0;
+			}
+			if (!_checkInitiativeAdvantage()) {
+				vm.character.initiative = 0;
+			}
+			if (!_checkHonorAdvantage()) {
+				vm.character.honor = 0;
+			}
+			if (!_checkRichnessAdvantage) {
+				vm.character.richness = 0;
+			}
 		}
 
 		function _checkHealthAdvantage()

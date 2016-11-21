@@ -40,7 +40,7 @@
 		</div>
 		<div ng-if="vm.organizationsEnabled === true">
 			<div>
-				<span> <b>Organization: </b> <select ng-options="org as org.Name for org in vm.orgs" ng-model="vm.selectedOrg" ng-change="vm.getOrganizationClans(vm.selectedOrg)" class="form-control"></select></span>
+				<span> <b>Organization: </b> <select ng-options="org as org.Name for org in vm.organizations" ng-model="vm.selectedOrg" ng-change="vm.getOrganizationClans(vm.selectedOrg)" class="form-control"></select></span>
 				<span> <b>Clan: </b> <select ng-options="clan as clan.clan  for clan in vm.clans" ng-model="vm.selectedClan" ng-change="vm.handleClan(vm.selectedClan)" class="form-control"></select></span></br>
 			</div>
 			<div ng-if="vm.clanSelected.vals.Secondary.length > 1"> 

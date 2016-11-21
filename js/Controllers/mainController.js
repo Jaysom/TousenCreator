@@ -17,7 +17,7 @@
 		}
 		vm.character.richness = 0;
 		vm.character.honor = 0;
-		vm.orgs = [];
+		vm.organizations = [];
 		vm.clans = [];
 		vm.Dishonor = [];
 
@@ -54,15 +54,15 @@
 			vm.selectedFatherFamily = res;
 			ResetAdvantages();
 			if(vm.selectedMotherFamily !== undefined){
-				if(vm.selectedMotherFamily.Familia === minor && res.Familia === minor){
+				if(vm.selectedMotherFamily.Family === minor && res.Family === minor){
 					ResetSelectors();
 				}
 			}
 			vm.advantages.father = [];
-			vm.advantages.father[0] = res.vent.big;
-			vm.advantages.disadvantages[0] = res.vent.dis;
-			if (res.Familia !== minor) {
-				vm.advantages.father[1] = res.vent.med;
+			vm.advantages.father[0] = res.advantages.big;
+			vm.advantages.disadvantages[0] = res.advantages.disadvantage;
+			if (res.Family !== minor) {
+				vm.advantages.father[1] = res.advantages.medium;
 			} else {
 				GetMinorAdvantages(vm.advantages.father, vm.ListMinors);
 			}		
@@ -73,15 +73,15 @@
 			vm.selectedMotherFamily = res;
 			ResetAdvantages();
 			if (vm.selectedFatherFamily !== undefined){
-				if(vm.selectedFatherFamily.Familia === minor && res.Familia === minor){
+				if(vm.selectedFatherFamily.Family === minor && res.Family === minor){
 					ResetSelectors();
 				}
 			}
 			vm.advantages.mother = [];
-			vm.advantages.mother[0] = res.vent.big;
-			vm.advantages.disadvantages[1] = res.vent.dis;
-			if (res.Familia !== minor) {
-				vm.advantages.mother[1] = res.vent.med;
+			vm.advantages.mother[0] = res.advantages.big;
+			vm.advantages.disadvantages[1] = res.advantages.disadvantage;
+			if (res.Family !== minor) {
+				vm.advantages.mother[1] = res.advantages.medium;
 			} else {
 				GetMinorAdvantages(vm.advantages.mother, vm.ListMinors);
 			}	
@@ -106,7 +106,7 @@
 			if (motherAdvantage.isBig){
 				vm.advantages.father.shift();
 			}
-			if(motherAdvantage.effect != null) {
+			if (motherAdvantage.effect != null) {
 				_applyAdvantage(vm.character, motherAdvantage);
 			} else {
 				_checkCalculatedAttributes();
@@ -166,14 +166,14 @@
 		
 		function _handleCharacter(res) 
 		{
-			vm.character.mov = res.attrs.mov;
-			vm.character.int = res.attrs.int;
-			vm.character.ate = res.attrs.ate;
-			vm.character.rea = res.attrs.rea;
-			vm.character.ser = res.attrs.ser;
-			vm.character.con = res.attrs.con;
-			vm.character.per = res.attrs.per;
-			vm.character.tam = res.attrs.tam;
+			vm.character.movement = res.attributes.movement;
+			vm.character.intelligence = res.attributes.intelligence;
+			vm.character.atention = res.attributes.atention;
+			vm.character.reaction = res.attributes.reaction;
+			vm.character.serenity = res.attributes.serenity;
+			vm.character.constitution = res.attributes.constitution;
+			vm.character.perseverance = res.attributes.perseverance;
+			vm.character. size = res.attributes.size;
 			vm.character.initiative = 0
 			vm.character.health = 0;
 		}
@@ -186,7 +186,7 @@
 		}
 
 		function _handleMinors(res){
-			vm.ListMinors = res.Families.find(a => a.Familia === minor).vent.med;
+			vm.ListMinors = res.Families.find(a => a.Family === minor).advantages.med;
 		}
 		
 		function _handleOrganizationsSuccess(res)
@@ -194,9 +194,9 @@
 			angular.forEach(res.Organizations, function(val) 
 			{
 				if(val.values.kinds == vm.selectedRace.name) {
-					if(val.values.families === undefined) vm.orgs.push(val);
+					if(val.values.families === undefined) vm.organizations.push(val);
 					else {
-						if(_checkFamilies(val.values.families)) vm.orgs.push(val);
+						if(_checkFamilies(val.values.families)) vm.organizations.push(val);
 					}
 				}
 			});
@@ -207,10 +207,10 @@
 		{
 			var a = Object.keys(honor);
 			if(_checkFamilies(a)) {
-				if(a.indexOf(vm.selectedFatherFamily.Familia) != -1){
-					return honor[vm.selectedFatherFamily.Familia]; 
-				} else if (a.indexOf(vm.selectedMotherFamily.Familia) != -1) {
-					return honor[vm.selectedMotherFamily.Familia];
+				if(a.indexOf(vm.selectedFatherFamily.Family) != -1){
+					return honor[vm.selectedFatherFamily.Family]; 
+				} else if (a.indexOf(vm.selectedMotherFamily.Family) != -1) {
+					return honor[vm.selectedMotherFamily.Family];
 				}
 			} else {
 				return vm.clanSelected.vals.Honor.Default;
@@ -221,10 +221,10 @@
 		{
 			var a = Object.keys(rich);
 			if(_checkFamilies(a)) {
-				if(a.indexOf(vm.selectedFatherFamily.Familia) != -1) {
-					return rich[vm.selectedFatherFamily.Familia];
-				} else if (a.indexOf(vm.selectedMotherFamily.Familia) != -1) {
-					return rich[vm.selectedMotherFamily.Familia];
+				if(a.indexOf(vm.selectedFatherFamily.Family) != -1) {
+					return rich[vm.selectedFatherFamily.Family];
+				} else if (a.indexOf(vm.selectedMotherFamily.Family) != -1) {
+					return rich[vm.selectedMotherFamily.Family];
 				}
 			} else {
 				return vm.clanSelected.vals.Richness.Default;
@@ -249,14 +249,14 @@
 					selectedPlayer[k] = adv.effect[k];
 					break;
 				default:
-					selectedPlayer[k] = vm.selectedRace.attrs[k] + adv.effect[k];
+					selectedPlayer[k] = vm.selectedRace.attributes[k] + adv.effect[k];
 					break;
 			}			
 		}
 		
 		function _checkFamilies(fam) 
 		{
-			return fam.indexOf(vm.selectedFatherFamily.Familia) != -1 || fam.indexOf(vm.selectedMotherFamily.Familia) != -1;
+			return fam.indexOf(vm.selectedFatherFamily.Family) != -1 || fam.indexOf(vm.selectedMotherFamily.Family) != -1;
 		}
 		
 		function GetMinorAdvantages(destiny, minorList)
@@ -281,8 +281,8 @@
 		}
 
 		function SetDefaultAdvantages(family){
-			vm.majorAvantage =  family === true ? vm.selectedFatherFamily.vent.big : vm.selectedFatherFamily.vent.big;
-			vm.minorAvantage =  family === true ? vm.selectedFatherFamily.vent.med : vm.selectedFatherFamily.vent.med;
+			vm.majorAvantage =  family === true ? vm.selectedFatherFamily.advantages.big : vm.selectedFatherFamily.advantages.big;
+			vm.minorAvantage =  family === true ? vm.selectedFatherFamily.advantages.med : vm.selectedFatherFamily.advantages.med;
 		}
 
 		function _getAdvantageEffect(advantage)

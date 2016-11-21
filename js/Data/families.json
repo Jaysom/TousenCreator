@@ -1,14 +1,14 @@
 {
 	"Families": [{
-		"Familia": "Kanemoto",
-		"vent": {
+		"Family": "Kanemoto",
+		"advantages": {
 			"big": {
 				"key":"Visión Total",
 				"value": "El héroe tiene un campo de visión de 360º y nunca se ve afectado por un Ataque sorpresa.",
 				"isBig": true,
 				"effect": null
 			},
-			"med": {
+			"medium": {
 				"key":"Táctico",
 				"value": "Aumenta en dos puntos la Iniciativa del héroe.",
 				"isBig": false,
@@ -16,24 +16,24 @@
 					"initiative": 2
 				}
 			},
-			"dis": {
+			"disadvantage": {
 				"key":"Desafortunado",
-				"value": "Debe realizar dos tiradas en la tabla de Supervivencia al final de la partida y escoger el resultado más bajo. Si tuviera la ventaja Afortunado, solamente realizará una tirada.",
+				"value": "Debe realizar dos tiradas en la tabla de Supervivencia al final de la partida y escoger el resultado más bajo. Si tuviera la advantagesaja Afortunado, solamente realizará una tirada.",
 				"effect": null
 			}
 		}
 	}, {
-		"Familia": "Tanaka",
-		"vent": {
+		"Family": "Tanaka",
+		"advantages": {
 			"big": {
 				"key":"Robusto",
 				"value": "Aumenta en un punto el atributo de Constitución.",
 				"isBig": true,
 				"effect":{
-					"con":1
+					"constitution":1
 				}
 			},
-			"med": {
+			"medium": {
 				"key":"Duro",
 				"value": "Aumenta en dos puntos los Puntos de Vida.",
 				"isBig": false,
@@ -41,74 +41,74 @@
 					"health":2
 				}
 			},
-			"dis": {
+			"disadvantage": {
 				"key":"Grande",
 				"value":"Aumenta en un punto su atributo de Tamaño.",
 				"effect":{
-					"tam":1
+					"size":1
 				}
 			}
 		}
 	}, {
-		"Familia": "Ishikawa",
-		"vent": {
+		"Family": "Ishikawa",
+		"advantages": {
 			"big": {
 				"key":"Concentrado",
 				"value": "Modifica de Descuido a Acierto un resultado en cualquier tirada que realice con el atributo de Serenidad.",
 				"isBig": true,
 				"effect": null
 			},
-			"med": {
+			"medium": {
 				"key":"Conoce la magia",
-				"value": "Cuando el héroe sea objetivo de un hechizo, aumenta o disminuye en uno la dificultad del hechizo.",
+				"value": "Cuando el héroe sea objetivo de un hechizo, aumenta o disadvantageminuye en uno la dificultad del hechizo.",
 				"isBig": false,
 				"effect": null
 			},
-			"dis": {
+			"disadvantage": {
 				"key":"Parado",
-				"value": "Disminuye en un punto el atributo de Reacción.",
+				"value": "disadvantageminuye en un punto el atributo de Reacción.",
 				"effect":{
-					"rea":-1
+					"reaction":-1
 				}
 			}
 		}
 	}, {
-		"Familia": "Kimura",
-		"vent": {
+		"Family": "Kimura",
+		"advantages": {
 			"big": {
 				"key":"Ágil",
 				"value": "Aumenta en un punto el atributo de Reacción.",
 				"isBig": true,
 				"effect":{
-					"rea":1
+					"reaction":1
 				}
 			},
-			"med": {
+			"medium": {
 				"key":"Veloz",
 				"value": "Aumenta en dos puntos el atributo de Movimiento.",
 				"isBig": false,
 				"effect":{
-					"mov":2
+					"movement":2
 				}
 			},
-			"dis": {
+			"disadvantage": {
 				"key":"Indigno",
-				"value": "Disminuye en un punto el atributo de Honor.",
+				"value": "disadvantageminuye en un punto el atributo de Honor.",
 				"effect":{
 					"honor":-1
 				}
 			}
 		}
 	}, {
-		"Familia": "Ueno",
-		"vent": {
+		"Family": "Ueno",
+		"advantages": {
 			"big": {
 				"key":"Convincente",
 				"value": "Modifica de Descuido a Acierto un resultado en cualquier tirada que realice con el atributo de Honor.",
 				"isBig": true,
 				"effect": null
 			},
-			"med": {
+			"medium": {
 				"key":"Astuto",
 				"value": "Aumenta en un punto el atributo de Riqueza.",
 				"isBig": false,
@@ -116,88 +116,88 @@
 					"richness":1
 				}
 			},
-			"dis": {
+			"disadvantage": {
 				"key":"Cobarde",
 				"value": "Aumenta en un punto la habilidad de Miedo de aquellas miniaturas con las que se vaya a trabar en combate.Si la miniatura no tenía la habilidad de Miedo, se onsidera que ahora la tiene a nivel 1.",
 				"effect": null
 			}
 		}
 	}, {
-		"Familia": "Yamashita",
-		"vent": {
+		"Family": "Yamashita",
+		"advantages": {
 			"big": {
 				"key":"Bruto",
 				"value": "Modifica de Descuido a Acierto un resultado en cualquier tirada que realice con el atributo de Constitución.",
 				"isBig": true,
 				"effect": null
 			},
-			"med": {
+			"medium": {
 				"key":"Fuerte",
 				"value": "Aumenta en dos puntos la Fuerza de cada Acción de Ataque que realice el héroe.",
 				"isBig": false,
 				"effect": null
 			},
-			"dis": {
+			"disadvantage": {
 				"key":"Tonto",
-				"value": "Disminuye en un punto el atributo de Intelecto.",
+				"value": "disadvantageminuye en un punto el atributo de Intelecto.",
 				"effect":{
-					"int":-1
+					"intelligence":-1
 				}
 			}
 		}
 	}, {
-		"Familia": "Kobayashi",
-		"vent": {
+		"Family": "Kobayashi",
+		"advantages": {
 			"big": {
 				"key":"Tranquilo",
 				"value": "Aumenta en un punto el atributo de Serenidad.",
 				"isBig": true,
 				"effect":{
-					"ser":1
+					"serenity":1
 				}
 			},
-			"med": {
+			"medium": {
 				"key":"Rápido",
 				"value":"Aumenta en dos puntos la Velocidad de cada Acción de Combate que realice el héroe.",
 				"isBig": false,
 				"effect": null
 			},
-			"dis": {
+			"disadvantage": {
 				"key":"Blando",
-				"value":"Disminuye en un punto el atributo de Constitución.",
+				"value":"disadvantageminuye en un punto el atributo de Constitución.",
 				"effect":{
-					"con":-1
+					"constitution":-1
 				}
 			}
 		}
 	}, {
-		"Familia": "Ootake",
-		"vent": {
+		"Family": "Ootake",
+		"advantages": {
 			"big": {
 				"key":"Tozudo",
 				"value": "Aumenta en un punto el atributo de Perseverancia.",
 				"isBig": true,
 				"effect":{
-					"per":1
+					"perseverance":1
 				}
 			},
-			"med": {
+			"medium": {
 				"key":"Resistente",
 				"value": "Aumenta en dos puntos la Resistencia del héroe.",
 				"isBig": false,
 				"effect": null
 			},
-			"dis": {
+			"disadvantage": {
 				"key":"Lento",
-				"value": "Disminuye en dos puntos el atributo de Movimiento del héroe.",
+				"value": "disadvantageminuye en dos puntos el atributo de Movimiento del héroe.",
 				"effect":{
-					"mov":-2
+					"movement":-2
 				}
 			}
 		}
 	}, {
-		"Familia": "Takahashi",
-		"vent": {
+		"Family": "Takahashi",
+		"advantages": {
 			"big": {
 				"key":"Honorable",
 				"value": "Aumenta en un punto el atributo de Honor.",
@@ -206,155 +206,155 @@
 					"honor":1
 				}
 			},
-			"med": {
+			"medium": {
 				"key":"Valiente",
-				"value": "Disminuye en un punto el atributo de Miedo de aquellas miniaturas con las que vayan a trabarse en combate. Si se reduce a cero no es necesario hacer ninguna tirada.",
+				"value": "disadvantageminuye en un punto el atributo de Miedo de aquellas miniaturas con las que vayan a trabarse en combate. Si se reduce a cero no es necesario hacer ninguna tirada.",
 				"isBig": false,
 				"effect": null
 			},
-			"dis": {
+			"disadvantage": {
 				"key":"Ingenuo",
-				"value": "Disminuye en un punto el atributo de Riqueza.",
+				"value": "disadvantageminuye en un punto el atributo de Riqueza.",
 				"effect":{
 					"richness":-1
 				}
 			}
 		}
 	}, {
-		"Familia": "Yanagihara ",
-		"vent": {
+		"Family": "Yanagihara ",
+		"advantages": {
 			"big": {
 				"key":"Sentidos agudos",
 				"value": "Aumenta en un punto el atributo de Atención.",
 				"isBig": true,
 				"effect":{
-					"ate":1
+					"atention":1
 				}
 			},
-			"med": {
+			"medium": {
 				"key":"Carismático",
 				"value": "Modifica de Acierto a Crítico el resultado en cualquier tirada de Lealtad que realicen sus seguidores.",
 				"isBig": false,
 				"effect":null
 			},
-			"dis": {
+			"disadvantage": {
 				"key":"Desprotegido contra la magia",
-				"value": "Cuando el héroe sea objetivo de un hechizo, aumenta o disminuye en uno a elección del personaje que ejecuta el hechizo su dificultad.",
+				"value": "Cuando el héroe sea objetivo de un hechizo, aumenta o disadvantageminuye en uno a elección del personaje que ejecuta el hechizo su dificultad.",
 				"effect":null
 			}
 		}
 	}, {
-		"Familia": "Furumori",
-		"vent": {
+		"Family": "Furumori",
+		"advantages": {
 			"big": {
 				"key":"Listo",
 				"value": "Aumenta en un punto el atributo de Intelecto.",
 				"isBig": true,
 				"effect":{
-					"int":1
+					"intelligence":1
 				}
 			},
-			"med": {
+			"medium": {
 				"key":"Escurridizo",
-				"value": "Disminuye en un punto su atributo de Tamaño.",
+				"value": "disadvantageminuye en un punto su atributo de Tamaño.",
 				"isBig": false,
 				"effect":{
-					"tam":-1
+					"size":-1
 				}
 			},
-			"dis": {
+			"disadvantage": {
 				"key":"Impaciente",
-				"value": "Disminuye en un punto el atributo de Serenidad.",
+				"value": "disadvantageminuye en un punto el atributo de Serenidad.",
 				"effect":{
-					"ser":-1
+					"serenity":-1
 				}
 			}
 		}
 	}, {
-		"Familia": "Shimizu",
-		"vent": {
+		"Family": "Shimizu",
+		"advantages": {
 			"big": {
 				"key":"Preciso",
 				"value": "Modifica de Descuido a Acierto un resultado en cualquier tirada que realice con el atributo de Atención.",
 				"isBig": true,
 				"effect": null
 			},
-			"med": {
+			"medium": {
 				"key":"Afortunado",
 				"value": "Puede realizar dos tiradas en la tabla de Supervivencia al final de la partida y escoger el resultado.",
 				"isBig": false,
 				"effect": null
 			},
-			"dis": {
+			"disadvantage": {
 				"key":"Débil",
-				"value": "Disminuye en un punto el atributo de Perseverancia.",
+				"value": "disadvantageminuye en un punto el atributo de Perseverancia.",
 				"effect":{
-					"per":-1
+					"perseverance":-1
 				}
 			}
 		}
 	}, {
-		"Familia": "Miyazaki",
-		"vent": {
+		"Family": "Miyazaki",
+		"advantages": {
 			"big": {
 				"key":"Ingenioso",
 				"value": "Modifica de Descuido a Acierto un resultado en cualquier tirada que realice con el atributo de Intelecto.",
 				"isBig": true,
 				"effect":null
 			},
-			"med": {
+			"medium": {
 				"key":"Cordial",
 				"value": "Considera que los habitantes tienen un marcador de Aversión menos cuando trate de reclutarlos.",
 				"isBig": false,
 				"effect":null
 			},
-			"dis": {
-				"key":"Distraído",
-				"value": "Disminuye en un punto el atributo de Atención.",
+			"disadvantage": {
+				"key":"disadvantagetraído",
+				"value": "disadvantageminuye en un punto el atributo de Atención.",
 				"effect":{
-					"ate":-1
+					"atention":-1
 				}
 			}
 		}
 	}, {
-		"Familia": "Hirose",
-		"vent": {
+		"Family": "Hirose",
+		"advantages": {
 			"big": {
 				"key":"Firme",
 				"value": "Modifica de Descuido a Acierto un resultado en cualquier tirada que realice con el atributo de Perseverancia.",
 				"isBig": true,
 				"effect": null
 			},
-			"med": {
+			"medium": {
 				"key":"Voz potente",
-				"value": "Aumenta la distancia para declarar un duelo y el alcance de las habilidades de la senda de la palabra y la habilidad Orden imperativa de la senda de la corrupción en 10 cm.",
+				"value": "Aumenta la disadvantagetancia para declarar un duelo y el alcance de las habilidades de la senda de la palabra y la habilidad Orden imperativa de la senda de la corrupción en 10 cm.",
 				"isBig": false,
 				"effect": null
 			},
-			"dis": {
+			"disadvantage": {
 				"key":"Impulsivo",
-				"value": "Disminuye en dos puntos la Iniciativa del héroe.",
+				"value": "disadvantageminuye en dos puntos la Iniciativa del héroe.",
 				"effect":{
 					"initiative":-2
 				}
 			}
 		}
 	}, {
-		"Familia": "Kosugi",
-		"vent": {
+		"Family": "Kosugi",
+		"advantages": {
 			"big": {
 				"key":"Ligero",
 				"value": "Modifica de Descuido a Acierto un resultado en cualquier tirada que realice con el atributo de Reacción.",
 				"isBig": true,
 				"effect": null
 			},
-			"med": {
+			"medium": {
 				"key":"Tenaz",
 				"value": "Aumenta en un punto el Aguante del héroe.",
 				"isBig": false,
 				"effect": null
 			},
-			"dis": {
+			"disadvantage": {
 				"key":"Vulgar",
 				"value": "Modifica de Descuido a Fallo el resultado en cualquier tirada de Lealtad que realicen sus seguidores.",
 				"effect": null
@@ -362,9 +362,9 @@
 		}
 	},
 	{
-	"Familia": "Menor",
-	"vent": {
-		"med":[
+	"Family": "Menor",
+	"advantages": {
+		"medium":[
 			{
 				"key":"Obstinado",
 				"value": "Modifica de Descuido a Acierto un resultado en cualquier tirada que realice con un dado de Aguante.",
@@ -391,10 +391,10 @@
 				"isBig": false
 			}
 			],
-		"dis": 
+		"disadvantage": 
 		{
 			"key":"Anodino",
-			"value":"Disminuye en un punto la habilidad de Miedo de este personaje, hasta un mínimo de cero."
+			"value":"disadvantageminuye en un punto la habilidad de Miedo de este personaje, hasta un mínimo de cero."
 		}
 	}
 }]

@@ -26,8 +26,8 @@
 		</div>-->
 		<div ng-show="vm.selectedRace.name === 'Humano'">
 			<div>
-				Paterna: <select ng-options="family as family.Familia for family in vm.families" ng-change="vm.handleFatherFamily(vm.selectedFatherFamily)" ng-model="vm.selectedFatherFamily" class="form-control"></select>
-				Materna: <select ng-options="family as family.Familia for family in vm.families" ng-change="vm.handleMotherFamily(vm.selectedMotherFamily)" ng-model="vm.selectedMotherFamily" class="form-control"></select>
+				Paterna: <select ng-options="family as family.Family for family in vm.families" ng-change="vm.handleFatherFamily(vm.selectedFatherFamily)" ng-model="vm.selectedFatherFamily" class="form-control"></select>
+				Materna: <select ng-options="family as family.Family for family in vm.families" ng-change="vm.handleMotherFamily(vm.selectedMotherFamily)" ng-model="vm.selectedMotherFamily" class="form-control"></select>
 			</div>
 			<div>
 				<select ng-model="vm.fatherAdvantage"  ng-options="adv as adv.key for adv in vm.advantages.father" ng-change="vm.setAdv(vm.fatherAdvantage)" class="form-control"></select>
@@ -64,46 +64,50 @@
 					<th>Richness</th>
 				</tr>
 				<tr>
-					<td>{{vm.character.mov}}</td>
-					<td>{{vm.character.int}}</td>
-					<td>{{vm.character.ate}}</td>
-					<td>{{vm.character.rea}}</td>
-					<td>{{vm.character.ser}}</td>
-					<td>{{vm.character.con}}</td>
-					<td>{{vm.character.per}}</td>
-					<td>{{vm.character.tam}}</td>
-					<td>{{vm.character.int + vm.character.ate + vm.character.initiative}}</td>
-					<td>{{vm.character.per + vm.character.con + vm.character.health}}</td>
+					<td>{{vm.character.movement}}</td>
+					<td>{{vm.character.intelligence}}</td>
+					<td>{{vm.character.atention}}</td>
+					<td>{{vm.character.reaction}}</td>
+					<td>{{vm.character.serenity}}</td>
+					<td>{{vm.character.constitution}}</td>
+					<td>{{vm.character.perseverance}}</td>
+					<td>{{vm.character.size}}</td>
+					<td>{{vm.character.intelligence + vm.character.atention + vm.character.initiative}}</td>
+					<td>{{vm.character.perseverance + vm.character.constitution + vm.character.health}}</td>
 					<td>{{vm.character.honor + vm.honor}}</td>
 					<td>{{vm.character.richness + vm.richness}}</td>
 				</tr>
 			</table>
 			<span><b>Tipo:</b> {{vm.selectedRace.name}}</span></br>
 			<div ng-show="vm.selectedRace.name === 'Humano'">
-				<span><b>Familia Paterna: </b>{{vm.selectedFatherFamily.Familia}}</span></br>
-				<span><b>Familia Materna: </b>{{vm.selectedMotherFamily.Familia}}</span></br>
+				<span><b>Familia Paterna: </b>{{vm.selectedFatherFamily.Family}}</span>
+				<span><b>Familia Materna: </b>{{vm.selectedMotherFamily.Family}}</span></br>
+				<label> Ventajas </label>
 				<span ng-if="vm.Advantage"><b>{{vm.Advantage.key}}</b> - {{vm.Advantage.value}} </span></br>
 				<span ng-if="vm.Minor"><b>{{vm.Minor.key}}</b> - {{vm.Minor.value}}</span></br>
-				<span ng-if="vm.Disadvantage"><b>{{vm.Disadvantage.key}}</b> - {{vm.Disadvantage.value}}</span></br>
+				<span ng-if="vm.Disadvantage"><b>{{vm.Disadvantage.key}}</b> - {{vm.Disadvantage.value}}</span>
 				<div ng-if="vm.clanSelected != undefined" class="row">
-					<span><b>Organización:</b> {{vm.organizationSelected.Name}}</span></br>
-					<span><b>Clan:</b> {{vm.clanSelected.clan}}</span></br>
-					<span><b>Senda Principal: </b> {{vm.character.mainWay}} </span></br> 
-					<span><b>Senda Secundaria: </b> {{vm.character.secondaryWay}} </span>
-					<div class="col-xs-12" ng-if="vm.Dishonor.length > 1">
-						<div class="col-xs-4">
+					<div class="col-md-10">
+						<span><b>Organización:</b> {{vm.organizationSelected.Name}}</span>
+						<span><b>Clan:</b> {{vm.clanSelected.clan}}</span>
+						<span><b>Senda Principal: </b> {{vm.character.mainWay}} </span>
+						<span><b>Senda Secundaria: </b> {{vm.character.secondaryWay}} </span>
+					</div>
+					<div class="row">
+						<div class="col-md-12" ng-if="vm.Dishonor.length > 1">
+						<div class="col-md-4">
 							<span><b>Causas de deshonor: <b></span> 
 							<ul>
 								<li ng-repeat="dishonor in vm.Dishonor"> {{dishonor}} </li>
 							</ul>
 						</div>
-						<div class="col-xs-4">
+						<div class="col-md-4">
 							<span><b>Armas: <b></span> 
 							<ul>
 								<li ng-repeat="weapon in vm.weapons"> {{weapon}} </li>
 							</ul>
 						</div>
-						<div class="col-xs-4">
+						<div class="col-md-4">
 							<span><b>Armaduras: <b></span> 
 							<ul>
 								<li ng-repeat="armor in vm.armors"> {{armor}} </li>

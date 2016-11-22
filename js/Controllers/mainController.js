@@ -139,6 +139,10 @@
 
 		vm.loadOrganizations = function()
 		{
+			vm.organizations = [];
+			vm.clans = [];
+			vm.organizationSelected = null;
+			vm.clanSelected = null;
 			CharacterService.getOrganizations()
 				.success(_handleOrganizationsSuccess)
 				.error(_handlerError);

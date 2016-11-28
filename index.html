@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="css/bootstrap-responsive.min.css">
 	<script type="text/javascript" src="js/module.js"></script>
 	<script type="text/javascript" src="js/Controllers/mainController.js"></script>
+	<script type="text/javascript" src="js/Controllers/human.controller.js"></script>
 	<script type="text/javascript" src="js/Services/character.service.js"></script>
 	<script type="text/javascript" src="js/Services/armory.service.js"></script>
 </head>
@@ -18,13 +19,13 @@
     </div>-->
 	<div class="container main-frame"  ng-controller="MainController as vm">
 		<div>
-			Tipo: <select ng-options="race as race.name for race in vm.races" ng-change="vm.handleRace(vm.selectedRace)" ng-model="vm.selectedRace" class="form-control"></select>
+			Tipo: <select ng-options="race as race.name for race in vm.races" ng-change="vm.HandleRace(vm.selectedRace)" ng-model="vm.selectedRace" class="form-control"></select>
 		</div>
 		<!--<div>
 			Current Money: <input type="text" ng-model="Money" /> => {{Money}} </br>
 			Exp Available: <input type="text" ng-model="Experience" />  => {{Experience}}
 		</div>-->
-		<div ng-show="vm.selectedRace.name === 'Humano'">
+		<div ng-show="vm.selectedRace.name === 'Humano'" ng-controller="HumanController">
 			<div>
 				Paterna: <select ng-options="family as family.Family for family in vm.families" ng-change="vm.handleFatherFamily(vm.selectedFatherFamily)" ng-model="vm.selectedFatherFamily" class="form-control"></select>
 				Materna: <select ng-options="family as family.Family for family in vm.families" ng-change="vm.handleMotherFamily(vm.selectedMotherFamily)" ng-model="vm.selectedMotherFamily" class="form-control"></select>

@@ -1,10 +1,10 @@
 angular
 	.module('TousenApp')
-	.service('ArmoryService', ArmoryService);
+	.service('ArmoryDataService', ArmoryDataService);
 
-ArmoryService.$inject = ['$http'];
+ArmoryDataService.$inject = ['$http'];
 
-function ArmoryService($http){
+function ArmoryDataService($http){
 
 	var armory = {
 		getWeapons: getWeapons,

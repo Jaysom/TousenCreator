@@ -101,23 +101,6 @@
 			vm.minorAvantage =  family === true ? vm.selectedFatherFamily.advantages.med : vm.selectedFatherFamily.advantages.med;
 		}
 
-        function _handleMinors(res){
-			vm.ListMinors = res.Families.find(a => a.Family === minor).advantages.med;
-		}
-
-        function LoadFamilies()
-		{
-			CharacterService.getFamilies()
-				.success(_handlerFamilySuccess)
-				.error(_handlerError);
-		}
-
-        function GetMinors(){
-			CharacterService.getFamilies()
-				.success(_handleMinors)
-				.error(_handlerError);
-		}
-
         function ResetSelectors()
 		{
 			vm.advantages.father = [];

@@ -8,19 +8,13 @@
 
 	function MainController(CharacterService, $scope) {
 		var vm = this;
+		vm.races = Characterservice.LoadKinds();
 		vm.character = {};
 		vm.character.richness = 0;
 		vm.character.honor = 0;
 		vm.organizations = [];
 		vm.clans = [];
 		vm.Dishonor = [];
-
-		vm.LoadKinds = function()
-		{
-			CharacterService.getKinds()
-				.success(_handerKindsuccess)
-				.error(_handlerError);
-		}
 		
 		vm.HandleRace = function(selectedRace)
 		{
@@ -50,9 +44,7 @@
 			vm.clans = [];
 			vm.organizationSelected = null;
 			vm.clanSelected = null;
-			CharacterService.getOrganizations()
-				.success(_handleOrganizationsSuccess)
-				.error(_handlerError);
+			vm.organizations = CharacterService.LoadOrganizations(vm.character)
 		}
 			
 		vm.handleClan = function(clan) 
@@ -71,10 +63,7 @@
 			}
 		}
 
-		function _handerKindsuccess(res) 
-		{
-			vm.races = res.kinds;
-		}
+		
 		
 		function _handleCharacter(res) 
 		{
@@ -88,28 +77,6 @@
 			vm.character. size = res.attributes.size;
 			vm.character.initiative = 0
 			vm.character.health = 0;
-		}
-		
-		function _handleOrganizationsSuccess(res)
-		{
-			angular.forEach(res.Organizations, function(val) 
-			{
-				if (val.values.kinds == vm.selectedRace.name) {
-					if (val.values.families === undefined) {
-						vm.organizations.push(val);
-					} else {
-						if (_checkFamilies(val.values.families)){
-							 vm.organizations.push(val);
-						}
-					}
-				}
-			});
-			vm.organizationsEnabled = true;
-		}
-
-		function _checkFamilies(fam) 
-		{
-			return fam.indexOf(vm.selectedFatherFamily.Family) != -1 || fam.indexOf(vm.selectedMotherFamily.Family) != -1;
 		}
 		
 		function _handleCharacterHonor(honor)

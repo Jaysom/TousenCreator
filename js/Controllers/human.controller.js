@@ -4,16 +4,16 @@
 		.module('TousenApp')
 		.controller('HumanController', HumanController);
 
-		HumanController.$inject = ['CharacterService'];
+		HumanController.$inject = ['CharacterService', '$scope'];
 
-	function HumanController(CharacterService) {
+	function HumanController(CharacterService, $scope) {
         var vm = this;
         var minor = "Menor";
-
-        vm.loadHumanData = function(){
-            loadFamilies();
-			GetMinors();
-        }
+		vm.advantages = {
+			father:[],
+			mother:[],
+			disadvantages:[]
+		}
 
         function _handlerFamilySuccess(res) 
 		{
@@ -60,7 +60,7 @@
 			}	
 		}
 
-        		vm.setAdv = function(fatherAdvantage)
+		vm.setAdv = function(fatherAdvantage)
 		{
 			vm.Advantage = vm.advantages.father.find(i => i.key == fatherAdvantage.key);
 			if (fatherAdvantage.isBig){
@@ -96,11 +96,6 @@
 			}
 		}
 
-        function _checkFamilies(fam) 
-		{
-			return fam.indexOf(vm.selectedFatherFamily.Family) != -1 || fam.indexOf(vm.selectedMotherFamily.Family) != -1;
-		}
-
         function SetDefaultAdvantages(family){
 			vm.majorAvantage =  family === true ? vm.selectedFatherFamily.advantages.big : vm.selectedFatherFamily.advantages.big;
 			vm.minorAvantage =  family === true ? vm.selectedFatherFamily.advantages.med : vm.selectedFatherFamily.advantages.med;
@@ -130,11 +125,27 @@
 			vm.advantages.disadvantages = [];
 		}
 
+		function ResetAdvantages()
+		{
+			vm.fatherAdvantage = null;
+			vm.motherAdvantage = null;
+			vm.disAvantage = null;
+		}
+
         function GetMinorAdvantages(destiny, minorList)
 		{
 			angular.forEach(minorList, function(value){
 				destiny.push(value);
 			});
 		}
+
+		function _handlerError(data, status) 
+		{
+			console.log(data || "Request failed");
+			console.log(status);
+		}
+
+		LoadFamilies();
+		GetMinors();
     };
 })();

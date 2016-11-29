@@ -4,16 +4,11 @@
 		.module('TousenApp')
 		.controller('MainController', MainController);
 
-		MainController.$inject = ['CharacterService'];
+		MainController.$inject = ['CharacterService','$scope'];
 
-	function MainController(CharacterService) {
+	function MainController(CharacterService, $scope) {
 		var vm = this;
 		vm.character = {};
-		vm.advantages = {
-			father:[],
-			mother:[],
-			disadvantages:[]
-		}
 		vm.character.richness = 0;
 		vm.character.honor = 0;
 		vm.organizations = [];
@@ -30,9 +25,6 @@
 		vm.HandleRace = function(selectedRace)
 		{
 			vm.selectedRace = selectedRace;
-			if(selectedRace.name == "Humano"){
-				HumanController.loadHumanData();
-			}
 			_handleCharacter(selectedRace);
 		}
 		
@@ -114,12 +106,17 @@
 			});
 			vm.organizationsEnabled = true;
 		}
+
+		function _checkFamilies(fam) 
+		{
+			return fam.indexOf(vm.selectedFatherFamily.Family) != -1 || fam.indexOf(vm.selectedMotherFamily.Family) != -1;
+		}
 		
 		function _handleCharacterHonor(honor)
 		{
 			var a = Object.keys(honor);
 			if (_checkFamilies(a)) {
-				if (a.indexOf(vm.selectedFatherFamily.Family) != -1){
+				if (a.indexOf(vm.selectedFatherFamily.Family) != -1) {
 					return honor[vm.selectedFatherFamily.Family]; 
 				} else if (a.indexOf(vm.selectedMotherFamily.Family) != -1) {
 					return honor[vm.selectedMotherFamily.Family];
@@ -164,13 +161,6 @@
 					selectedPlayer[k] = vm.selectedRace.attributes[k] + adv.effect[k];
 					break;
 			}			
-		}
-
-		function ResetAdvantages()
-		{
-			vm.fatherAdvantage = null;
-			vm.motherAdvantage = null;
-			vm.disAvantage = null;
 		}
 
 		function _getAdvantageEffect(advantage)

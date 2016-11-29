@@ -25,15 +25,15 @@
 			Current Money: <input type="text" ng-model="Money" /> => {{Money}} </br>
 			Exp Available: <input type="text" ng-model="Experience" />  => {{Experience}}
 		</div>-->
-		<div ng-show="vm.selectedRace.name === 'Humano'" ng-controller="HumanController">
+		<div ng-show="vm.selectedRace.name === 'Humano'" ng-controller="HumanController as hc">
 			<div>
-				Paterna: <select ng-options="family as family.Family for family in vm.families" ng-change="vm.handleFatherFamily(vm.selectedFatherFamily)" ng-model="vm.selectedFatherFamily" class="form-control"></select>
-				Materna: <select ng-options="family as family.Family for family in vm.families" ng-change="vm.handleMotherFamily(vm.selectedMotherFamily)" ng-model="vm.selectedMotherFamily" class="form-control"></select>
+				Paterna: <select ng-options="family as family.Family for family in hc.families" ng-change="hc.handleFatherFamily(hc.selectedFatherFamily)" ng-model="hc.selectedFatherFamily" class="form-control"></select>
+				Materna: <select ng-options="family as family.Family for family in hc.families" ng-change="hc.handleMotherFamily(hc.selectedMotherFamily)" ng-model="hc.selectedMotherFamily" class="form-control"></select>
 			</div>
 			<div>
-				<select ng-model="vm.fatherAdvantage"  ng-options="adv as adv.key for adv in vm.advantages.father" ng-change="vm.setAdv(vm.fatherAdvantage)" class="form-control"></select>
-				<select ng-model="vm.motherAdvantage" ng-options="med as med.key for med in vm.advantages.mother" ng-change="vm.setMed(vm.motherAdvantage)" class="form-control"></select>
-				<select ng-model="vm.disAdvantage" ng-options="disav as disav.key for disav in vm.advantages.disadvantages" ng-change="vm.setDis(vm.disAdvantage)" class="form-control"></select>
+				<select ng-model="hc.fatherAdvantage"  ng-options="adv as adv.key for adv in hc.advantages.father" ng-change="hc.setAdv(hc.fatherAdvantage)" class="form-control"></select>
+				<select ng-model="hc.motherAdvantage" ng-options="med as med.key for med in hc.advantages.mother" ng-change="hc.setMed(hc.motherAdvantage)" class="form-control"></select>
+				<select ng-model="hc.disAdvantage" ng-options="disav as disav.key for disav in hc.advantages.disadvantages" ng-change="hc.setDis(hc.disAdvantage)" class="form-control"></select>
 			</div>
 		</div>
 		<div class="row">

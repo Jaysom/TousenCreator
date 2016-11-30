@@ -16,7 +16,9 @@ function CharacterService(CharacterDataService){
 
     function LoadKinds()
     {
-        return CharacterDataService.GetKinds();
+        CharacterDataService.GetKinds()
+            .success(_handlerKindSuccess)
+            .error(_handlerError);
     }
 
     function LoadFamilies()

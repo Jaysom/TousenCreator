@@ -10,12 +10,19 @@
 	{
         var vm = this;
         var minor = "Menor";
-		vm.Families = CharacterService.LoadFamilies(),
+		vm.Families;
 		vm.Minors = CharacterService.GetMinors()
 		vm.advantages = {
 			father:[],
 			mother:[],
 			disadvantages:[]
+		}
+
+		function LoadFamilies() {
+			CharacterService.LoadFamilies()
+				.then(function(data){
+					vm.families = data.data.families;
+				});
 		}
 
 		vm.handleFatherFamily = function(res)
@@ -123,5 +130,7 @@
 			console.log(data || "Request failed");
 			console.log(status);
 		}
+
+		LoadFamilies();
 	};
 })();

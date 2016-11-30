@@ -22,9 +22,8 @@ function CharacterService(CharacterDataService){
 
     function LoadFamilies()
 	{
-	   CharacterDataService.GetFamilies()
-		    .success(_handlerFamilySuccess)
-			.error(_handlerError);
+	   return CharacterDataService.GetFamilies()
+			.catch(_handlerError);
     }
     
     function GetMinors()

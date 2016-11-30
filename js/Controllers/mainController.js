@@ -17,12 +17,11 @@
 		vm.clans = [];
 		vm.Dishonor = [];
 		
-		function GetKinds() 
-		{
-			var a = CharacterService.LoadKinds();
-			console.log(a);
-			/*CharacterService.LoadKinds().succes(function(data){
-				vm.races = data.kinds; });*/
+		function GetKinds(){
+			CharacterService.LoadKinds()
+				.then(function (data) {
+					vm.races = data.data.kinds;
+				});
 		}
 
 		vm.HandleRace = function(selectedRace)

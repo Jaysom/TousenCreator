@@ -5,8 +5,6 @@ angular
 	CharacterService.$inject = ['CharacterDataService'];
 
 function CharacterService(CharacterDataService){
-    var self = this;
-    self.kinds = null;
     var minor = "Menor";
 	var character = {
         LoadKinds: LoadKinds,
@@ -18,12 +16,8 @@ function CharacterService(CharacterDataService){
 
     function LoadKinds()
     {
-        CharacterDataService.GetKinds()
-            .then(function(data){
-                self.kinds =  data.kinds;
-            },_handlerError);
-        
-        return self.kinds;
+        return CharacterDataService.GetKinds()
+            .catch(_handlerError);
     }
 
     function LoadFamilies()
@@ -69,7 +63,7 @@ function CharacterService(CharacterDataService){
 
     function _handlerKindSuccess(res) 
     {
-        return  res.kinds;
+        return res.kinds;
     }
 
     function _handlerFamilySuccess(res) 

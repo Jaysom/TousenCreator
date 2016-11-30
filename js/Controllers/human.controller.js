@@ -6,23 +6,19 @@
 
 		HumanController.$inject = ['CharacterService', '$scope'];
 
-	function HumanController(CharacterService, $scope) {
+	function HumanController(CharacterService, $scope) 
+	{
         var vm = this;
         var minor = "Menor";
+		vm.Families = CharacterService.LoadFamilies(),
+		vm.Minors = CharacterService.GetMinors()
 		vm.advantages = {
 			father:[],
 			mother:[],
 			disadvantages:[]
 		}
 
-        function _handlerFamilySuccess(res) 
-		{
-			vm.families = res.Families;
-			vm.honor = 0;
-			vm.richness = 0;
-		}
-
-        vm.handleFatherFamily = function(res)
+		vm.handleFatherFamily = function(res)
 		{
 			vm.selectedFatherFamily = res;
 			ResetAdvantages();
@@ -40,7 +36,7 @@
 				GetMinorAdvantages(vm.advantages.father, vm.ListMinors);
 			}		
 		}
-		
+			
 		vm.handleMotherFamily = function(res)
 		{
 			vm.selectedMotherFamily = res;
@@ -96,12 +92,12 @@
 			}
 		}
 
-        function SetDefaultAdvantages(family){
+		function SetDefaultAdvantages(family){
 			vm.majorAvantage =  family === true ? vm.selectedFatherFamily.advantages.big : vm.selectedFatherFamily.advantages.big;
 			vm.minorAvantage =  family === true ? vm.selectedFatherFamily.advantages.med : vm.selectedFatherFamily.advantages.med;
 		}
 
-        function ResetSelectors()
+		function ResetSelectors()
 		{
 			vm.advantages.father = [];
 			vm.advantages.mother = [];
@@ -115,7 +111,7 @@
 			vm.disAvantage = null;
 		}
 
-        function GetMinorAdvantages(destiny, minorList)
+		function GetMinorAdvantages(destiny, minorList)
 		{
 			angular.forEach(minorList, function(value){
 				destiny.push(value);
@@ -127,8 +123,5 @@
 			console.log(data || "Request failed");
 			console.log(status);
 		}
-
-		LoadFamilies();
-		GetMinors();
-    };
+	};
 })();

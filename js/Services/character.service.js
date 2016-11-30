@@ -5,25 +5,23 @@ angular
 	CharacterService.$inject = ['CharacterDataService'];
 
 function CharacterService(CharacterDataService){
-
+    var minor = "Menor";
 	var character = {
-        GetMinors: GetMinors,
-        LoadFamilies: LoadFamilies,
         LoadKinds: LoadKinds,
+        LoadFamilies: LoadFamilies,
+        GetMinors: GetMinors,
         LoadOrganizations: LoadOrganizations,
         FilterOrganizations: FilterOrganizations
 	};
 
-     function LoadKinds()
+    function LoadKinds()
     {
-        CharacterDataService.GetKinds()
-            .success(_handerKindsuccess)
-            .error(_handlerError);
+        return CharacterDataService.GetKinds();
     }
 
     function LoadFamilies()
 	{
-	    CharacterDataService.GetFamilies()
+	   CharacterDataService.GetFamilies()
 		    .success(_handlerFamilySuccess)
 			.error(_handlerError);
     }
@@ -58,13 +56,18 @@ function CharacterService(CharacterDataService){
                 }
             }
         });
-        
+
         return organizations;
     }
 
-    function _handerKindsuccess(res) 
+    function _handlerKindSuccess(res) 
     {
-        return res.kinds;
+        return  res.kinds;
+    }
+
+    function _handlerFamilySuccess(res) 
+    {
+        return res.Families;
     }
 
     function _handleMinors(res) 
@@ -77,9 +80,9 @@ function CharacterService(CharacterDataService){
         return res.Organizations;
     }
 
-    function _checkFamilies(fam, character) 
+    function _checkFamilies(fam, selected) 
     {
-        return fam.indexOf(character.selectedFatherFamily.Family) != -1 || fam.indexOf(character.selectedMotherFamily.Family) != -1;
+        return fam.indexOf(selected.selectedFatherFamily.Family) != -1 || fam.indexOf(selected.selectedMotherFamily.Family) != -1;
     }
 
     function _handlerError(data, status) 

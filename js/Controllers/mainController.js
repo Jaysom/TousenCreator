@@ -8,14 +8,21 @@
 
 	function MainController(CharacterService, $scope) {
 		var vm = this;
-		vm.races = Characterservice.LoadKinds();
 		vm.character = {};
 		vm.character.richness = 0;
 		vm.character.honor = 0;
+		vm.honor = 0;
+		vm.richness = 0;
 		vm.organizations = [];
 		vm.clans = [];
 		vm.Dishonor = [];
 		
+		function GetKinds() 
+		{
+			CharacterService.LoadKinds().succes(function(data){
+				vm.races = data.kinds; });
+		}
+
 		vm.HandleRace = function(selectedRace)
 		{
 			vm.selectedRace = selectedRace;
@@ -61,9 +68,7 @@
 				if (clan.vals.Secondary.length == 1) vm.character.secondaryWay = clan.vals.Secondary[0];
 				vm.Dishonor = clan.vals.Dishonor;
 			}
-		}
-
-		
+		}		
 		
 		function _handleCharacter(res) 
 		{
@@ -193,7 +198,7 @@
 			console.log(data || "Request failed");
 			console.log(status);
 		}
-		
-		vm.LoadKinds();
-		};
+	
+		GetKinds();
+	};
 })();

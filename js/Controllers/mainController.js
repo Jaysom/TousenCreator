@@ -19,8 +19,10 @@
 		
 		function GetKinds() 
 		{
-			CharacterService.LoadKinds().succes(function(data){
-				vm.races = data.kinds; });
+			var a = CharacterService.LoadKinds();
+			console.log(a);
+			/*CharacterService.LoadKinds().succes(function(data){
+				vm.races = data.kinds; });*/
 		}
 
 		vm.HandleRace = function(selectedRace)

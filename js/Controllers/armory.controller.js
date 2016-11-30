@@ -17,7 +17,7 @@
 
         function loadWeapons()
         {
-            ArmoryService.getweapons()
+            ArmoryService.getWeapons()
                 .success(_handlerWeapons)
                 .error(_handlerError);
         }

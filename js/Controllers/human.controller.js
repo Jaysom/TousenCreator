@@ -104,6 +104,87 @@
 			vm.minorAvantage =  family === true ? vm.selectedFatherFamily.advantages.med : vm.selectedFatherFamily.advantages.med;
 		}
 
+		function _applyAdvantage(selectedPlayer, adv)  
+		{
+			_checkCalculatedAttributes();
+			var k = _getAdvantageEffect(adv);
+			switch(k) {
+				case "health":
+					selectedPlayer[k] = adv.effect[k];
+					break;
+				case "initiative":
+					selectedPlayer[k] = adv.effect[k];
+					break;
+				case "honor":
+					selectedPlayer[k] = adv.effect[k];
+					break;
+				case "richness":
+					selectedPlayer[k] = adv.effect[k];
+					break;
+				default:
+					selectedPlayer[k] = vm.selectedRace.attributes[k] + adv.effect[k];
+					break;
+			}			
+		}
+
+		function _getAdvantageEffect(advantage)
+		{
+			for (var k in advantage.effect) {
+				return k;
+			}
+		}
+
+		function _checkCalculatedAttributes()
+		{
+			if (!_checkHealthAdvantage()) {
+				vm.character.health = 0;
+			}
+			if (!_checkInitiativeAdvantage()) {
+				vm.character.initiative = 0;
+			}
+			if (!_checkHonorAdvantage()) {
+				vm.character.honor = 0;
+			}
+			if (!_checkRichnessAdvantage) {
+				vm.character.richness = 0;
+			}
+		}
+
+		function _checkHealthAdvantage()
+		{
+			if(_checkAllAdvantages()) {
+				return (_getAdvantageEffect(vm.majorAvantage) === "health" || _getAdvantageEffect(vm.minorAvantage) === "health" || _getAdvantageEffect(vm.disAvantage) === "health");	
+			}
+			return false;
+		}
+
+		function _checkInitiativeAdvantage()
+		{
+			if(_checkAllAdvantages()) {
+				return (_getAdvantageEffect(vm.majorAvantage) === "initiative" || _getAdvantageEffect(vm.minorAvantage) === "initiative" || _getAdvantageEffect(vm.disAvantage) === "initiative");
+			}	
+			return false;
+		}
+
+		function _checkHonorAdvantage()
+		{
+			if(_checkAllAdvantages()){
+				return (_getAdvantageEffect(vm.majorAvantage) === "honor" || _getAdvantageEffect(vm.minorAvantage) === "honor" || _getAdvantageEffect(vm.disAvantage) === "honor");
+			}
+			return false;
+		}
+
+		function _checkRichnessAdvantage(){
+			if(_checkAllAdvantages()){
+				return (_getAdvantageEffect(vm.majorAvantage) === "richness" || _getAdvantageEffect(vm.minorAvantage) === "richness" || _getAdvantageEffect(vm.disAvantage) === "richness");
+			}
+			return false;
+		}
+
+		function _checkAllAdvantages(){
+			return vm.majorAvantage != undefined && vm.minorAvantage != undefined && vm.disAvantage != undefined; 
+		}
+
 		function ResetSelectors()
 		{
 			vm.advantages.father = [];

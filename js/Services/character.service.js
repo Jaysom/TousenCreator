@@ -28,21 +28,22 @@ function CharacterService(CharacterDataService){
     
     function GetMinors()
     {
-        CharacterDataService.GetFamilies()
-            .success(_handleMinors)
-            .error(_handlerError);
+        return CharacterDataService.GetFamilies()
+            .then(_handleMinors)
+            .catch(_handlerError);
     }
 
-    function LoadOrganizations(character)
+    function LoadOrganizations()
     {
-        CharacterDataService.GetOrganizations()
-            .success(_handleOrganizationsSuccess(character))
-            .error(_handlerError);
-
+        return CharacterDataService.GetOrganizations()
+            .then(function(data){
+                return(data.data.Organizations)
+            })
+            .catch(_handlerError);
     }
 
     function FilterOrganizations(character){
-        var allOrganizations = this.GetOrganizations();
+        var allOrganizations = this.LoadOrganizations();
         var organizations = [];
         angular.forEach(allOrganizations, function(val) 
         {
@@ -72,10 +73,10 @@ function CharacterService(CharacterDataService){
 
     function _handleMinors(res) 
     {
-        return res.Families.find(a => a.Family === minor).advantages.med;
+        return res.data.families.find(a => a.Family === minor).advantages.med;
     }
 
-    function _handleOrganizationsSuccess(res)
+    function _handleOrganizationsSuccess(res, character)
     {        
         return res.Organizations;
     }

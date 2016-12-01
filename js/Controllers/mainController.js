@@ -52,7 +52,7 @@
 			vm.clans = [];
 			vm.organizationSelected = null;
 			vm.clanSelected = null;
-			vm.organizations = CharacterService.LoadOrganizations(vm.selectedRace)
+			vm.organizations = CharacterService.FilterOrganizations(vm.selectedRace)
 		}
 			
 		vm.handleClan = function(clan) 

@@ -36,14 +36,14 @@ function CharacterService(CharacterDataService){
     function LoadOrganizations()
     {
         return CharacterDataService.GetOrganizations()
-            .then(function(data){
-                return(data.data.Organizations)
-            })
             .catch(_handlerError);
     }
 
     function FilterOrganizations(character){
-        var allOrganizations = this.LoadOrganizations();
+        var allOrganizations;
+        this.LoadOrganizations().then(function(data){
+                allOrganizations = data.data.Organizations;
+            });
         var organizations = [];
         angular.forEach(allOrganizations, function(val) 
         {

@@ -10,7 +10,6 @@ function CharacterService(CharacterDataService){
         LoadKinds: LoadKinds,
         LoadFamilies: LoadFamilies,
         GetMinors: GetMinors,
-        LoadOrganizations: LoadOrganizations,
         FilterOrganizations: FilterOrganizations
 	};
 
@@ -33,42 +32,26 @@ function CharacterService(CharacterDataService){
             .catch(_handlerError);
     }
 
-    function LoadOrganizations()
-    {
-        return CharacterDataService.GetOrganizations()
-            .catch(_handlerError);
-    }
-
     function FilterOrganizations(character, families){
         var organizations = [];
-        this.LoadOrganizations().then(function(data){
+        CharacterDataService.GetOrganizations().then(function(data){
                 return data.data.Organizations;
             }).then(function(allOrganizations){
-            angular.forEach(allOrganizations, function(val) 
-            {
-                if (val.values.kinds === character.name) {
-                    if (val.values.families === undefined) {
-                        organizations.push(val);
-                    } else {
-                        if (_checkFamilies(val.values.families, families)){
-                                organizations.push(val);
+                angular.forEach(allOrganizations, function(val) 
+                {
+                    if (val.values.kinds === character.name) {
+                        if (val.values.families === undefined) {
+                            organizations.push(val);
+                        } else {
+                            if (_checkFamilies(val.values.families, families)){
+                                    organizations.push(val);
+                            }
                         }
                     }
-                }
-            });
-        }).then(function(){
+                });
+            }).then(function(){
             return organizations;
         });        
-    }
-
-    function _handlerKindSuccess(res) 
-    {
-        return res.kinds;
-    }
-
-    function _handlerFamilySuccess(res) 
-    {
-        return res.Families;
     }
 
     function _handleMinors(res) 

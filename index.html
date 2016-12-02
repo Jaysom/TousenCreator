@@ -38,6 +38,11 @@
 				<select ng-model="hc.disAdvantage" ng-options="disav as disav.key for disav in hc.advantages.disadvantages" ng-change="hc.setDis(hc.disAdvantage)" class="form-control"></select>
 				<button ng-click="hc.setAdvantages()" class="btn btn-primary">Fijar Ventajas</button>	
 			</div>
+			<div>
+				<span ng-if="hc.fatherAdvantage"><b>{{hc.fatherAdvantage.key}}</b> - {{hc.fatherAdvantage.value}} </span></br>
+				<span ng-if="hc.motherAdvantage"><b>{{hc.motherAdvantage.key}}</b> - {{hc.motherAdvantage.value}}</span></br>
+				<span ng-if="hc.disAdvantage"><b>{{hc.disAdvantage.key}}</b> - {{hc.disAdvantage.value}}</span>
+			</div>
 		</div>
 		<div class="row">
 			<button ng-click="vm.loadOrganizations()" class="btn btn-primary">Cargar Organizaciones</button>
@@ -87,9 +92,9 @@
 				<span><b>Familia Paterna: </b>{{vm.families.father.Family}}</span>
 				<span><b>Familia Materna: </b>{{vm.families.mother.Family}}</span></br>
 				<label> Ventajas </label>
-				<span ng-if="vm.Advantage"><b>{{vm.advantages.fatherSelected.key}}</b> - {{vm.advantages.fatherSelected.value}} </span></br>
-				<span ng-if="vm.Minor"><b>{{vm.advantages.motherSelected.key}}</b> - {{vm.advantages.motherSelected.value}}</span></br>
-				<span ng-if="vm.Disadvantage"><b>{{vm.advantages.disAdvantage.key}}</b> - {{vm.advantages.disAdvantage.value}}</span>
+				<span ng-if="vm.advantages.fatherSelected"><b>{{vm.advantages.fatherSelected.key}}</b> - {{vm.advantages.fatherSelected.value}} </span></br>
+				<span ng-if="vm.advantages.motherSelected"><b>{{vm.advantages.motherSelected.key}}</b> - {{vm.advantages.motherSelected.value}}</span></br>
+				<span ng-if="vm.advantages.disAdvantage"><b>{{vm.advantages.disAdvantage.key}}</b> - {{vm.advantages.disAdvantage.value}}</span>
 				<div ng-if="vm.clanSelected != undefined" class="row">
 					<div class="col-md-10">
 						<span><b>Organización:</b> {{vm.organizationSelected.Name}}</span>

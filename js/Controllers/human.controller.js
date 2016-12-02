@@ -66,7 +66,6 @@
 
 		vm.setAdv = function(fatherAdvantage)
 		{
-			vm.Advantage = vm.advantages.father.find(i => i.key == fatherAdvantage.key);
 			if (fatherAdvantage.isBig){
 				vm.advantages.mother.shift();
 			}
@@ -75,7 +74,6 @@
 		
 		vm.setMed = function(motherAdvantage)
 		{
-			vm.Minor = vm.advantages.mother.find(i => i.key == motherAdvantage.key);
 			if (motherAdvantage.isBig){
 				vm.advantages.father.shift();
 			}
@@ -84,7 +82,6 @@
 		
 		vm.setDis = function(disAdvantage)
 		{
-			vm.Disadvantage = vm.advantages.disadvantages.find(i => i.key == disAdvantage.key);
 			vm.advantages.disAdvantage = disAdvantage;
 		}
 

@@ -17,17 +17,18 @@
 			mother:[],
 			disadvantages:[]
 		}
+		vm.families = {}
 
 		function LoadFamilies() {
 			CharacterService.LoadFamilies()
 				.then(function(data){
-					vm.families = data.data.families;
+					vm.Families = data.data.families;
 				});
 		}
 
 		vm.handleFatherFamily = function(res)
 		{
-			vm.selectedFatherFamily = res;
+			vm.families.father = res;
 			ResetAdvantages();
 			if(vm.selectedMotherFamily !== undefined){
 				if(vm.selectedMotherFamily.Family === minor && res.Family === minor){
@@ -46,7 +47,7 @@
 			
 		vm.handleMotherFamily = function(res)
 		{
-			vm.selectedMotherFamily = res;
+			vm.families.mother = res;
 			ResetAdvantages();
 			if (vm.selectedFatherFamily !== undefined){
 				if(vm.selectedFatherFamily.Family === minor && res.Family === minor){
@@ -69,11 +70,7 @@
 			if (fatherAdvantage.isBig){
 				vm.advantages.mother.shift();
 			}
-			if (fatherAdvantage.effect != null) {
-				_applyAdvantage(vm.character, fatherAdvantage);
-			} else {
-				_checkCalculatedAttributes();
-			}
+			vm.advantages.fatherSelected = fatherAdvantage;
 		}
 		
 		vm.setMed = function(motherAdvantage)
@@ -82,107 +79,17 @@
 			if (motherAdvantage.isBig){
 				vm.advantages.father.shift();
 			}
-			if (motherAdvantage.effect != null) {
-				_applyAdvantage(vm.character, motherAdvantage);
-			} else {
-				_checkCalculatedAttributes();
-			} 
+			vm.advantages.motherSelected = motherAdvantage;
 		}
 		
 		vm.setDis = function(disAdvantage)
 		{
 			vm.Disadvantage = vm.advantages.disadvantages.find(i => i.key == disAdvantage.key);
-			if(disAdvantage.effect != null) { 
-				_applyAdvantage(vm.character, disAdvantage);
-			} else {
-				_checkCalculatedAttributes();
-			}
+			vm.advantages.disAdvantage = disAdvantage;
 		}
 
-		function SetDefaultAdvantages(family){
-			vm.majorAvantage =  family === true ? vm.selectedFatherFamily.advantages.big : vm.selectedFatherFamily.advantages.big;
-			vm.minorAvantage =  family === true ? vm.selectedFatherFamily.advantages.med : vm.selectedFatherFamily.advantages.med;
-		}
-
-		function _applyAdvantage(selectedPlayer, adv)  
-		{
-			_checkCalculatedAttributes();
-			var k = _getAdvantageEffect(adv);
-			switch(k) {
-				case "health":
-					selectedPlayer[k] = adv.effect[k];
-					break;
-				case "initiative":
-					selectedPlayer[k] = adv.effect[k];
-					break;
-				case "honor":
-					selectedPlayer[k] = adv.effect[k];
-					break;
-				case "richness":
-					selectedPlayer[k] = adv.effect[k];
-					break;
-				default:
-					selectedPlayer[k] = vm.selectedRace.attributes[k] + adv.effect[k];
-					break;
-			}			
-		}
-
-		function _getAdvantageEffect(advantage)
-		{
-			for (var k in advantage.effect) {
-				return k;
-			}
-		}
-
-		function _checkCalculatedAttributes()
-		{
-			if (!_checkHealthAdvantage()) {
-				vm.character.health = 0;
-			}
-			if (!_checkInitiativeAdvantage()) {
-				vm.character.initiative = 0;
-			}
-			if (!_checkHonorAdvantage()) {
-				vm.character.honor = 0;
-			}
-			if (!_checkRichnessAdvantage) {
-				vm.character.richness = 0;
-			}
-		}
-
-		function _checkHealthAdvantage()
-		{
-			if(_checkAllAdvantages()) {
-				return (_getAdvantageEffect(vm.majorAvantage) === "health" || _getAdvantageEffect(vm.minorAvantage) === "health" || _getAdvantageEffect(vm.disAvantage) === "health");	
-			}
-			return false;
-		}
-
-		function _checkInitiativeAdvantage()
-		{
-			if(_checkAllAdvantages()) {
-				return (_getAdvantageEffect(vm.majorAvantage) === "initiative" || _getAdvantageEffect(vm.minorAvantage) === "initiative" || _getAdvantageEffect(vm.disAvantage) === "initiative");
-			}	
-			return false;
-		}
-
-		function _checkHonorAdvantage()
-		{
-			if(_checkAllAdvantages()){
-				return (_getAdvantageEffect(vm.majorAvantage) === "honor" || _getAdvantageEffect(vm.minorAvantage) === "honor" || _getAdvantageEffect(vm.disAvantage) === "honor");
-			}
-			return false;
-		}
-
-		function _checkRichnessAdvantage(){
-			if(_checkAllAdvantages()){
-				return (_getAdvantageEffect(vm.majorAvantage) === "richness" || _getAdvantageEffect(vm.minorAvantage) === "richness" || _getAdvantageEffect(vm.disAvantage) === "richness");
-			}
-			return false;
-		}
-
-		function _checkAllAdvantages(){
-			return vm.majorAvantage != undefined && vm.minorAvantage != undefined && vm.disAvantage != undefined; 
+		vm.setAdvantages = function(){
+			$scope.$emit('sendAdvantages',vm.advantages, vm.families);
 		}
 
 		function ResetSelectors()

@@ -29,13 +29,14 @@
 		</div>-->
 		<div ng-show="vm.selectedRace.name === 'Humano'" ng-controller="HumanController as hc">
 			<div>
-				Paterna: <select ng-options="family as family.Family for family in hc.families" ng-change="hc.handleFatherFamily(hc.selectedFatherFamily)" ng-model="hc.selectedFatherFamily" class="form-control"></select>
-				Materna: <select ng-options="family as family.Family for family in hc.families" ng-change="hc.handleMotherFamily(hc.selectedMotherFamily)" ng-model="hc.selectedMotherFamily" class="form-control"></select>
+				Paterna: <select ng-options="family as family.Family for family in hc.Families" ng-change="hc.handleFatherFamily(hc.selectedFatherFamily)" ng-model="hc.selectedFatherFamily" class="form-control"></select>
+				Materna: <select ng-options="family as family.Family for family in hc.Families" ng-change="hc.handleMotherFamily(hc.selectedMotherFamily)" ng-model="hc.selectedMotherFamily" class="form-control"></select>
 			</div>
 			<div>
 				<select ng-model="hc.fatherAdvantage"  ng-options="adv as adv.key for adv in hc.advantages.father" ng-change="hc.setAdv(hc.fatherAdvantage)" class="form-control"></select>
 				<select ng-model="hc.motherAdvantage" ng-options="med as med.key for med in hc.advantages.mother" ng-change="hc.setMed(hc.motherAdvantage)" class="form-control"></select>
 				<select ng-model="hc.disAdvantage" ng-options="disav as disav.key for disav in hc.advantages.disadvantages" ng-change="hc.setDis(hc.disAdvantage)" class="form-control"></select>
+				<button ng-click="hc.setAdvantages()" class="btn btn-primary">Fijar Ventajas</button>	
 			</div>
 		</div>
 		<div class="row">
@@ -83,12 +84,12 @@
 			</table>
 			<span><b>Tipo:</b> {{vm.selectedRace.name}}</span></br>
 			<div ng-show="vm.selectedRace.name === 'Humano'">
-				<span><b>Familia Paterna: </b>{{vm.selectedFatherFamily.Family}}</span>
-				<span><b>Familia Materna: </b>{{vm.selectedMotherFamily.Family}}</span></br>
+				<span><b>Familia Paterna: </b>{{vm.families.father.Family}}</span>
+				<span><b>Familia Materna: </b>{{vm.families.mother.Family}}</span></br>
 				<label> Ventajas </label>
-				<span ng-if="vm.Advantage"><b>{{vm.Advantage.key}}</b> - {{vm.Advantage.value}} </span></br>
-				<span ng-if="vm.Minor"><b>{{vm.Minor.key}}</b> - {{vm.Minor.value}}</span></br>
-				<span ng-if="vm.Disadvantage"><b>{{vm.Disadvantage.key}}</b> - {{vm.Disadvantage.value}}</span>
+				<span ng-if="vm.Advantage"><b>{{vm.advantages.fatherSelected.key}}</b> - {{vm.advantages.fatherSelected.value}} </span></br>
+				<span ng-if="vm.Minor"><b>{{vm.advantages.motherSelected.key}}</b> - {{vm.advantages.motherSelected.value}}</span></br>
+				<span ng-if="vm.Disadvantage"><b>{{vm.advantages.disAdvantage.key}}</b> - {{vm.advantages.disAdvantage.value}}</span>
 				<div ng-if="vm.clanSelected != undefined" class="row">
 					<div class="col-md-10">
 						<span><b>Organización:</b> {{vm.organizationSelected.Name}}</span>

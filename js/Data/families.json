@@ -60,13 +60,13 @@
 			},
 			"medium": {
 				"key":"Conoce la magia",
-				"value": "Cuando el héroe sea objetivo de un hechizo, aumenta o disadvantageminuye en uno la dificultad del hechizo.",
+				"value": "Cuando el héroe sea objetivo de un hechizo, aumenta o disminuye en uno la dificultad del hechizo.",
 				"isBig": false,
 				"effect": null
 			},
 			"disadvantage": {
 				"key":"Parado",
-				"value": "disadvantageminuye en un punto el atributo de Reacción.",
+				"value": "Disminuye en un punto el atributo de Reacción.",
 				"effect":{
 					"reaction":-1
 				}
@@ -93,7 +93,7 @@
 			},
 			"disadvantage": {
 				"key":"Indigno",
-				"value": "disadvantageminuye en un punto el atributo de Honor.",
+				"value": "Disminuye en un punto el atributo de Honor.",
 				"effect":{
 					"honor":-1
 				}
@@ -139,7 +139,7 @@
 			},
 			"disadvantage": {
 				"key":"Tonto",
-				"value": "disadvantageminuye en un punto el atributo de Intelecto.",
+				"value": "Disminuye en un punto el atributo de Intelecto.",
 				"effect":{
 					"intelligence":-1
 				}
@@ -164,7 +164,7 @@
 			},
 			"disadvantage": {
 				"key":"Blando",
-				"value":"disadvantageminuye en un punto el atributo de Constitución.",
+				"value":"Disminuye en un punto el atributo de Constitución.",
 				"effect":{
 					"constitution":-1
 				}
@@ -189,7 +189,7 @@
 			},
 			"disadvantage": {
 				"key":"Lento",
-				"value": "disadvantageminuye en dos puntos el atributo de Movimiento del héroe.",
+				"value": "Disadvantageminuye en dos puntos el atributo de Movimiento del héroe.",
 				"effect":{
 					"movement":-2
 				}
@@ -208,13 +208,13 @@
 			},
 			"medium": {
 				"key":"Valiente",
-				"value": "disadvantageminuye en un punto el atributo de Miedo de aquellas miniaturas con las que vayan a trabarse en combate. Si se reduce a cero no es necesario hacer ninguna tirada.",
+				"value": "Disminuye en un punto el atributo de Miedo de aquellas miniaturas con las que vayan a trabarse en combate. Si se reduce a cero no es necesario hacer ninguna tirada.",
 				"isBig": false,
 				"effect": null
 			},
 			"disadvantage": {
 				"key":"Ingenuo",
-				"value": "disadvantageminuye en un punto el atributo de Riqueza.",
+				"value": "Disminuye en un punto el atributo de Riqueza.",
 				"effect":{
 					"richness":-1
 				}
@@ -239,7 +239,7 @@
 			},
 			"disadvantage": {
 				"key":"Desprotegido contra la magia",
-				"value": "Cuando el héroe sea objetivo de un hechizo, aumenta o disadvantageminuye en uno a elección del personaje que ejecuta el hechizo su dificultad.",
+				"value": "Cuando el héroe sea objetivo de un hechizo, aumenta o disminuye en uno a elección del personaje que ejecuta el hechizo su dificultad.",
 				"effect":null
 			}
 		}
@@ -256,7 +256,7 @@
 			},
 			"medium": {
 				"key":"Escurridizo",
-				"value": "disadvantageminuye en un punto su atributo de Tamaño.",
+				"value": "Disminuye en un punto su atributo de Tamaño.",
 				"isBig": false,
 				"effect":{
 					"size":-1
@@ -264,7 +264,7 @@
 			},
 			"disadvantage": {
 				"key":"Impaciente",
-				"value": "disadvantageminuye en un punto el atributo de Serenidad.",
+				"value": "Disminuye en un punto el atributo de Serenidad.",
 				"effect":{
 					"serenity":-1
 				}

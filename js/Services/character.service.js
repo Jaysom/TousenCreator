@@ -10,7 +10,10 @@ function CharacterService(CharacterDataService){
         LoadKinds: LoadKinds,
         LoadFamilies: LoadFamilies,
         GetMinors: GetMinors,
-        FilterOrganizations: FilterOrganizations
+        FilterOrganizations: FilterOrganizations,
+        FilterClans: FilterClans,
+        GetHonor: GetHonor,
+        GetRichness: GetRichness
 	};
 
     function LoadKinds()
@@ -32,9 +35,10 @@ function CharacterService(CharacterDataService){
             .catch(_handlerError);
     }
 
-    function FilterOrganizations(character, families){
+    function FilterOrganizations(character, families)
+    {
         var organizations = [];
-        CharacterDataService.GetOrganizations().then(function(data){
+        return CharacterDataService.GetOrganizations().then(function(data){
                 return data.data.Organizations;
             }).then(function(allOrganizations){
                 angular.forEach(allOrganizations, function(val) 
@@ -52,6 +56,51 @@ function CharacterService(CharacterDataService){
             }).then(function(){
             return organizations;
         });        
+    }
+
+    function FilterClans(organization, families) 
+    {
+        var clans = []
+        angular.forEach(organization.values.clans, function(vals,clan)
+        {
+            if (vals.Limit != null) {
+                if (_checkFamilies(vals.Limit, families)) {
+                        clans.push({clan,vals});
+                    }	
+            } else {
+                clans.push({clan,vals});	
+            }	
+        });
+
+        return clans
+    }
+
+    function GetHonor(honor, families) 
+    {
+        var a = Object.keys(honor);
+        if (_checkFamilies(a, families)) {
+            if (a.indexOf(families.father.Family) != -1) {
+                return honor[families.father.Family]; 
+            } else if (a.indexOf(families.mother.Family) != -1) {
+                return honor[vm.families.fathermother.Family];
+            }
+        } else {
+            return honor.Default;
+        }
+    }
+
+    function GetRichness(richness, families)
+    {
+        var a = Object.keys(richness);
+        if (_checkFamilies(a, families)) {
+            if (a.indexOf(families.father.Family) != -1) {
+                return rich[families.father.Family];
+            } else if (a.indexOf(families.mother.Family) != -1) {
+                return rich[families.mother.Family];
+            }
+        } else {
+            return richness.Default;
+        }
     }
 
     function _handleMinors(res) 

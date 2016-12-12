@@ -27,7 +27,7 @@
 			Current Money: <input type="text" ng-model="Money" /> => {{Money}} </br>
 			Exp Available: <input type="text" ng-model="Experience" />  => {{Experience}}
 		</div>-->
-		<div ng-show="vm.selectedRace.name === 'Humano'" ng-controller="HumanController as hc">
+		<div ng-show="vm.selectedRace.name === 'Humano'" ng-if="vm.organizationsEnabled === false" ng-controller="HumanController as hc">
 			<div>
 				Paterna: <select ng-options="family as family.Family for family in hc.Families" ng-change="hc.handleFatherFamily(hc.selectedFatherFamily)" ng-model="hc.selectedFatherFamily" class="form-control"></select>
 				Materna: <select ng-options="family as family.Family for family in hc.Families" ng-change="hc.handleMotherFamily(hc.selectedMotherFamily)" ng-model="hc.selectedMotherFamily" class="form-control"></select>
@@ -44,10 +44,7 @@
 				<span ng-if="hc.disAdvantage"><b>{{hc.disAdvantage.key}}</b> - {{hc.disAdvantage.value}}</span>
 			</div>
 		</div>
-		<div class="row">
-			<button ng-click="vm.loadOrganizations()" class="btn btn-primary">Cargar Organizaciones</button>
-		</div>
-		<div ng-if="vm.organizationsEnabled === true">
+		<div ng-if="vm.organizationsEnabled == true">
 			<div>
 				<span> <b>Organization: </b> <select ng-options="org as org.Name for org in vm.organizations" ng-model="vm.selectedOrg" ng-change="vm.getOrganizationClans(vm.selectedOrg)" class="form-control"></select></span>
 				<span> <b>Clan: </b> <select ng-options="clan as clan.clan  for clan in vm.clans" ng-model="vm.selectedClan" ng-change="vm.handleClan(vm.selectedClan)" class="form-control"></select></span></br>

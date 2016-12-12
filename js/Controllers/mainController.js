@@ -16,6 +16,7 @@
 		vm.organizations = [];
 		vm.clans = [];
 		vm.Dishonor = [];
+		vm.organizationsEnabled = false;
 		
 		function GetKinds(){
 			CharacterService.LoadKinds()
@@ -32,7 +33,6 @@
 
 		vm.loadOrganizations = function()
 		{
-			vm.organizationsEnabled = true;
 			vm.organizations = [];
 			vm.clans = [];
 			vm.organizationSelected = null;
@@ -208,6 +208,8 @@
 			SetAdv();
 			SetMed();
 			SetDis();
+			vm.organizationsEnabled = true;
+			vm.loadOrganizations();
 		});
 	
 		GetKinds();

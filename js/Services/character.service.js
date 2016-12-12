@@ -48,7 +48,7 @@ function CharacterService(CharacterDataService){
                             organizations.push(val);
                         } else {
                             if (_checkFamilies(val.values.families, families)){
-                                    organizations.push(val);
+                                organizations.push(val);
                             }
                         }
                     }
@@ -60,19 +60,19 @@ function CharacterService(CharacterDataService){
 
     function FilterClans(organization, families) 
     {
-        var clans = []
+        var clans = [];
         angular.forEach(organization.values.clans, function(vals,clan)
         {
             if (vals.Limit != null) {
                 if (_checkFamilies(vals.Limit, families)) {
-                        clans.push({clan,vals});
-                    }	
+                    clans.push({clan,vals});
+                }	
             } else {
                 clans.push({clan,vals});	
             }	
         });
 
-        return clans
+        return clans;
     }
 
     function GetHonor(honor, families) 

@@ -85,8 +85,9 @@
 			vm.advantages.disAdvantage = disAdvantage;
 		}
 
-		vm.setAdvantages = function(){
-			$scope.$emit('sendAdvantages',vm.advantages, vm.families);
+		vm.setAdvantages = function()
+		{
+			$scope.$emit('SendAdvantages',vm.advantages, vm.families);
 		}
 
 		function ResetSelectors()

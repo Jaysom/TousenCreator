@@ -44,7 +44,7 @@
 				<span ng-if="hc.disAdvantage"><b>{{hc.disAdvantage.key}}</b> - {{hc.disAdvantage.value}}</span>
 			</div>
 		</div>
-		<div ng-if="vm.organizationsEnabled == true">
+		<div ng-if="vm.organizationsEnabled === true">
 			<div>
 				<span> <b>Organization: </b> <select ng-options="org as org.Name for org in vm.organizations" ng-model="vm.selectedOrg" ng-change="vm.getOrganizationClans(vm.selectedOrg)" class="form-control"></select></span>
 				<span> <b>Clan: </b> <select ng-options="clan as clan.clan  for clan in vm.clans" ng-model="vm.selectedClan" ng-change="vm.handleClan(vm.selectedClan)" class="form-control"></select></span></br>
@@ -84,40 +84,48 @@
 					<td>{{vm.character.richness + vm.richness}}</td>
 				</tr>
 			</table>
-			<span><b>Tipo:</b> {{vm.selectedRace.name}}</span></br>
+			<div class="row">
+				<div class="col-md-12">
+					<span><b>Tipo:</b> {{vm.selectedRace.name}}</span></br>
+				</div>
+			</div>
 			<div ng-show="vm.selectedRace.name === 'Humano'">
-				<span><b>Familia Paterna: </b>{{vm.families.father.Family}}</span>
-				<span><b>Familia Materna: </b>{{vm.families.mother.Family}}</span></br>
-				<label> Ventajas </label>
-				<span ng-if="vm.advantages.fatherSelected"><b>{{vm.advantages.fatherSelected.key}}</b> - {{vm.advantages.fatherSelected.value}} </span></br>
-				<span ng-if="vm.advantages.motherSelected"><b>{{vm.advantages.motherSelected.key}}</b> - {{vm.advantages.motherSelected.value}}</span></br>
-				<span ng-if="vm.advantages.disAdvantage"><b>{{vm.advantages.disAdvantage.key}}</b> - {{vm.advantages.disAdvantage.value}}</span>
-				<div ng-if="vm.clanSelected != undefined" class="row">
-					<div class="col-md-10">
+				<div class="row">
+					<div class="col-sm-12">
+						<span><b>Familia Paterna: </b>{{vm.familiesSelected.father.Family}}</span>
+						<span><b>Familia Materna: </b>{{vm.familiesSelected.mother.Family}}</span></br>
+						<b> Ventajas </b>
+						<span ng-if="vm.advantages.fatherSelected"><b>{{vm.advantages.fatherSelected.key}}</b> - {{vm.advantages.fatherSelected.value}} </span></br>
+						<span ng-if="vm.advantages.motherSelected"><b>{{vm.advantages.motherSelected.key}}</b> - {{vm.advantages.motherSelected.value}}</span></br>
+						<span ng-if="vm.advantages.disAdvantage"><b>{{vm.advantages.disAdvantage.key}}</b> - {{vm.advantages.disAdvantage.value}}</span>
+						<div ng-if="vm.clanSelected != undefined" class="row">
+					</div>
+					<div class="col-md-12">
 						<span><b>Organización:</b> {{vm.organizationSelected.Name}}</span>
 						<span><b>Clan:</b> {{vm.clanSelected.clan}}</span>
 						<span><b>Senda Principal: </b> {{vm.character.mainWay}} </span>
 						<span><b>Senda Secundaria: </b> {{vm.character.secondaryWay}} </span>
 					</div>
-					<div class="row">
-						<div class="col-md-12" ng-if="vm.Dishonor.length > 1">
-						<div class="col-md-4">
-							<span><b>Causas de deshonor: <b></span> 
-							<ul>
-								<li ng-repeat="dishonor in vm.Dishonor"> {{dishonor}} </li>
-							</ul>
-						</div>
-						<div class="col-md-4">
-							<span><b>Armas: <b></span> 
-							<ul>
-								<li ng-repeat="weapon in vm.weapons"> {{weapon}} </li>
-							</ul>
-						</div>
-						<div class="col-md-4">
-							<span><b>Armaduras: <b></span> 
-							<ul>
-								<li ng-repeat="armor in vm.armors"> {{armor}} </li>
-							</ul>
+					<div class="col-md-12" ng-if="vm.Dishonor.length > 1">
+						<span><b>Causas de deshonor: <b></span>
+						<div class="row">
+							<div class="col-md-4">		 
+								<ul>
+									<li ng-repeat="dishonor in vm.Dishonor"> {{dishonor}} </li>
+								</ul>
+							</div>
+							<div class="col-md-4">
+								<span><b>Armas: <b></span> 
+								<ul>
+									<li ng-repeat="weapon in vm.weapons"> {{weapon}} </li>
+								</ul>
+							</div>
+							<div class="col-md-4">
+								<span><b>Armaduras: <b></span> 
+								<ul>
+									<li ng-repeat="armor in vm.armors"> {{armor}} </li>
+								</ul>
+							</div>
 						</div>
 					</div>
 				</div>

@@ -202,7 +202,8 @@
 			console.log(status);
 		}
 
-		$scope.$on('sendAdvantages', function(event, advantages, families){
+		$scope.$on('SendAdvantages', function(event, advantages, families) 
+		{
 			vm.advantages = advantages;
 			vm.familiesSelected = families;
 			SetAdv();

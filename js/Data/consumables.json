@@ -1,0 +1,81 @@
+{
+	"Consumables": [{
+		"Omikuji": {
+			"Price": 4,
+			"Description": "El personaje que realice un Omikuji puede repetir una tirada de un dado durante o después de la partida. Después de eso resta el Omikuji de las pertenencias del personaje.",
+			"Charges": 1
+		}
+	}, {
+		"Ofuda": {
+			"Price": 4,
+			"Description": "El personaje puede usar una Acción de Interacción para poner un marcador de Ofuda, en contacto con él. Después de eso resta el Ofuda de las pertenencias del personaje. Todo Corrupto que al realizar una Acción de Movimiento se encuentre con el Ofuda, sufre un impacto de Fuerza 6 y tres impactos adicionales. Ignora cualquier valor de Armadura que tengan las miniaturas que reciban los impactos producidos  por este objeto. Una vez se hayan resuelto los efectos, elimina el marcador. También puede usarse en una Acción de Ataque contra un Corrupto en lugar de usar un arma. Se considera que el personaje realiza la  acción desarmado y si logra causar un impacto resuelve adicionalmente los efectos del Ofuda. Después de eso resta el Ofuda de laspertenencias del personaje. También puede usarse en una Acción de Disparo  contra un Corrupto junto a un arma de proyectiles. Si logra causar un impacto resuelve adicionalmente los efectos del Ofuda. Después de eso resta el Ofuda de las pertenencias del personaje. ",
+			"Charges": 1
+		}
+	}, {
+		"Omamori": {
+			"Price": 6,
+			"Description": "El personaje que posea un Omamori gana la característica Espectral en sus armas y aumenta en un punto su habilidad de Miedo contra los Espíritus. No se acumulan los efectos por poseer más de un Omamori. Además el personaje puede usar una Acción de Interacción para poner un marcador de Omamori en  contacto con él. Después de eso resta el Omamori de las pertenencias del personaje.Todo Espíritu que al realizar una Acción de Movimiento se encuentre con el Omamori deberá realizar una tirada de Miedo a nivel 1 o no podrá seguir avanzando. También puede usarse en una Acción de Disparo contra un Etéreo junto a un arma de proyectiles para ignorar la aracterística Etéreo de su objetivo. Después de eso resta el Omamori de las pertenencias del personaje.",
+			"Charges": 1
+		}
+	}, {
+		"Makibishi": {
+			"Price": 3,
+			"Description": "El personaje puede usar una Acción de Interacción para poner un marcador de Makibishi, dejándolo en contacto con el personaje. Después de eso resta los Makibishi de las pertenencias del personaje. Toda miniatura que no posea Puntos de Estructura y se mueva a 6 cm. o menos, sufrirá un impacto de Fuerza 1 y dos impactos adicionales. Se consideran un arma Cortante.",
+			"Charges": 1
+		}
+	}, {
+		"Endan": {
+			"Price": 3,
+			"Description": "El personaje puede usar una Acción de Interacción para poner un marcador de Endan, dejándolo en contacto con el personaje. Después de eso resta la Endan de las pertenencias del personaje. Una zona de 6 cm. alrededor del marcador pasa a considerarse Zona sin visión hasta el final del siguiente turno. ",
+			"Charges": 1
+		}
+	}, {
+		"Metsubishi": {
+			"Price": 3,
+			"Description": "El personaje puede usar una Acción de Ataque para usar el Metsubishi en lugar del arma equipada. Si finalmente aún queda algún Acierto en la tirada, el objetivo recibe un marcador de Cegado. Cada Acierto adicional genera un impacto adicional, que en lugar de causar heridas añade otro marcador de Cegado.",
+			"Charges": 1
+		}
+	}, {
+		"Veneno Polvo carmesí": {
+			"Price": 8,
+			"Description": "Sólo pueden usarse en armas o proyectiles con la característica Cortante o Afilada. No pueden combinarse en una misma arma. No afectan a miniaturas con Puntos de Estructura. Los impactos con esta arma pueden repetir cualquier número de dados en las tiradas de impactos adicionales. ",
+			"Charges": 1
+		}
+	}, {
+		"Veneno Colmillo de serpiente": {
+			"Price": 8,
+			"Description": "Sólo pueden usarse en armas o proyectiles con la característica Cortante o Afilada. No pueden combinarse en una misma arma. No afectan a miniaturas con Puntos de Estructura. Los impactos con esta arma causan una herida adicional. ",
+			"Charges": 1
+		}
+	}, {
+		"Veneno Extracto soporífero": {
+			"Price": 6,
+			"Description": "Sólo pueden usarse en armas o proyectiles con la característica Cortante o Afilada. No pueden combinarse en una misma arma. No afectan a miniaturas con Puntos de Estructura. Los impactos con esta arma colocan un marcador de Enfermo en la miniatura impactada. ",
+			"Charges": 1
+		}
+	}, {
+		"Veneno Esencia de muerte": {
+			"Price": 6,
+			"Description": "Sólo pueden usarse en armas o proyectiles con la característica Cortante o Afilada. No pueden combinarse en una misma arma. No afectan a miniaturas con Puntos de Estructura. Los impactos con esta arma colocan un marcador de Enfermo en la miniatura impactada.",
+			"Charges": 1
+		}
+	}, {
+		"Ungüento de los arrecifes:": {
+			"Price": 6,
+			"Description": "El personaje puede usar una Acción de Interacción para utilizar el Ungüento de los arrecifes. Recupera dos heridas perdidas durante la partida y anula los efectos de Sangrando si el personaje los sufría.  Después de eso resta el Ungüento de los arrecifes de las pertenencias del personaje.",
+			"Charges": 1
+		}
+	}, {
+		"Antídoto del despertar": {
+			"Price": 6,
+			"Description": "El personaje puede usar una Acción de Interacción para anular los efectos de todos los marcadores de Sueño. Además, durante el resto de la partida no puede volver a recibir ningún marcador de Sueño. Después de eso resta el Antídoto del despertar de las pertenencias del personaje.",
+			"Charges": 1
+		}
+	}, {
+		"Antídoto de la vida": {
+			"Price": 6,
+			"Description": "El personaje puede usar una Acción de Interacción para anular los efectos de todos los marcadores de Enfermo. Además, durante el resto de la partida no puede volver a recibir ningún marcador de Enfermo. Después de eso resta el Antídoto de la vida de las pertenencias del personaje.",
+			"Charges": 1
+		}
+	}]
+}

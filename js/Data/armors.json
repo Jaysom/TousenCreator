@@ -1,0 +1,46 @@
+{
+	"Armors": [
+        {
+		"Haraate": {
+			"Kind": "Ligera",
+			"Price": "8",
+			"Description": "El personaje tiene Armadura 1. Disminuye en un punto la Velocidad de cada Acción de Combate que realice el héroe, hasta un mínimo de cero.",
+			"effect": {
+				"armor": 1,
+				"speed": -1
+			}
+		}
+	}, {
+		"Haramaki": {
+			"Kind": "Media",
+			"Price": "12",
+			"Description": "El personaje tiene Armadura 2. Disminuye en un punto la Velocidad de cada Acción de Combate que realice el héroe, hasta un mínimo de cero. También disminuye en dos puntos su atributo de Movimiento, hasta un mínimo de dos.",
+			"effect": {
+				"armor": 2,
+				"speed": -1,
+				"movement": -2
+			}
+		}
+	}, {
+		"Dōmaru": {
+			"Kind": "Media",
+			"Price": "12",
+			"Description": "El personaje tiene Armadura 2. Disminuye en dos puntos la Velocidad de cada Acción de Combate que realice el héroe, hasta un mínimo de cero.",
+			"effect": {
+				"armor": 2,
+				"speed": -2
+			}
+		}
+	}, {
+		"Oyoroi": {
+			"Kind": "Pesada",
+			"Price": "16",
+			"Description": "El personaje tiene Armadura 3. Disminuye en dos puntos la Velocidad de cada Acción de Combate que realice el héroe, hasta un mínimo de cero. También disminuye en dos puntos su atributo de Movimiento, hasta un mínimo de dos.",
+			"effect": {
+				"armor": 3,
+				"speed": -2,
+				"movement": -2
+			}
+		}
+	}]
+}

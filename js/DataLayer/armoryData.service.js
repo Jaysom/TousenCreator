@@ -7,20 +7,20 @@ ArmoryDataService.$inject = ['$http'];
 function ArmoryDataService($http){
 
 	var armory = {
-		getWeapons: getWeapons,
-		getArmors: getArmors,
-		getExtras: getExtras
+		GetWeapons: GetWeapons,
+		GetArmors: GetArmors,
+		GetExtras: GetExtras
 	};
 
-    function getWeapons(){
+    function GetWeapons(){
 		return $http.get('js/Data/weapons.json');
 	}
 
-     function getArmors(){
+     function GetArmors(){
 		return $http.get('js/Data/armors.json');
 	}
 
-     function getExtras(){
+     function GetExtras(){
 		return $http.get('js/Data/extras.json');
 	}
 

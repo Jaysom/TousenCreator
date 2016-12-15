@@ -2,26 +2,26 @@ angular
 	.module('TousenApp')
 	.service('ArmoryService', ArmoryService);
 
-ArmoryService.$inject = ['$http'];
+ArmoryService.$inject = ['ArmoryDataService'];
 
-function ArmoryService($http){
+function ArmoryService(ArmoryDataService){
 
 	var armory = {
-		getWeapons: getWeapons,
-		getArmors: getArmors,
-		getExtras: getExtras
+		GetWeapons: GetWeapons,
+		GetArmors: GetArmors,
+		GetExtras: GetExtras
 	};
 
-    function getWeapons(){
-		return $http.get('js/Data/weapons.json');
+    function GetWeapons(){
+		return ArmoryDataService.GetWeapons();
 	}
 
-     function getArmors(){
-		return $http.get('js/Data/armors.json');
+     function GetArmors(){
+		return ArmoryDataService.GetArmors();
 	}
 
-     function getExtras(){
-		return $http.get('js/Data/extras.json');
+     function GetExtras(){
+		return ArmoryDataService.GetExtras();
 	}
 
 	return armory;

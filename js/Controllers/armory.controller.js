@@ -10,16 +10,18 @@
 		var vm = this;
         function loadArmory()
         {
-            loadWeapons();
+            LoadWeapons();
             loadArmors();
             loadExtras();
         }
 
-        function loadWeapons()
+        function LoadWeapons()
         {
-            ArmoryService.getWeapons()
-                .success(_handlerWeapons)
-                .error(_handlerError);
+            ArmoryService.GetWeapons()
+                .then(function(data){
+                    vm.weapons = data.data.Weapons;
+                })
+                .catch(_handlerError);
         }
 
         function loadArmors()
@@ -58,5 +60,6 @@
             console.log(status);
         }
 
+        LoadWeapons();
     }
 })();

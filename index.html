@@ -8,6 +8,7 @@
 	<script type="text/javascript" src="js/module.js"></script>
 	<script type="text/javascript" src="js/Controllers/mainController.js"></script>
 	<script type="text/javascript" src="js/Controllers/human.controller.js"></script>
+	<script type="text/javascript" src="js/Controllers/armory.controller.js"></script>
 	<script type="text/javascript" src="js/Services/character.service.js"></script>
 	<script type="text/javascript" src="js/Services/armory.service.js"></script>
 	<script type="text/javascript" src="js/DataLayer/armoryData.service.js"></script>
@@ -131,6 +132,11 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	<div ng-controller="ArmoryController as ac">
+		<ul>
+			<li ng-repeat="weapon in ac.weapons"> {{weapon.Name}} </li>
+		</ul>
 	</div>
 </body>
 </html>

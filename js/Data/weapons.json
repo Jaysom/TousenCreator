@@ -1,0 +1,568 @@
+{
+	"Weapons": [
+        {
+			"Aiguchi": {
+				"Profiles": {
+					"Onehanded": {
+						"Effects": ["Cortante"]
+					}
+				},
+				"Price": 8,
+				"Range": 0,
+				"Speed": 2,
+				"Damage": 1,
+				"Description": "Sables cortos de un filo, de uso sencillo y fácil ocultación."
+			}
+		}, {
+			"Katana": {
+				"Profiles": {
+					"Zweihanded": {
+						"Effects": ["Cortante", "Poderosa"]
+					},
+					"Onehanded": {
+						"Effects": ["Difícil de usar"]
+					}
+				},
+				"Price": 13,
+				"Range": 1,
+				"Speed": 0,
+				"Damage": 3,
+				"Description": "Es un largo sable de único filo, curvado. Se desenvaina llevando el filo hacia arriba y se puede blandir con una o dos manos, siendo esta última modalidad la más común."
+			}
+		}, {
+			"Wakizashi": {
+				"Profiles": {
+					"Onehanded": {
+						"Effects": ["Cortante", "Poderosa"]
+					}
+				},
+				"Price": 10,
+				"Range": 1,
+				"Speed": 0,
+				"Damage": 2,
+				"Description": "Es una espada corta, de forma similar a la de la katana, aunque el filo es generalmente más delgado. Los guerreros samurai a menudo llevaban ambas consigo, denominándolas en conjunto daisho."
+			}
+		}, {
+			"Nodachi": {
+				"Profiles": {
+					"Zweihanded": {
+						"Effects": ["Cortante", "Poderosa"]
+					},
+					"Onehanded": {
+						"Effects": ["Cortante", "Poderosa"]
+					}
+				},
+				"Price": 12,
+				"Range": 2,
+				"Speed": -2,
+				"Damage": 4,
+				"Description": "Es una enorme espada curva usada en las batallas. Se suele tener en la espalda y su gran tamaño obliga al luchador a usarla a dos manos, ya que es muy difícil de manejar."
+			}
+		}, {
+			"Ken/Tsurugi": {
+				"Profiles": {
+					"Onehanded": {
+						"Effects": ["Cortante", "Precisa"]
+					}
+				},
+				"Price": 13,
+				"Range": 1,
+				"Speed": 1,
+				"Damage": 2,
+				"Description": "Es una espada antigua, recta y de doble filo."
+			}
+		}, {
+			"Ono": {
+				"Profiles": {
+					"Zweihanded": {
+						"Effects": ["Afilada"]
+					}
+				},
+				"Price": 10,
+				"Range": 1,
+				"Speed": -2,
+				"Damage": 4,
+				"Description": "Es una enorme hacha de batalla que suele tener dos filos y que tiene que ser usada a  dos manos"
+			}
+		}, {
+			"Tetsubō/Kanabō": {
+				"Profiles": {
+					"Zweihanded": {
+						"Effects": ["Potente", "Poderosa"]
+					}
+				},
+				"Price": 13,
+				"Range": 1,
+				"Speed": -1,
+				"Damage": 3,
+				"Description": "Gran bastón de metal que suele llevar también tachones metálicos."
+			}
+		}, {
+			"Dai Tsuchi": {
+				"Profiles": {
+					"Zweihanded": {
+						"Effects": ["Contundente", "Enérgica", "Poderosa"]
+					}
+				},
+				"Price": 14,
+				"Range": 1,
+				"Speed": -2,
+				"Damage": 3,
+				"Description": "Gran martillo a dos manos."
+			}
+		}, {
+			"Bō": {
+				"Profiles": {
+					"Zweihanded": {
+						"Effects": ["Contundente", "Ligera", "Empujar", "Derribar", "Precisa"]
+					}
+				},
+				"Price": 12,
+				"Range": 2,
+				"Speed": 1,
+				"Damage": 0,
+				"Description": "Bastón de madera largo."
+			}
+		}, {
+			"Jō": {
+				"Profiles": {
+					"Onehanded": {
+						"Effects": ["Contundente", "Precisa"]
+					}
+				},
+				"Price": 5,
+				"Range": 1,
+				"Speed": 1,
+				"Damage": 0,
+				"Description": "Bastón de madera corto."
+			}
+		}, {
+			"Nagamaki": {
+				"Profiles": {
+					"Zweihanded": {
+						"Effects": ["Cortante", "Precisa"]
+					}
+				},
+				"Price": 14,
+				"Range": 1,
+				"Speed": 0,
+				"Damage": 3,
+				"Description": "Espada larga de un filo con una larga empuñadura que permite realizar más maniobras."
+			}
+		}, {
+			"Naginata": {
+				"Profiles": {
+					"Zweihanded": {
+						"Effects": ["Cortante"]
+					}
+				},
+				"Price": 15,
+				"Range": 2,
+				"Speed": 0,
+				"Damage": 3,
+				"Description": "Arma de asta con una larga hoja de un filo."
+			}
+		}, {
+			"Yari": {
+				"Profiles": {
+					"Zweihanded": {
+						"Effects": ["Cortante", "Ligera"]
+					}
+				},
+				"Price": 12,
+				"Range": 2,
+				"Speed": 1,
+				"Damage": 1,
+				"Description": "Arma de asta de gran longitud."
+			}
+		}, {
+			"Sai/Jitte": {
+				"Profiles": {
+					"Onehanded": {
+						"Effects": ["Desarmar"]
+					}
+				},
+				"Price": 5,
+				"Range": 0,
+				"Speed": 2,
+				"Damage": 0,
+				"Description": "Se trata de una pequeña barra metálica usada para atrapar la espada del oponente y desarmarlo."
+			}
+		}, {
+			"Kama": {
+				"Profiles": {
+					"Onehanded": {
+						"Effects": ["Cortante"]
+					}
+				},
+				"Price": 8,
+				"Range": 1,
+				"Speed": 1,
+				"Damage": 1,
+				"Description": "Es una hoz con la cuchilla levemente curva."
+			}
+		}, {
+			"Nunchaku/Sansetsukon": {
+				"Profiles": {
+					"Onehanded": {
+						"Effects": ["Contundente", "Defensiva", "Desarmar", "Difícil de usar"]
+					}
+				},
+				"Price": 12,
+				"Range": 1,
+				"Speed": 3,
+				"Damage": 1,
+				"Description": "Dos o tres palos de madera unidos por una fuerte cadena."
+			}
+		}, {
+			"Kusarigama/Kyoketsu-shoge": {
+				"Profiles": {
+					"Zweihanded": {
+						"Effects": ["Grande", "Cortante", "Desarmar", "Difícil de usar"]
+					}
+				},
+				"Price": 14,
+				"Range": 3,
+				"Speed": 1,
+				"Damage": 1,
+				"Description": "Compuesta por un kama o una daga larga con una hoz en el medio y un kusari de entre 1 y 3 m. de longitud que tiene un peso en su extremo, ya sea una plomada o una anilla grande."
+			}
+		}, {
+			"Bisentō": {
+				"Profiles": {
+					"Zweihanded": {
+						"Effects": ["Afilada", "Poderosa", "Difícil de usar"]
+					}
+				},
+				"Price": 14,
+				"Range": 2,
+				"Speed": -1,
+				"Damage": 3,
+				"Description": "Consiste en una hoja de hierro ancha y curva colocada en un asta como si fuese la continuación de la empuñadura."
+			}
+		}, {
+			"Tachi": {
+				"Profiles": {
+					"Zweihanded": {
+						"Effects": ["Cortante", "Ligera", "Poderosa"]
+					}
+				},
+				"Price": 10,
+				"Range": 1,
+				"Speed": -3,
+				"Damage": 3,
+				"Description": "Espada muy curva y larga usada a caballo. Se puede blandir a una mano mientras se monta y se suele usar para cercenar las cabezas de los enemigos."
+			}
+		}, {
+			"Kusari/Manrikigusari": {
+				"Profiles": {
+					"Zweihanded": {
+						"Effects": ["Contundente"]
+					}
+				},
+				"Price": 13,
+				"Range": 3,
+				"Speed": 1,
+				"Damage": 0,
+				"Description": "Es una cadena metálica que puede tener extremos pesados, que al girarlos sirven para hacer blanco en el adversario."
+			}
+		}, {
+			"Torashukō": {
+				"Profiles": {
+					"Onehanded": {
+						"Effects": ["Afilada"]
+					}
+				},
+				"Price": 10,
+				"Range": 0,
+				"Speed": 2,
+				"Damage": 1,
+				"Description": "Son tres o cuatro largas garras que suelen estar en un guante o similar sobre los nudillos."
+			}
+		}, {
+			"Kujin": {
+				"Profiles": {
+					"Onehanded": {
+						"Effects": ["Cortante", "Desarmar"]
+					}
+				},
+				"Price": 1,
+				"Range": 1,
+				"Speed": 2,
+				"Damage": 13,
+				"Description": "Espada acabada con una pronunciada curva hacia delante. Generalmente usada en pareja para bloquear y desarmar al adversario."
+			}
+		}, {
+			"Tonfa": {
+				"Profiles": {
+					"Onehanded": {
+						"Effects": ["Contundente", "Defensiva"]
+					}
+				},
+				"Price": 5,
+				"Range": 0,
+				"Speed": 2,
+				"Damage": 0,
+				"Description": "Es un arma muy versátil que se puede usar para realizar numerosas técnicas de defensa, ya que su forma y posición protege el antebrazo con gran eficacia y permite desviar ataques."
+			}
+		}, {
+			"Ninjatō/Ninjaken": {
+				"Profiles": {
+					"Onehanded": {
+						"Effects": ["Cortante", "Sorpresa"]
+					}
+				},
+				"Price": 10,
+				"Range": 1,
+				"Speed": 0,
+				"Damage": 2,
+				"Description": "Es una espada recta más corta que la katana usada por los ninja. Su tamaño otorga ciertas ventajas en espacios pequeños o cerrados frente a armas más largas. Se lleva o bien en la espalda para maximizar la posibilidad de movimiento o bien en una saya de katana para disimular su longitud."
+			}
+		}, {
+			"Shikomizue": {
+				"Profiles": {
+					"Onehanded": {
+						"Effects": ["Ocultas"]
+					}
+				},
+				"Price": 14,
+				"References": ["Jo", "Manrikigusari", "Kama"],
+				"Description": "Se trata de un bastón que oculta varias sorpresas en su interior, dándole una gran versatilidad al usuario."
+			}
+		}, {
+			"Masakari/Etsu": {
+				"Profiles": {
+					"Onehanded": {
+						"Effects": ["Cortante"]
+					}
+				},
+				"Price": 10,
+				"Range": 1,
+				"Speed": 0,
+				"Damage": 2,
+				"Description": "Hacha de mano usada habitualmente por los leñadores."
+			}
+		}, {
+			"Kodachi": {
+				"Profiles": {
+					"Onehanded": {
+						"Effects": ["Cortante", "Defensiva"]
+					}
+				},
+				"Price": 10,
+				"Range": 1,
+				"Speed": 0,
+				"Damage": 2,
+				"Description": "Es una espada corta, más pequeña que la katana pero más larga que la wakizashi."
+			}
+		}, {
+			"Yoroidōshi": {
+				"Profiles": {
+					"Onehanded": {
+						"Effects": ["Cortante"]
+					},
+					"Powerful": {
+						"Effects": ["Enérgica", "Difícil de usar"]
+					}
+				},
+				"Price": 12,
+				"Range": 0,
+				"Speed": 2,
+				"Damage": 1,
+				"Description": "Es un pequeño y grueso cuchillo usado en la batalla para atravesar armaduras."
+			}
+		}, {
+			"Kumade": {
+				"Profiles": {
+					"Zweihanded": {
+						"Effects": ["Contundente", "Agarrar"]
+					}
+				},
+				"Price": 8,
+				"Range": 2,
+				"Speed": 1,
+				"Damage": 0,
+				"Description": "Al final de un asta de madera se abren radialmente una serie de ganchos, dando la apariencia de una zarpa."
+			}
+		}, {
+			"Sasumata": {
+				"Profiles": {
+					"Zweihanded": {
+						"Effects": ["Agarrar", "Atrapar"]
+					}
+				},
+				"Price": 8,
+				"Range": 2,
+				"Speed": 1,
+				"Damage": 0,
+				"Description": "Rematando una larga asta de madera se encuentra una horquilla de metal diseñada para atrapar a los delincuentes."
+			}
+		}, {
+			"Sodegarami/Mojiri": {
+				"Profiles": {
+					"Zweihanded": {
+						"Effects": ["Cortante", "Agarrar"]
+					}
+				},
+				"Price": 8,
+				"Range": 2,
+				"Speed": 1,
+				"Damage": 0,
+				"Description": "En el extremo de un largo palo de recia madera, se sitúa una pieza de hierro rematada con numerosos garfios y puntas retorcidas. Su función es la de agarrar a los delincuentes por las mangas o cualquier parte que se tercie de su indumentaria."
+			}
+		}, {
+			"Tsukubō": {
+				"Profiles": {
+					"Zweihanded": {
+						"Effects": ["Cortante", "Derribar", "Agarrar"]
+					}
+				},
+				"Price": 10,
+				"Range": 2,
+				"Speed": 1,
+				"Damage": 0,
+				"Description": "Tras un largo palo de madera, se sitúa una superficie recta, que puede ser de madera, con o sin blindaje metálico, y allí se alojan puntas metálicas o clavos que cumplen la función de agarrar al criminal."
+			}
+		}, {
+			"Bokken": {
+				"Profiles": {
+					"Onehanded": {
+						"Effects": ["Potente", "Precisa"]
+					},
+					"Zweihanded": {
+						"Effects": ["Poderosa"]
+					}
+				},
+				"Price": 8,
+				"Range": 1,
+				"Speed": 0,
+				"Damage": 1,
+				"Description": "Espada de práctica de madera dura. Parece inofensiva pero en manos expertas puede causar grandes daños, incluso la muerte."
+			}
+		}, {
+			"Nagayari": {
+				"Profiles": {
+					"Zweihanded": {
+						"Effects": ["Cortante", "Difícil de usar"]
+					}
+				},
+				"Price": 12,
+				"Range": 3,
+				"Speed": 1,
+				"Damage": 1,
+				"Description": "Lanza más larga que el Yari."
+			}
+		}, {
+			"Tessen": {
+				"Profiles": {
+					"Onehanded": {
+						"Effects": ["Cortante", "Defensiva"]
+					}
+				},
+				"Price": 6,
+				"Range": 0,
+				"Speed": 2,
+				"Damage": 0,
+				"Description": "Se trata de un abanico plegable con varillas de metal o una barra sólida no plegable de madera o hierro con forma de abanico plegado. En ambos casos su inocente aspecto esconde una sorpresiva arma."
+			}
+		}, {
+			"Yumi": {
+				"Profiles": {
+					"Zweihanded": {
+						"Effects": ["Arma de Proyectiles", "Ligera"]
+					}
+				},
+				"Price": 6,
+				"Range": 0,
+				"Speed": -1,
+				"Damage": 0,
+				"Description": "Arco asimétrico, usado tanto por la infantería como por la caballería.",
+				"Extras": {
+					"Ya": 1
+				}
+			}
+		}, {
+			"Fukiya": {
+				"Profiles": {
+					"Zweihanded": {
+						"Effects": ["Arma de Proyectiles", "Ligera", "Manejable"]
+					},
+					"Onehanded": {
+						"Effects": ["Difícil de usar"]
+					}
+				},
+				"Price": 2,
+				"Range": 0,
+				"Speed": 0,
+				"Damage": 0,
+				"Description": "Se trata de una cerbatana formada por un largo tubo capaz de disparar dardos llamados fukibari.",
+				"Extras": {
+					"Fukibari": 1
+				},
+				"Distance": {
+					"Default": 15
+				}
+			}
+		},{
+			"Kunai": {
+				"Profiles": {
+					"Onehanded": {
+						"Effects": ["Cortante"]
+					},
+					"Ranged": {
+						"Effects": ["Arma de proyectiles", "Ligera"]
+					}
+				},
+				"Price": 10,
+				"Range": 0,
+				"Speed": 2,
+				"Damage": 1,
+				"Description": "Es una daga bastante pesada, hecha de hierro y muy difundida. Es de hoja recta con un anillo en el mango.",
+				"Distance": {
+					"Base": "constitution",
+					"Multiplier": 5
+				}
+			}
+		},{
+			"Shuriken/Shaken": {
+				"Profiles": {
+					"Onehanded": {
+						"Effects": ["Cortante"]
+					},
+					"Ranged": {
+						"Effects": ["Arma de proyectiles"]
+					}
+				},
+				"Price": 5,
+				"Range": 0,
+				"Speed": 2,
+				"Damage": 0,
+				"Description": "Son hojas arrojadizas de diferentes formas.",
+				"Distance": {
+					"Base": "constitution",
+					"Multiplier": 5
+				}
+			}
+		},{
+			"Tsubute": {
+				"Profiles": {
+					"Onehanded": {
+						"Effects": ["Contundente"]
+					},
+					"Ranged": {
+						"Effects": ["Arma de proyectiles"]
+					}
+				},
+				"Price": 3,
+				"Range": 0,
+				"Speed": 1,
+				"Damage": 0,
+				"Description": "Discos planos arrojadizos de metal o piedra con bordes romos, dirigidos a causar daño por el impacto contundente y no por el corte como los shuriken.",
+				"Distance": {
+					"Base": "constitution",
+					"Multiplier": 3
+				}
+			}
+		}
+	]
+}

@@ -1,0 +1,36 @@
+{
+	"Projectiles": [
+	{
+		"Ya": {
+			"Weapon": "Yumi",
+			"Effects": ["Cortante"],
+			"Charges": 1,
+			"Damage": 2,
+			"Price": 5
+		}
+	}, {
+		"Togariya": {
+			"Weapon": "Yumi",
+			"Effects": ["Cortante", "Enérgica"],
+			"Charges": 1,
+			"Damage": 1,
+			"Price": 7
+		}
+	}, {
+		"Hiya": {
+			"Weapon": "Yumi",
+			"Effects": ["Incendiaria"],
+			"Charges": 1,
+			"Damage": 0,
+			"Price": 6
+		}
+	}, {
+		"Fukibari": {
+			"Weapon": "Fukiya",
+			"Effects": ["Cortante", "Enérgica"],
+			"Charges": 1,
+			"Damage": 2,
+			"Price": 2
+		}
+	}]
+}

@@ -1,0 +1,48 @@
+{
+	"Effects": [
+    {
+		"Ligera": "Un personaje que use un arma a dos manos que sea Ligera puede usarla incluso si va montado."
+	}, {
+		"Grande": " Aunque la miniatura que lo use tenga 6 o más puntos de Constitución se sigue considerando un arma a dos manos."
+	}, {
+		"Cortante": "Un personaje que use un arma Cortante que cause uno o más impactos colocará un marcador de Sangrando en su oponente."
+	}, {
+		"Afilada": "Un personaje que use un arma Afilada que cause uno o más impactos colocará dos marcadores de Sangrando en su oponente"
+	}, {
+		"Contundente": "Un personaje que use un arma Contundente que cause uno o más impactos colocará un marcador de Aturdido en su oponente."
+	}, {
+		"Potente": "Un personaje que use un arma Potente que cause uno o más impactos colocará dos marcadores de Aturdido en su oponente."
+	}, {
+		"Enérgica": "Un personaje que use un arma Enérgica ignora cualquier valor de Armadura que tenga la miniatura objetivo de su Acción de Ataque."
+	}, {
+		"Defensiva": "Un personaje que use un arma Defensiva modifica de Fallo a Descuido un resultado en cualquier tirada de dificultad contra una Acción de Ataque."
+	}, {
+		"Difícil de usar": "Un personaje que use un arma Difícil de usar modifica de Acierto a Descuido un resultado en cualquier tirada para impactar de sus Acciones de Combate, que no sea una Acción de Hechizo de Combate."
+	}, {
+		"Precisa": "Un personaje que use un arma Precisa modifica de Fallo a Descuido un resultado en cualquier tirada para impactar de sus Acciones de Combate, que no  sea una Acción de Hechizo de Combate. "
+	}, {
+		"Poderosa": "Un personaje que use un arma Poderosa añade un impacto adicional si impacta con ella."
+	}, {
+		"Desarmar": "Un personaje que use un arma con Desarmar usará su Velocidad para las Acciones de Desarmar."
+	}, {
+		"Empujar": "Un personaje que use un arma con Empujar usará su Velocidad para las Acciones de Empujar."
+	}, {
+		"Agarrar": "Un personaje que use un arma con Agarrar usará su Velocidad para las Acciones de Agarrar."
+	}, {
+		"Atrapar": "Un personaje que use un arma con Atrapar usará su Velocidad para las Acciones de Atrapar."
+	}, {
+		"Arma de proyectiles": "Un personaje que use un arma que sea Arma de proyectiles sólo puede usar sus valores y características en una Acción de Disparo."
+	}, {
+		"Espectral ": "Un personaje que use un arma Espectral puede usar los valores de Velocidad y Daño en una Acción de Ataque Espectral."
+	}, {
+		"Incendiaria": "Si se impacta con esta arma, el objetivo obtiene un marcador de Llamas."
+	}, {
+		"Sorpresa": " Durante la fase de combate, en el paso de elección de acciones, se puede elegir esta arma aunque no esté en una de sus manos. Si es elegida, cambia  automáticamente lo que llevase en una mano por esta arma."
+	}, {
+		"Ocultas": "Durante la fase de combate, en el paso de elección de acciones, hay que determinar cómo cuál de las siguientes armas se usa en este turno:  Jo, Manrikigusari o Kama. Si no se determina, se mantendrá la elección anterior, y si se trata del inicio de la partida, siempre y cuando no se determine otra arma, se considerará un Jo. Esta arma no puede elegirse en la habilidad de Destreza, pero si se tiene Destreza en Jo, Manrikigusari o Kama se beneficiará mientras la use en ese modo."
+	}, {
+		"Manejable": "Puede usarse aunque el personaje se encuentre tumbado."
+	}, {
+		"Especial": "Los impactos causados por esta arma no usan el atributo de Constitución del personaje."
+	}]
+}

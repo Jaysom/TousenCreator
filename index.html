@@ -133,10 +133,33 @@
 			</div>
 		</div>
 	</div>
-	<div ng-controller="ArmoryController as ac">
-		<ul>
-			<li ng-repeat="weapon in ac.weapons"> {{weapon.Name}} </li>
-		</ul>
+	<div class="container-fluid">
+		<div ng-controller="ArmoryController as ac" class="row">
+			<div id="weaponlist" class="col-md-4">
+				<h1> Weapons </h1>
+				<ul>
+					<li ng-repeat="weapon in ac.weapons"> {{weapon.Name}} </li>
+				</ul>
+			</div>
+			<div id="armorlist" class="col-md-4">
+				<h1> Armors </h1>
+				<ul>
+					<li ng-repeat="armor in ac.armors"> {{armor.Name}} </li>
+				</ul>
+			</div>
+			<div id="extralist" class="col-md-4">
+				<h1> Complements </h1>
+				<ul>
+					<li ng-repeat="extra in ac.extras"> {{extra.Name}} </li>
+				</ul>
+			</div>
+			<div id="projectilelist" class="col-md-4">
+				<h1> Projectiles </h1>
+				<ul>
+					<li ng-repeat="projectile in ac.projectiles"> {{projectile.Name}} </li>
+				</ul>
+			</div>
+		</div>
 	</div>
 </body>
 </html>

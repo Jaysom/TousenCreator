@@ -9,19 +9,24 @@ function ArmoryDataService($http){
 	var armory = {
 		GetWeapons: GetWeapons,
 		GetArmors: GetArmors,
-		GetExtras: GetExtras
+		GetExtras: GetExtras,
+		GetProjectiles: GetProjectiles
 	};
 
-    function GetWeapons(){
+    function GetWeapons() {
 		return $http.get('js/Data/weapons.json');
 	}
 
-     function GetArmors(){
+     function GetArmors() {
 		return $http.get('js/Data/armors.json');
 	}
 
-     function GetExtras(){
-		return $http.get('js/Data/extras.json');
+     function GetExtras() {
+		return $http.get('js/Data/complements.json');
+	}
+
+	function GetProjectiles() {
+		return $http.get('js/Data/projectiles.json');
 	}
 
 	return armory;

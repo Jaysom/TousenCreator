@@ -8,50 +8,48 @@
 
     function ArmoryController(ArmoryService) {
 		var vm = this;
-        function loadArmory()
+        function LoadArmory()
         {
             LoadWeapons();
-            loadArmors();
-            loadExtras();
+            LoadArmors();
+            LoadExtras();
+            LoadProjectiles();
         }
 
         function LoadWeapons()
         {
             ArmoryService.GetWeapons()
-                .then(function(data){
+                .then(function(data) {
                     vm.weapons = data.data.Weapons;
                 })
                 .catch(_handlerError);
         }
 
-        function loadArmors()
+        function LoadArmors()
         {
-            ArmoryService.getArmors()
-                .success(_handlerArmors)
-                .error(_handlerError);
+            ArmoryService.GetArmors()
+                .then(function(data) {
+                    vm.armors = data.data.Armors;
+                })
+                .catch(_handlerError);
         }
 
-        function loadExtras()
+        function LoadExtras()
         {
-            ArmoryService.getExtras()
-                .success(_handlerExtras)
-                .error(_handlerError);
+            ArmoryService.GetExtras()
+                .then(function(data) {
+                    vm.extras = data.data.Complements;
+                })
+                .catch(_handlerError);
         }
 
-
-        function _handlerWeapons(res)
+        function LoadProjectiles()
         {
-            scope.weapons = res.weapons;
-        }
-
-        function _handlerArmors(res)
-        {
-            scope.armors = res.weapons;
-        }
-
-        function _handleResult(res)
-        {
-            scope.weapons = res.weapons;
+            ArmoryService.GetProjectiles()
+                .then(function(data) { 
+                    vm.projectiles = data.data.Projectiles;
+                })
+                .catch(_handlerError);
         }
 
         function _handlerError(data, status) 
@@ -60,6 +58,6 @@
             console.log(status);
         }
 
-        LoadWeapons();
+        LoadArmory();
     }
 })();

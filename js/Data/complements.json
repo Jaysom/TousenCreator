@@ -1,85 +1,88 @@
 {
-	"Complements": [{
-		"Menpō": {
+	"Complements": [
+		{
+		"Name" : "Menpō",
+		"Values" : {
 			"Place": "Cabeza",
 			"Price": 4,
 			"Description": "Se trata de una máscara metálica que realza el aspecto terrorífico del guerrero.",
 			"Combinable": "",
 			"Uncombinable": "",
-			"Charges": null,
 			"Effect": "Un personaje equipado con un Menpō aumenta en un punto su habilidad de Miedo contra las miniaturas con la regla especial de La vergüenza del campesino."
 		}
 	}, {
-		"Kabuto": {
+		"Name" : "Kabuto",
+		"Values" : {
 			"Place": "Cabeza",
 			"Price": 4,
 			"Description": "Si un personaje equipado con un Kabuto al final de la partida obtiene un 3 en la tabla de Supervivencia debido a una herida, se ignoran  los efectos de la herida y se considera como si hubiera obtenido un resultado de Ileso.",
 			"Combinable": "Menpō",
-			"Uncombinable": "",
-			"Charges": null
+			"Uncombinable": ""
+			
 		}
 	}, {
-		"Tengai": {
+		"Name" : "Tengai",
+		"Values" : {
 			"Place": "Cabeza",
 			"Price": 3,
 			"Description": "Mientras el personaje lleve el Tengai no podrá recibir marcadores de Cegado. Además, si tuviera la característica Aspecto perturbador no se le aplicarían sus efectos.",
 			"Combinable": "",
-			"Uncombinable": "Menpō",
-			"Charges": null
+			"Uncombinable": "Menpō"			
 		}
 	}, {
-		"Kimono de gala:": {
+		"Name": "Kimono de gala:",
+		"Key": "KGala",
+		"Values" : {
 			"Place": "Cuerpo",
 			"Price": 4,
 			"Description": "Mientras el personaje lleve el Kimono de gala modifica de Fallo a Descuido un resultado en cualquier tirada que use su atributo de Honor cuando trate con habitantes, seguidores o enemigos durante una partida.",
 			"Combinable": "",
-			"Uncombinable": "",
-			"Charges": null
+			"Uncombinable": ""			
 		}
 	}, {
-		"Geta": {
+		"Name" : "Geta",
+		"Values" : {
 			"Place": "Pies",
 			"Price": 2,
 			"Description": "Mientras el personaje lleve las Geta considera la superficie Blanda como Dura. Además, no sufrirá los impactos que causan los Makibishi por moverse. Si la miniatura es tumbada o se arrastra, sufrirá los impactos normalmente.",
 			"Combinable": "",
-			"Uncombinable": "",
-			"Charges": null
+			"Uncombinable": ""			
 		}
 	}, {
-		"Uma-jirushi": {
+		"Name" : "Uma-jirushi",
+		"Values" : {
 			"Place": "Mano",
 			"Price": 3,
 			"Description": "Requiere una mano para llevarlo. Todos los seguidores y héroes secundarios  a una distancia máxima de 6 cm. pueden repetir un dado en las tiradas de dificultad que deban realizar usando el atributo de Perseverancia. Un seguidor, o un héroe secundario podrá llevarlo en lugar del héroe y deberá mantenerse a una distancia máxima de 6 cm. de él para que los seguidores y héroes secundarios se beneficien de sus efectos.",
 			"Combinable": "",
-			"Uncombinable": "",
-			"Charges": null
+			"Uncombinable": ""			
 		}
 	}, {
-		"Sashimono": {
+		"Name" : "Sashimono",
+		"Values" : {
 			"Place": "Armadura Media/Pesada",
 			"Price": 1,
 			"Description": "Si el personaje causó una herida a otro héroe en una Acción de Ataque añade un punto a su experiencia. Si el personaje termina Inconsciente la partida, reduce en un punto la experiencia ganada.",
 			"Combinable": "",
-			"Uncombinable": "",
-			"Charges": null
+			"Uncombinable": ""			
 		}
 	}, {
-		"Shakuhachi": {
+		"Name" : "Shakuhachi",
+		"Values" : {
 			"Place": "Zweihanded",
 			"Price": 4,
 			"Description": "Mientras el personaje use el Shakuhachi modifica de Fallo a Descuido un resultado en cualquier tirada que use su atributo de Perseverancia cuando trate con habitantes, seguidores o enemigos que tengan la característica Animal durante una partida.",
 			"Combinable": "",
-			"Uncombinable": "",
-			"Charges": null
+			"Uncombinable": ""			
 		}
 	}, {
-		"Kaginawa": {
+		"Name" : "Kaginawa",
+		"Values" : {
 			"Place": "Zweihanded",
 			"Price": 4,
 			"Description": "Un personaje equipado con Kaginawa debe usar una Acción de Disparo para realizar una tirada para impactar contra una superficie vertical, para colocarlos en la posición adecuada. La tirada de dificultad para esta acción es de dos dados. Si logra impactar, en los siguientes turnos todo personaje que trate de subir la superficie vertical considera que si era lisa actuará como rugosa y si era rugosa como escalonada. Cualquier miniatura en la parte superior de la superficie vertical puede quitar el Kaginawa usando una Acción de Interacción para que ninguna otra miniatura se beneficie de ello. Si hay algún personaje tratando de subir por él, se realiza una tirada con el atributo de Constitución del personaje que ejecuta la acción. Si superas la tirada, la miniatura que trata de subir puede realizar una tirada de dificultad con su atributo de Constitución. En caso de haber dos o más personajes, se sumarán sus atributos para realizar la tirada. Si finalmente aún queda algún Acierto en la tirada, las miniaturas sufrirán una Caída; sino, no podrá retirar el Kaginawa.",
 			"Combinable": "",
-			"Uncombinable": "",
-			"Charges": null
+			"Uncombinable": ""			
 		}
 	}]
 }

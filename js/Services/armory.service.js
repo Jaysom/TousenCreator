@@ -9,19 +9,24 @@ function ArmoryService(ArmoryDataService){
 	var armory = {
 		GetWeapons: GetWeapons,
 		GetArmors: GetArmors,
-		GetExtras: GetExtras
+		GetExtras: GetExtras,
+		GetProjectiles: GetProjectiles
 	};
 
-    function GetWeapons(){
+    function GetWeapons() {
 		return ArmoryDataService.GetWeapons();
 	}
 
-     function GetArmors(){
+     function GetArmors() {
 		return ArmoryDataService.GetArmors();
 	}
 
-     function GetExtras(){
+     function GetExtras() {
 		return ArmoryDataService.GetExtras();
+	}
+
+	function GetProjectiles() {
+		return ArmoryDataService.GetProjectiles();
 	}
 
 	return armory;

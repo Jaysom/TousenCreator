@@ -72,7 +72,12 @@
 				}
 				vm.Dishonor = clan.vals.Dishonor;
 			}
-		}		
+		}
+
+		function GetDescriptions()
+		{
+			CharacterService.LoadDescriptions();
+		}
 		
 		function _handleCharacter(res) 
 		{

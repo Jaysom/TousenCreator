@@ -14,28 +14,40 @@
 	<script type="text/javascript" src="js/DataLayer/characterData.service.js"></script>
 </head>
 <body>
-    <!--<div class='banner'>
+    <div class='banner'>
         <div class='container'>
             <img src="./img/Tousen.JPG" alt="Tousen Character Builder" >
         </div>
-    </div>-->
+    </div>-
 	<div class="container main-frame"  ng-controller="MainController as vm">
 		<div class="row">
 			<div class="form-group">
 				<div class="col-md-1 text-center">
 					<label> Tipo: </label>
 				</div>
-				<div class="col-md-5">
+				<div class="col-md-3">
 				<select ng-options="race as race.name for race in vm.races" ng-change="vm.HandleRace(vm.selectedRace)" ng-model="vm.selectedRace" class="form-control"></select>
 				</div>
 			</div>
+			<div class="form-group">
+				<div class="col-sm-2">
+					<label> Current Money: </label>
+				</div>
+				<div class="col-sm-2">
+					<input type="text" ng-model="vm.Money" class="form-control" /> {{vm.Money}} Kobans
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2">
+					<label> Exp Available: </label>
+				</div>
+				<div class="col-sm-2">
+					<input type="text" ng-model="vm.Experience" class="form-control" /> {{vm.Experience}} Xp
+				</div>
+			</div>
 		</div>
-		<!--<div>
-			Current Money: <input type="text" ng-model="Money" /> => {{Money}} </br>
-			Exp Available: <input type="text" ng-model="Experience" />  => {{Experience}}
-		</div>-->
 		<div ng-show="vm.selectedRace.name === 'Humano'" ng-if="vm.organizationsEnabled === false" ng-controller="HumanController as hc">
-			<div class="row">
+			<<div class="row">
 				<div class="form-group">
 					<div class="col-md-2">
 						<label>Paterna: </label>

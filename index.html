@@ -20,29 +20,69 @@
         </div>
     </div>-->
 	<div class="container main-frame"  ng-controller="MainController as vm">
-		<div>
-			Tipo: <select ng-options="race as race.name for race in vm.races" ng-change="vm.HandleRace(vm.selectedRace)" ng-model="vm.selectedRace" class="form-control"></select>
+		<div class="row">
+			<div class="form-group">
+				<div class="col-md-1 text-center">
+					<label> Tipo: </label>
+				</div>
+				<div class="col-md-5">
+				<select ng-options="race as race.name for race in vm.races" ng-change="vm.HandleRace(vm.selectedRace)" ng-model="vm.selectedRace" class="form-control"></select>
+				</div>
+			</div>
 		</div>
 		<!--<div>
 			Current Money: <input type="text" ng-model="Money" /> => {{Money}} </br>
 			Exp Available: <input type="text" ng-model="Experience" />  => {{Experience}}
 		</div>-->
 		<div ng-show="vm.selectedRace.name === 'Humano'" ng-if="vm.organizationsEnabled === false" ng-controller="HumanController as hc">
-			<div>
-				Paterna: <select ng-options="family as family.Family for family in hc.Families" ng-change="hc.handleFatherFamily(hc.selectedFatherFamily)" ng-model="hc.selectedFatherFamily" class="form-control"></select>
-				Materna: <select ng-options="family as family.Family for family in hc.Families" ng-change="hc.handleMotherFamily(hc.selectedMotherFamily)" ng-model="hc.selectedMotherFamily" class="form-control"></select>
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-2">
+						<label>Paterna: </label>
+					</div>
+					<div class="col-md-4">
+						<select ng-options="family as family.Family for family in hc.Families" ng-change="hc.handleFatherFamily(hc.selectedFatherFamily)" ng-model="hc.selectedFatherFamily" class="form-control"></select>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-2">
+						<label>Materna: </label>
+					</div>
+					<div class="col-md-4">
+						<select ng-options="family as family.Family for family in hc.Families" ng-change="hc.handleMotherFamily(hc.selectedMotherFamily)" ng-model="hc.selectedMotherFamily" class="form-control"></select>
+					</div>
+				</div>
 			</div>
-			<div>
-				<select ng-model="hc.fatherAdvantage"  ng-options="adv as adv.key for adv in hc.advantages.father" ng-change="hc.setAdv(hc.fatherAdvantage)" class="form-control"></select>
-				<select ng-model="hc.motherAdvantage" ng-options="med as med.key for med in hc.advantages.mother" ng-change="hc.setMed(hc.motherAdvantage)" class="form-control"></select>
-				<select ng-model="hc.disAdvantage" ng-options="disav as disav.key for disav in hc.advantages.disadvantages" ng-change="hc.setDis(hc.disAdvantage)" class="form-control"></select>
-				<button ng-click="hc.setAdvantages()" class="btn btn-primary">Fijar Ventajas</button>	
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-1">
+						<label>Ventaja Paterna: </label>
+					</div>
+					<div class="col-md-3">
+						<select ng-model="hc.fatherAdvantage"  ng-options="adv as adv.key for adv in hc.advantages.father" ng-change="hc.setAdv(hc.fatherAdvantage)" class="form-control"></select>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-1">
+						<label>Ventaja Materna: </label>
+					</div>
+					<div class="col-md-3">
+						<select ng-model="hc.motherAdvantage" ng-options="med as med.key for med in hc.advantages.mother" ng-change="hc.setMed(hc.motherAdvantage)" class="form-control"></select>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-1">
+						<label> Desventaja: </label>
+					</div>
+					<div class="col-md-3">
+						<select ng-model="hc.disAdvantage" ng-options="disav as disav.key for disav in hc.advantages.disadvantages" ng-change="hc.setDis(hc.disAdvantage)" class="form-control"></select>
+					</div>
+				</div>				
 			</div>
-			<div>
-				<span ng-if="hc.fatherAdvantage"><b>{{hc.fatherAdvantage.key}}</b> - {{hc.fatherAdvantage.value}} </span></br>
-				<span ng-if="hc.motherAdvantage"><b>{{hc.motherAdvantage.key}}</b> - {{hc.motherAdvantage.value}}</span></br>
-				<span ng-if="hc.disAdvantage"><b>{{hc.disAdvantage.key}}</b> - {{hc.disAdvantage.value}}</span>
-			</div>
+			<button ng-click="hc.setAdvantages()" class="btn btn-primary">Fijar Ventajas</button>
+			<span ng-if="hc.fatherAdvantage"><b>{{hc.fatherAdvantage.key}}</b> - {{hc.fatherAdvantage.value}} </span></br>
+			<span ng-if="hc.motherAdvantage"><b>{{hc.motherAdvantage.key}}</b> - {{hc.motherAdvantage.value}}</span></br>
+			<span ng-if="hc.disAdvantage"><b>{{hc.disAdvantage.key}}</b> - {{hc.disAdvantage.value}}</span>
 		</div>
 		<div ng-if="vm.organizationsEnabled === true">
 			<div>
@@ -134,25 +174,31 @@
 	</div>
 	<div class="container-fluid">
 		<div ng-controller="ArmoryController as ac" class="row">
-			<div id="weaponlist" class="col-md-3">
+			<div id="weaponlist" class="col-md-4">
 				<h1> Weapons </h1>
 				<ul>
 					<li ng-repeat="weapon in ac.weapons"> {{weapon.Name}} </li>
 				</ul>
 			</div>
-			<div id="armorlist" class="col-md-3">
+			<div id="armorlist" class="col-md-4">
 				<h1> Armors </h1>
 				<ul>
 					<li ng-repeat="armor in ac.armors"> {{armor.Name}} </li>
 				</ul>
 			</div>
-			<div id="extralist" class="col-md-3">
+			<div id="extralist" class="col-md-4">
 				<h1> Complements </h1>
 				<ul>
 					<li ng-repeat="extra in ac.extras"> {{extra.Name}} </li>
 				</ul>
 			</div>
-			<div id="projectilelist" class="col-md-3">
+			<div id="consumableslist" class="col-md-4">
+				<h1> Consumables </h1>
+				<ul>
+					<li ng-repeat="consumable in ac.consumables"> {{consumable.Name}} </li>
+				</ul>
+			</div>
+			<div id="projectileList" class="col-md-4">
 				<h1> Projectiles </h1>
 				<ul>
 					<li ng-repeat="projectile in ac.projectiles"> {{projectile.Name}} </li>

@@ -55,7 +55,7 @@
 
         function LoadConsumables()
         {
-            ArmoryController.GetConsumables()
+            ArmoryService.GetConsumables()
                 .then(function(data) {
                     vm.consumables = data.data.Consumables;
                 })

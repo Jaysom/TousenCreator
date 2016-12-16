@@ -10,7 +10,8 @@ function ArmoryDataService($http){
 		GetWeapons: GetWeapons,
 		GetArmors: GetArmors,
 		GetExtras: GetExtras,
-		GetProjectiles: GetProjectiles
+		GetProjectiles: GetProjectiles,
+		GetConsumables: GetConsumables
 	};
 
     function GetWeapons() {

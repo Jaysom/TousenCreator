@@ -2,9 +2,8 @@
 <html ng-app="TousenApp">
 <head>
 	<title>Tousen Character Builder</title>
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 	<script type="text/javascript" src="js/angular.min.js"></script>
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/bootstrap-responsive.min.css">
 	<script type="text/javascript" src="js/module.js"></script>
 	<script type="text/javascript" src="js/Controllers/mainController.js"></script>
 	<script type="text/javascript" src="js/Controllers/human.controller.js"></script>
@@ -135,25 +134,25 @@
 	</div>
 	<div class="container-fluid">
 		<div ng-controller="ArmoryController as ac" class="row">
-			<div id="weaponlist" class="col-md-4">
+			<div id="weaponlist" class="col-md-3">
 				<h1> Weapons </h1>
 				<ul>
 					<li ng-repeat="weapon in ac.weapons"> {{weapon.Name}} </li>
 				</ul>
 			</div>
-			<div id="armorlist" class="col-md-4">
+			<div id="armorlist" class="col-md-3">
 				<h1> Armors </h1>
 				<ul>
 					<li ng-repeat="armor in ac.armors"> {{armor.Name}} </li>
 				</ul>
 			</div>
-			<div id="extralist" class="col-md-4">
+			<div id="extralist" class="col-md-3">
 				<h1> Complements </h1>
 				<ul>
 					<li ng-repeat="extra in ac.extras"> {{extra.Name}} </li>
 				</ul>
 			</div>
-			<div id="projectilelist" class="col-md-4">
+			<div id="projectilelist" class="col-md-3">
 				<h1> Projectiles </h1>
 				<ul>
 					<li ng-repeat="projectile in ac.projectiles"> {{projectile.Name}} </li>

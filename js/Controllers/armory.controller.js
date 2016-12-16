@@ -14,6 +14,7 @@
             LoadArmors();
             LoadExtras();
             LoadProjectiles();
+            LoadConsumables();
         }
 
         function LoadWeapons()
@@ -48,6 +49,15 @@
             ArmoryService.GetProjectiles()
                 .then(function(data) { 
                     vm.projectiles = data.data.Projectiles;
+                })
+                .catch(_handlerError);
+        }
+
+        function LoadConsumables()
+        {
+            ArmoryController.GetConsumables()
+                .then(function(data) {
+                    vm.consumables = data.data.Consumables;
                 })
                 .catch(_handlerError);
         }

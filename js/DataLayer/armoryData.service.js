@@ -29,5 +29,9 @@ function ArmoryDataService($http){
 		return $http.get('js/Data/projectiles.json');
 	}
 
+	function GetConsumables() {
+		return $http.get('js/Data/consumables.json');
+	}
+
 	return armory;
 }

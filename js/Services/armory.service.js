@@ -10,7 +10,8 @@ function ArmoryService(ArmoryDataService){
 		GetWeapons: GetWeapons,
 		GetArmors: GetArmors,
 		GetExtras: GetExtras,
-		GetProjectiles: GetProjectiles
+		GetProjectiles: GetProjectiles,
+		GetConsumables: GetConsumables
 	};
 
     function GetWeapons() {
@@ -27,6 +28,10 @@ function ArmoryService(ArmoryDataService){
 
 	function GetProjectiles() {
 		return ArmoryDataService.GetProjectiles();
+	}
+
+	function GetConsumables() {
+		return ArmoryDataService.GetConsumables();
 	}
 
 	return armory;

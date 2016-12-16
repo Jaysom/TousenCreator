@@ -126,15 +126,19 @@
 			</table>
 			<div class="row">
 				<div class="col-md-12">
-					<span><b>Tipo:</b> {{vm.selectedRace.name}}</span></br>
+					<b>Tipo:</b> {{vm.selectedRace.name}}</br>
 				</div>
 			</div>
 			<div ng-show="vm.selectedRace.name === 'Humano'">
 				<div class="row">
 					<div class="col-sm-12">
-						<span><b>Familia Paterna: </b>{{vm.familiesSelected.father.Family}}</span>
-						<span><b>Familia Materna: </b>{{vm.familiesSelected.mother.Family}}</span></br>
-						<b> Ventajas </b>
+						<div class="col-sm-3">
+							<span><b>Familia Paterna: </b>{{vm.familiesSelected.father.Family}}</span>
+						</div>
+						<div class="col-sm-3">
+							<span><b>Familia Materna: </b>{{vm.familiesSelected.mother.Family}}</span></br>
+						</div>
+						<p><b> Ventajas </b></p>
 						<span ng-if="vm.advantages.fatherSelected"><b>{{vm.advantages.fatherSelected.key}}</b> - {{vm.advantages.fatherSelected.value}} </span></br>
 						<span ng-if="vm.advantages.motherSelected"><b>{{vm.advantages.motherSelected.key}}</b> - {{vm.advantages.motherSelected.value}}</span></br>
 						<span ng-if="vm.advantages.disAdvantage"><b>{{vm.advantages.disAdvantage.key}}</b> - {{vm.advantages.disAdvantage.value}}</span>
@@ -197,7 +201,7 @@
 		</div>
 		<div>
 			<p>{{ac.weapon.Name}} {{ac.weapon.Values.Profiles.Onehanded.Effects[0]}} {{ac.weapon.Values.Price}} {{ac.weapon.Values.Description}}</p>
-			<p> {{ac.armor.Name}} {{ac.armor.Values.Kind}} {{ac.weapon.Values.Price}} {{ac.armor.Values.Description}}</p>
+			<p> {{ac.armor.Name}} {{ac.armor.Values.Kind}} {{ac.armor.Values.Price}} {{ac.armor.Values.Description}}</p>
 			<p> {{ac.extra.Name}} {{ac.extra.Values.Price}} {{ac.extra.Values.Description}}</p>
 			<p> {{ac.consumable.Name}} {{ac.consumable.Values.Price}} {{ac.consumable.Values.Description}}</p>
 			<p> {{ac.projectile.Name}} {{ac.projectile.Values.Weapon}} {{ac.projectile.Values.Price}}  {{ac.projectile.Values.Description}} </p>

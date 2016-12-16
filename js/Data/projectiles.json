@@ -7,7 +7,8 @@
 			"Effects": ["Cortante"],
 			"Charges": 1,
 			"Damage": 2,
-			"Price": 5
+			"Price": 5,
+			"Description": "Flechas corrientes"
 		}
 	}, {
 		"Name" : "Togariya",
@@ -16,16 +17,29 @@
 			"Effects": ["Cortante", "Enérgica"],
 			"Charges": 1,
 			"Damage": 1,
-			"Price": 7
+			"Price": 7,
+			"Description": "Con la punta más estrecha que una flecha normal, está diseñada para atravesar las superficies más resistentes."
 		}
-	}, {
+	}, 
+	{
+		"Name" : "Watakushi:",
+		"Values" : {
+			"Weapon": "Yumi",
+			"Effects": ["Afilada"],
+			"Charges": 1,
+			"Damage": 2,
+			"Price": 8,
+			"Description": "Con una punta más ancha, y generalmente adornada, que una flecha normal, está diseñada para que gire durante el vuelo de manera que al atravesar la carne del objetivo, la desgarre."
+		}
+	},{
 		"Name" : "Hiya",
 		"Values" : {
 			"Weapon": "Yumi",
 			"Effects": ["Incendiaria"],
 			"Charges": 1,
 			"Damage": 0,
-			"Price": 6
+			"Price": 6,
+			"Description" : "Con la punta prendida de fuego, está diseñada para incendiar al enemigo."
 		}
 	}, {
 		 "Name" : "Fukibari",
@@ -34,7 +48,8 @@
 			"Effects": ["Cortante", "Enérgica"],
 			"Charges": 1,
 			"Damage": 2,
-			"Price": 2
+			"Price": 2,
+			"Description" : "Pequeñas agujas impregnadas de veneno que se disparan con una cerbatana."
 		}
 	}]
 }

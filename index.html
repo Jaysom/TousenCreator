@@ -172,38 +172,35 @@
 			</div>
 		</div>
 	</div>
-	<div class="container-fluid">
-		<div ng-controller="ArmoryController as ac" class="row">
-			<div id="weaponlist" class="col-md-4">
-				<h1> Weapons </h1>
-				<ul>
-					<li ng-repeat="weapon in ac.weapons"> {{weapon.Name}} </li>
-				</ul>
+	<div class="container-fluid" ng-controller="ArmoryController as ac">
+		<div  class="row">
+			<div id="weaponlist" class="col-md-3">
+				<h3> Weapons </h3>
+				<select ng-options="weapon.Name for weapon in ac.weapons" ng-model="ac.weapon" class="form-control"></select>
 			</div>
-			<div id="armorlist" class="col-md-4">
-				<h1> Armors </h1>
-				<ul>
-					<li ng-repeat="armor in ac.armors"> {{armor.Name}} </li>
-				</ul>
+			<div id="armorlist" class="col-md-2">
+				<h3> Armors </h3>
+				<select ng-options="armor.Name for armor in ac.armors" ng-model="ac.armor" class="form-control"></select>
 			</div>
-			<div id="extralist" class="col-md-4">
-				<h1> Complements </h1>
-				<ul>
-					<li ng-repeat="extra in ac.extras"> {{extra.Name}} </li>
-				</ul>
+			<div id="extralist" class="col-md-2">
+				<h3> Complements </h3>
+				<select ng-options="extra.Name for extra in ac.extras" ng-model="ac.extra" class="form-control"></select>
 			</div>
-			<div id="consumableslist" class="col-md-4">
-				<h1> Consumables </h1>
-				<ul>
-					<li ng-repeat="consumable in ac.consumables"> {{consumable.Name}} </li>
-				</ul>
+			<div id="consumableslist" class="col-md-2">
+				<h3> Consumables </h3>
+				<select ng-options="consumable.Name for consumable in ac.consumables" ng-model="ac.consumable" class="form-control"></select>
 			</div>
-			<div id="projectileList" class="col-md-4">
-				<h1> Projectiles </h1>
-				<ul>
-					<li ng-repeat="projectile in ac.projectiles"> {{projectile.Name}} </li>
-				</ul>
+			<div id="projectileList" class="col-md-2">
+				<h3> Projectiles </h3>
+				<select ng-options="projectile.Name for projectile in ac.projectiles" ng-model="ac.projectile" class="form-control"></select>
 			</div>
+		</div>
+		<div>
+			<p>{{ac.weapon.Name}} {{ac.weapon.Values.Profiles.Onehanded.Effects[0]}} {{ac.weapon.Values.Price}} {{ac.weapon.Values.Description}}</p>
+			<p> {{ac.armor.Name}} {{ac.armor.Values.Kind}} {{ac.weapon.Values.Price}} {{ac.armor.Values.Description}}</p>
+			<p> {{ac.extra.Name}} {{ac.extra.Values.Price}} {{ac.extra.Values.Description}}</p>
+			<p> {{ac.consumable.Name}} {{ac.consumable.Values.Price}} {{ac.consumable.Values.Description}}</p>
+			<p> {{ac.projectile.Name}} {{ac.projectile.Values.Weapon}} {{ac.projectile.Values.Price}}  {{ac.projectile.Values.Description}} </p>
 		</div>
 	</div>
 </body>

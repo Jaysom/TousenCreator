@@ -71,7 +71,7 @@
 			"Charges": 1
 		}
 	}, {
-		"Name" : "Ungüento de los arrecifes:",
+		"Name" : "Ungüento de los arrecifes",
 		"Values" : {
 			"Price": 6,
 			"Description": "El personaje puede usar una Acción de Interacción para utilizar el Ungüento de los arrecifes. Recupera dos heridas perdidas durante la partida y anula los efectos de Sangrando si el personaje los sufría.  Después de eso resta el Ungüento de los arrecifes de las pertenencias del personaje.",

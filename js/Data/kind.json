@@ -24,7 +24,8 @@
 		"perseverance": 3,
 		"size": 4
 		},
-	"Trait" : "Puro"
+	"description" : "Pending.",
+	"trait" : "Puro"
 	},
 	{
 	"name": "Tanuki",
@@ -38,7 +39,8 @@
 		"perseverance": 3,
 		"size": 4
 		},
-	"Trait" : "Puro"
+	"description" : "Pending.",
+	"trait" : "Puro"
 	},
 	{
 	"name": "Mujina",
@@ -52,7 +54,8 @@
 		"perseverance": 4,
 		"size": 4
 		},
-		"Trait" : "Puro"
+	"description" : "Pending.",
+	"trait" : "Puro"
 	},
 	{
 	"name":  "Bakeneko",
@@ -66,7 +69,8 @@
 		"perseverance": 2,
 		"size": 4
 		},
-	"Trait" : "Puro"
+	"description" : "Pending.",
+	"trait" : "Puro"
 	},
 	{
 	"name": "Nogitsune",
@@ -80,7 +84,8 @@
 		"perseverance": 3,
 		"size": 4
 		},
-	"Trait" : "Corrupto"
+	"description" : "Pending.",
+	"trait" : "Corrupto"
 	},
 	{
     "name": "Jorōgumo",
@@ -93,7 +98,8 @@
 		"constitution": 3,
 		"perseverance": 2,
 		"size": 5
-		}
+		},
+	"description" : "Las Jorōgumo aparecieron mucho antes que el imperio, y nadie sabe si evolucionaron de arañas que habían alcanzado el estado de kami o eran intentos de Akuma para crear sus propios siervos corruptos. En la actualidad, a diferencia del resto de kami, muchas prefieren seguir viviendo por su cuenta, ignorando la voluntad de Tentei, y en  algunos casos, aceptando la doctrina de Akuma, sirviéndole fielmente:"
 	},
 	{
 	"name": "Nureonna",
@@ -107,7 +113,8 @@
 		"perseverance": 3,
 		"size": 5
 		},
-		"Experience" : 3
+		"Experience" : 3,
+		"description" : "Las Nureonna podrían compartir origen con las Jorōgumo, ya que son antiguas criaturas medio serpiente medio humano, la mayoría de veces, mujeres. Se desconoce si fueron creaciones de Akuma o evolucionaron de las serpientes, con quienes comparten muchas características.  Algunas han compartido su vida al lado de humanos, pero muchas se han unido a los corruptos y se han convertido en enemigos temibles."
 	},
 	{
 	"name": "Noppera-bō",
@@ -121,7 +128,8 @@
 		"perseverance": 3,
 		"size": 4
 		},
-	"Trait" : "Puro"
+	"description" : "Los Noppera-bō son humanoides que únicamente se diferencian por poder hacer desaparecer su rostro, mostrando una cara totalmente lisa. Tratan de vivir tranquilamente como humanos, imitando tanto su comportamiento como vestuario, creando a veces comunidades propias o infiltrándose dentro de otras poblaciones. Esto puede provocar que se produzca un matrimonio entre ambas razas, sin conocimiento por parte humana, y su descendencia sea considerada como hanyō. Sólo muestran su auténtico aspecto entre ellos o cuando tratan de asustar a algún humano, ya sea para  que lo deje tranquilo o para aprovechar su confusión en las pocas veces que se encuentren en combate, ya que son generalmente de índole pacífica.",	
+	"trait" : "Puro"
 	},
 	{
     "name": "Ningyo",
@@ -135,7 +143,8 @@
 		"perseverance": 3,
 		"size": 4
 		},
-	"Trait" : "Puro"
+	"description" : "Los Ningyo son una raza acuática que vive en las profundidades de los mares y océanos. Pocas veces interactúan con el ser humano, a no ser que deban llegar a la costa por algún motivo o se encuentren con un naufragio en alta mar. Su aspecto habitual corresponde al de una especie con el cuerpo recubierto de escamas, con brazos, cola de pez en lugar de piernas y un rostro a medio camino entre una carpa y el ser humano, pero para poder relacionarse con éstos, han aprendido a transformarse y comportarse como ellos en tierra firme.",
+	"trait" : "Puro"
 	},
 	{
 	"name": "Oni",
@@ -149,7 +158,8 @@
 		"perseverance": 3,
 		"size": 5
 		},
-	"Trait" : "Corrupto"
+	"description" : "Cuando Akuma descubrió a los humanos, trató de imitarlos y mejorarlos según sus propios designios, dando origen a los Oni, unas criaturas feroces y brutales cuyo objetivo es arrasar Jiten para poder liberar a su señor. Muchos fueron destruidos durante la guerra del Segundo Sello, pero algunos lograron evitar la matanza y se establecieron en rincones oscuros, trazando planes para conseguir su objetivo. Se clasifican en varias razas. Los más abundantes son los Akki y las Kijo. Sus rostros son crueles y pueden estar coronados por algunos cuernos, dos a  mayoría de veces. Forman la vanguardia de las huestes de Akuma y siempre están ansiosos para entrar en combate. Otros que son ampliamente conocidos son los Gozuki, cuya cabeza se parece a la de un buey, y los Mezuki, cuya cabeza se asemeja a la de los caballos. Ambos son usados habitualmente como guardianes y carceleros.",
+	"trait" : "Corrupto"
 	},
 	{
 	"name": "Aobōzu",
@@ -163,7 +173,8 @@
 		"perseverance": 4,
 		"size": 4
 		},
-	"Trait" : "Corrupto"
+	"description" : "Un Aobōzu es un ser corrupto que adopta la apariencia de un monje un tanto peculiar, pues su piel es verde-azulada y solo posee un único ojo. Su misión, parodiando a los auténticos siervos de Tentei, es difundir la existencia de Akuma y corromper a aquellos humanos que le escuchen.",
+	"trait" : "Corrupto"
 	},
 	{
 	"name": "Tengu",
@@ -176,7 +187,8 @@
 		"constitution": 3,
 		"perseverance": 3,
 		"size": 4
-		}
+		},
+	"description" : "Los Tengu son duendes de las montañas con características de pájaro, como pueden ser las alas y el pico. Pueden tomar aspecto humanoide pero son claramente reconocibles por su piel roja y la enorme nariz. A medida que envejece su piel se vuelve más reluciente. Suelen vivir en abruptas montañas y bosques de difícil acceso, cerca de algún lugar sagrado. Entre sus aficiones destaca la poesía, tanto componerla como recitarla. Se reproducen de manera asexual (no hay hembras), a través de huevos de gran tamaño. Visten de manera tradicional, con sandalias geta y ropa  parecida a los Yamabushi, y se arman con espadas o bastones. También pueden llevar un vano llamado hauchiwa."
 	},
 	{
 	"name": "Kappa",
@@ -189,6 +201,7 @@
 		"constitution": 3,
 		"perseverance": 3,
 		"size": 4
-		}
+		},
+	"description" : "Los Kappa son duendes de agua dulce con una característica concavidad en la cabeza llena de agua y rodeada de algo parecido a pelo. Su boca es parecida a un pico y su cuerpo está recubierto de escamas y de algunas protuberancias en su espalda que le dan el aspecto de la concha de una tortuga. Suelen vivir en lagos y ríos un poco profundos para poder construir sus poblados debajo las aguas. Tampoco se alejan mucho de zonas habitadas por humanos, pues pueden atacarlos si los encuentran solos. Les fascinan los pepinos y gracias a ello, algunos viajeros pueden llevar alguno encima si saben que pasarán por posibles dominios de los kappa. No acostumbran a vestirse, a no ser que acompañen a algún humano y por orden de éstos lo hagan, ni tampoco usan habitualmente armas."
 	}
 ]}

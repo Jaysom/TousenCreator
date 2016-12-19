@@ -103,8 +103,8 @@
 			<span ng-if="hc.motherAdvantage"><b>{{hc.motherAdvantage.key}}</b> - {{hc.motherAdvantage.value}}</span></br>
 			<span ng-if="hc.disAdvantage"><b>{{hc.disAdvantage.key}}</b> - {{hc.disAdvantage.value}}</span>
 		</div>
-		<div ng-show="vm.human === false" ng-if="vm.organizationsEnabled === false" ng-controller="CreatureController as cc">
-			<p> {{vm.character.Race.Nane}} </p>
+		<div ng-show="vm.selectedRace.name !== 'Humano'" ng-if="vm.organizationsEnabled === false" ng-controller="CreatureController as cc">
+			<p> {{vm.selectedRace.description}} </p>
 		</div>
 		<div ng-if="vm.organizationsEnabled === true">
 			<div>

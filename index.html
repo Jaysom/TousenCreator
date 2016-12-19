@@ -8,10 +8,13 @@
 	<script type="text/javascript" src="js/Controllers/mainController.js"></script>
 	<script type="text/javascript" src="js/Controllers/human.controller.js"></script>
 	<script type="text/javascript" src="js/Controllers/armory.controller.js"></script>
+	<script type="text/javascript" src="js/Controllers/creature.controller.js"></script>
 	<script type="text/javascript" src="js/Services/character.service.js"></script>
 	<script type="text/javascript" src="js/Services/armory.service.js"></script>
+	<script type="text/javascript" src="js/Services/creatures.service.js"></script>
 	<script type="text/javascript" src="js/DataLayer/armoryData.service.js"></script>
 	<script type="text/javascript" src="js/DataLayer/characterData.service.js"></script>
+	<script type="text/javascript" src="js/DataLayer/creaturesData.service.js"></script>
 </head>
 <body>
     <div class='banner'>
@@ -20,33 +23,34 @@
         </div>
     </div>
 	<div class="container main-frame"  ng-controller="MainController as vm">
-		<div class="row">
+		<div class="row" ng-hide="vm.character.Race != undefined">
 			<div class="form-group">
 				<div class="col-md-1 text-center">
 					<label> Tipo: </label>
 				</div>
 				<div class="col-md-3">
-				<select ng-options="race as race.name for race in vm.races" ng-change="vm.HandleRace(vm.selectedRace)" ng-model="vm.selectedRace" class="form-control"></select>
+				<select ng-options="race as race.name for race in vm.races" ng-model="vm.selectedRace" class="form-control"></select>
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="col-sm-2">
 					<label> Current Money: </label>
 				</div>
-				<div class="col-sm-2">
-					<input type="text" ng-model="vm.Money" class="form-control" /> {{vm.Money}} Kobans
+				<div class="col-sm-1">
+					<input type="text" ng-model="vm.Money" class="form-control" />
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="col-sm-2">
 					<label> Exp Available: </label>
 				</div>
-				<div class="col-sm-2">
-					<input type="text" ng-model="vm.Experience" class="form-control" /> {{vm.Experience}} Xp
+				<div class="col-sm-1">
+					<input type="text" ng-model="vm.Experience" class="form-control" />
 				</div>
 			</div>
+			<input type="button" ng-if="vm.selectedRace != undefined" ng-click="vm.SetCharacter(vm.selectedRace)" value="Fijar" class="btn btn-primary"/>
 		</div>
-		<div ng-show="vm.selectedRace.name === 'Humano'" ng-if="vm.organizationsEnabled === false" ng-controller="HumanController as hc">
+		<div ng-show="vm.human === true" ng-if="vm.organizationsEnabled === false" ng-controller="HumanController as hc">
 			<div class="row">
 				<div class="form-group">
 					<div class="col-md-2">
@@ -99,6 +103,9 @@
 			<span ng-if="hc.motherAdvantage"><b>{{hc.motherAdvantage.key}}</b> - {{hc.motherAdvantage.value}}</span></br>
 			<span ng-if="hc.disAdvantage"><b>{{hc.disAdvantage.key}}</b> - {{hc.disAdvantage.value}}</span>
 		</div>
+		<div ng-show="vm.human === false" ng-if="vm.organizationsEnabled === false" ng-controller="CreatureController as cc">
+			<p> {{vm.character.Race.Nane}} </p>
+		</div>
 		<div ng-if="vm.organizationsEnabled === true">
 			<div>
 				<span> <b>Organization: </b> <select ng-options="org as org.Name for org in vm.organizations" ng-model="vm.selectedOrg" ng-change="vm.getOrganizationClans(vm.selectedOrg)" class="form-control"></select></span>
@@ -108,7 +115,7 @@
 				<b>Senda Secundaria: </b><select ng-options="way for way in vm.clanSelected.vals.Secondary" ng-model="vm.character.secondaryWay" class="form-control"></select>
 			</div>
 		</div>
-		<div id="main-card" ng-if="vm.selectedRace">
+		<div id="main-card" ng-if="vm.character.Race">
 			<table class="table">
 				<tr>
 					<th>Movement</th>
@@ -141,7 +148,9 @@
 			</table>
 			<div class="row">
 				<div class="col-md-12">
-					<b>Tipo:</b> {{vm.selectedRace.name}}</br>
+					<b>Tipo:</b> {{vm.selectedRace.name}}
+					<b>Dinero disponible:</b> {{vm.character.CurrentMoney}} Kobans
+					<b>Experiencia disponible:</b> {{vm.character.CurrentExperience}} Xp.
 				</div>
 			</div>
 			<div ng-show="vm.selectedRace.name === 'Humano'">

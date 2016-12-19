@@ -18,7 +18,7 @@
 			},
 			"disadvantage": {
 				"key":"Desafortunado",
-				"value": "Debe realizar dos tiradas en la tabla de Supervivencia al final de la partida y escoger el resultado más bajo. Si tuviera la advantagesaja Afortunado, solamente realizará una tirada.",
+				"value": "Debe realizar dos tiradas en la tabla de Supervivencia al final de la partida y escoger el resultado más bajo. Si tuviera la ventaja Afortunado, solamente realizará una tirada.",
 				"effect": null
 			}
 		}
@@ -189,7 +189,7 @@
 			},
 			"disadvantage": {
 				"key":"Lento",
-				"value": "Disadvantageminuye en dos puntos el atributo de Movimiento del héroe.",
+				"value": "Disminuye en dos puntos el atributo de Movimiento del héroe.",
 				"effect":{
 					"movement":-2
 				}
@@ -287,7 +287,7 @@
 			},
 			"disadvantage": {
 				"key":"Débil",
-				"value": "disadvantageminuye en un punto el atributo de Perseverancia.",
+				"value": "Disminuye en un punto el atributo de Perseverancia.",
 				"effect":{
 					"perseverance":-1
 				}
@@ -309,8 +309,8 @@
 				"effect":null
 			},
 			"disadvantage": {
-				"key":"disadvantagetraído",
-				"value": "disadvantageminuye en un punto el atributo de Atención.",
+				"key":"Distraído",
+				"value": "Disminuye en un punto el atributo de Atención.",
 				"effect":{
 					"atention":-1
 				}
@@ -333,7 +333,7 @@
 			},
 			"disadvantage": {
 				"key":"Impulsivo",
-				"value": "disadvantageminuye en dos puntos la Iniciativa del héroe.",
+				"value": "Disminuye en dos puntos la Iniciativa del héroe.",
 				"effect":{
 					"initiative":-2
 				}

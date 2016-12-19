@@ -82,7 +82,7 @@
 					"Principal": "Lucha",
 					"Secondary": ["Protección"],
 					"Dishonor": ["Interferir en un duelo","Ignorar un duelo un duelo","Ser un cobarde","Saquear un cadáver","Estar corrupto"],
-					"Weapons": ["Arma no cortante"],
+					"Weapons": {"Limit" : "Cortante"},
 					"Clothes": ["ALigera"],
 					"Extras":[
 						{"Ofuda":3}
@@ -291,7 +291,7 @@
 					"Dishonor":["Ignorar un duelo un duelo","Ser desarmado","Ser un cobarde","Saquear un cadáver","Estar corrupto"],
 					"Weapons":["Tachi","Yari","Yumi-Ya[3]"],
 					"Extras":{
-						"Caballo":{"Dishonor":"PerderCaballo"}
+						"Caballo":{"Dishonor":"Perder el caballo", "Price": "allMoney"}
 					}
 				}
 			}

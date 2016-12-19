@@ -4,7 +4,7 @@
 		.module('TousenApp')
 		.controller('MainController', MainController);
 
-		MainController.$inject = ['CharacterService','$scope'];
+		MainController.$inject = ['CharacterService', '$scope'];
 
 	function MainController(CharacterService, $scope) {
 		var vm = this;
@@ -25,10 +25,14 @@
 				});
 		}
 
-		vm.HandleRace = function(selectedRace)
+		vm.SetCharacter = function(selectedRace)
 		{
-			vm.selectedRace = selectedRace;
+			vm.human = selectedRace.name === "Humano";
+			vm.character.Race = selectedRace;
 			_handleCharacter(selectedRace);
+			if (!vm.human) {
+				vm.SetCreatures(selectedRace.name);
+			}
 		}
 
 		vm.loadOrganizations = function()
@@ -37,7 +41,7 @@
 			vm.clans = [];
 			vm.organizationSelected = null;
 			vm.clanSelected = null;
-			CharacterService.FilterOrganizations(vm.selectedRace, vm.familiesSelected).then(function(data){
+			CharacterService.FilterOrganizations(vm.character.Race, vm.familiesSelected).then(function(data){
 				vm.organizations = data;
 			});
 		}
@@ -91,6 +95,8 @@
 			vm.character. size = res.attributes.size;
 			vm.character.initiative = 0
 			vm.character.health = 0;
+			vm.character.CurrentMoney = vm.Money;
+			vm.character.CurrentExperience = vm.Experience;
 		}
 		
 		function SetAdv()
@@ -138,7 +144,7 @@
 					selectedPlayer[k] = adv.effect[k];
 					break;
 				default:
-					selectedPlayer[k] = vm.selectedRace.attributes[k] + adv.effect[k];
+					selectedPlayer[k] = vm.Race.attributes[k] + adv.effect[k];
 					break;
 			}			
 		}

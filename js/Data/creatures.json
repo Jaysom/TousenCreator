@@ -20,7 +20,8 @@
 			"atention": "1"
 		}
 	}],
-	"Tengu": [{
+	"Tengu": [
+	{
 		"Raza": "Karasutengu",
 		"effect": {
 			"reaction": "1"
@@ -35,7 +36,8 @@
 			"armor": "1"
 		},
 		"skills": {
-			"Piel de madera": "El personaje tiene Armadura 1. Puede acumularse con otros valores de Armadura."
+			"Piel de madera": "El personaje tiene Armadura 1. Puede acumularse con otros valores de Armadura.",
+			"effect": { "armor" : 1}
 		}
 	}, {
 		"Raza": "Kawatengu",

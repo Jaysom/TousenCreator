@@ -105,6 +105,7 @@
 		</div>
 		<div ng-show="vm.selectedRace.name !== 'Humano'" ng-if="vm.organizationsEnabled === false" ng-controller="CreatureController as cc">
 			<p> {{vm.selectedRace.description}} </p>
+			<p> {{vm.creatures}} </p>
 		</div>
 		<div ng-if="vm.organizationsEnabled === true">
 			<div>

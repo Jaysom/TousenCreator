@@ -4,18 +4,20 @@
 		.module('TousenApp')
 		.controller('CreatureController', CreatureController);
 
-		CreatureController.$inject = ['CreatureService'];
+		CreatureController.$inject = ['CreatureService', '$scope'];
 
-    function CreatureController(CreatureService) {
+    function CreatureController(CreatureService, $scope) {
 		var vm = this;
 
-        vm.LoadCreatures = function(){
-            CreatureService.GetCreatures()
-                .then(function(data) {
-                    vm.creatures = data.data;
-                })
-                .catch(_handlerError);
-        }
+        $scope.$on('SetCreatures', function (event, name) {
+            return CreatureService.GetCreatures()
+            .then(function(data) {
+                return data.data.Creatures.find(a => a.Name == name).Kind;
+            }).then(function(creature) {
+                $scope.$emit('FilterCreatures', creature);
+            })
+            .catch(_handlerError);
+        });
         
 
         function _handlerError(data, status) 
@@ -23,7 +25,5 @@
             console.log(data || "Request failed");
             console.log(status);
         }
-
-        vm.LoadCreatures();
     }
 })();

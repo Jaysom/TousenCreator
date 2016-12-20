@@ -31,7 +31,7 @@
 			vm.character.Race = selectedRace;
 			_handleCharacter(selectedRace);
 			if (!vm.human) {
-				vm.SetCreatures(selectedRace.name);
+				$scope.$broadcast('SetCreatures',selectedRace.name);
 			}
 		}
 
@@ -222,6 +222,12 @@
 			SetDis();
 			vm.organizationsEnabled = true;
 			vm.loadOrganizations();
+		});
+
+		$scope.$on('FilterCreatures', function(event, data)
+		{
+			var kind = vm.character.Race.name;
+			vm.creatures = data.find(a.Name == kind).Kinds;
 		});
 	
 		GetKinds();

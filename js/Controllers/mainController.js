@@ -226,8 +226,7 @@
 
 		$scope.$on('FilterCreatures', function(event, data)
 		{
-			var kind = vm.character.Race.name;
-			vm.creatures = data.find(a.Name == kind).Kinds;
+			vm.creatures = data;
 		});
 	
 		GetKinds();

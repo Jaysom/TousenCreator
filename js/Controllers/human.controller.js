@@ -28,40 +28,56 @@
 
 		vm.handleFatherFamily = function(res)
 		{
-			vm.families.father = res;
 			ResetAdvantages();
-			if(vm.selectedMotherFamily !== undefined){
-				if(vm.selectedMotherFamily.Family === minor && res.Family === minor){
-					ResetSelectors();
+			if(!CheckBothFamilies()) {
+				vm.families.father = res;
+				if(vm.selectedMotherFamily !== undefined){
+					if(vm.selectedMotherFamily.Family === minor && res.Family === minor){
+						ResetSelectors();
+					}
 				}
-			}
-			vm.advantages.father = [];
-			vm.advantages.father[0] = res.advantages.big;
-			vm.advantages.disadvantages[0] = res.advantages.disadvantage;
-			if (res.Family !== minor) {
-				vm.advantages.father[1] = res.advantages.medium;
+				vm.advantages.father = [];
+				vm.advantages.father[0] = res.advantages.big;
+				vm.advantages.disadvantages[0] = res.advantages.disadvantage;
+				if (res.Family !== minor) {
+					vm.advantages.father[1] = res.advantages.medium;
+				} else {
+					GetMinorAdvantages(vm.advantages.father, vm.ListMinors);
+				}		
 			} else {
-				GetMinorAdvantages(vm.advantages.father, vm.ListMinors);
-			}		
+				SetSame(res);
+			}			
 		}
 			
 		vm.handleMotherFamily = function(res)
 		{
-			vm.families.mother = res;
 			ResetAdvantages();
-			if (vm.selectedFatherFamily !== undefined){
-				if(vm.selectedFatherFamily.Family === minor && res.Family === minor){
-					ResetSelectors();
+			if(!CheckBothFamilies()){
+				vm.families.mother = res;
+				if (vm.selectedFatherFamily !== undefined){
+					if(vm.selectedFatherFamily.Family === minor && res.Family === minor){
+						ResetSelectors();
+					}
 				}
-			}
-			vm.advantages.mother = [];
-			vm.advantages.mother[0] = res.advantages.big;
-			vm.advantages.disadvantages[1] = res.advantages.disadvantage;
-			if (res.Family !== minor) {
-				vm.advantages.mother[1] = res.advantages.medium;
+				vm.advantages.mother = [];
+				vm.advantages.mother[0] = res.advantages.big;
+				vm.advantages.disadvantages[1] = res.advantages.disadvantage;
+				if (res.Family !== minor) {
+					vm.advantages.mother[1] = res.advantages.medium;
+				} else {
+					GetMinorAdvantages(vm.advantages.mother, vm.ListMinors);
+				}
 			} else {
-				GetMinorAdvantages(vm.advantages.mother, vm.ListMinors);
-			}	
+				SetSame(res);
+			 }
+		}
+
+		function CheckBothFamilies(){
+			return (vm.families.father !== null && vm.families.mother !== null && vm.families.father == vm.families.mother);
+		}
+
+		function SetSame(family){
+			
 		}
 
 		vm.setAdv = function(fatherAdvantage)

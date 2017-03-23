@@ -29,8 +29,8 @@
 		vm.handleFatherFamily = function(res)
 		{
 			ResetAdvantages();
+			vm.families.father = res;
 			if(!CheckBothFamilies()) {
-				vm.families.father = res;
 				if(vm.selectedMotherFamily !== undefined){
 					if(vm.selectedMotherFamily.Family === minor && res.Family === minor){
 						ResetSelectors();
@@ -52,8 +52,8 @@
 		vm.handleMotherFamily = function(res)
 		{
 			ResetAdvantages();
+			vm.families.mother = res;
 			if(!CheckBothFamilies()){
-				vm.families.mother = res;
 				if (vm.selectedFatherFamily !== undefined){
 					if(vm.selectedFatherFamily.Family === minor && res.Family === minor){
 						ResetSelectors();
@@ -73,11 +73,14 @@
 		}
 
 		function CheckBothFamilies(){
-			return (vm.families.father !== null && vm.families.mother !== null && vm.families.father == vm.families.mother);
+			return (vm.selectedFatherFamily !== undefined && vm.selectedMotherFamily !== undefined && vm.selectedFatherFamily === vm.selectedMotherFamily);
 		}
 
 		function SetSame(family){
-			
+			vm.advantages.fatherSelected = family.advantages.big;
+			vm.advantages.motherSelected = family.advantages.medium;
+			vm.advantages.disAdvantage = family.advantages.disadvantage;
+			vm.setAdvantages();
 		}
 
 		vm.setAdv = function(fatherAdvantage)

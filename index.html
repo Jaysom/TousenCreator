@@ -150,7 +150,7 @@
 			</table>
 			<div class="row">
 				<div class="col-md-12">
-					<b>Tipo:</b> {{vm.selectedRace.name}}
+					<b>Tipo:</b> {{vm.selectedRace.name}} <span ng-if="vm.selectedRace.name !== 'Humano'"><b> Clase: </b> {{vm.character.espec.Raza}} </span>
 					<b>Dinero disponible:</b> {{vm.character.CurrentMoney}} Kobans
 					<b>Experiencia disponible:</b> {{vm.character.CurrentExperience}} Xp.
 				</div>

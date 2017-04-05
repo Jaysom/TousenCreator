@@ -31,7 +31,7 @@
 			vm.character.Race = selectedRace;
 			_handleCharacter(selectedRace);
 			if (!vm.human) {
-				$scope.$broadcast('SetCreatures',selectedRace.name);
+				$scope.$broadcast('SetCreatures', selectedRace.name);
 			}
 		}
 

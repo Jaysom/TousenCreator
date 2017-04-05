@@ -12,6 +12,7 @@
         $scope.$on('SetCreatures', function (event, name) {
             return CreatureService.GetCreatures()
             .then(function(data) {
+                debugger;
                 return data.data.Creatures.find(a => a.Name == name).Kinds;
             }).then(function(creature) {
                 $scope.$emit('FilterCreatures', creature);

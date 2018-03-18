@@ -1,196 +1,240 @@
 <!DOCTYPE html>
 <html ng-app="TousenApp">
-	<head>
-		<title>Tousen Character Builder</title>
-		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-		<script type="text/javascript" src="js/angular.min.js"></script>
-		<script type="text/javascript" src="js/module.js"></script>
-		<script type="text/javascript" src="js/Controllers/creature.controller.js"></script>
-		<script type="text/javascript" src="js/Controllers/mainController.js"></script>
-		<script type="text/javascript" src="js/Controllers/human.controller.js"></script>
-		<script type="text/javascript" src="js/Services/character.service.js"></script>
-		<script type="text/javascript" src="js/Services/creatures.service.js"></script>
-		<script type="text/javascript" src="js/DataLayer/characterData.service.js"></script>
-		<script type="text/javascript" src="js/DataLayer/creaturesData.service.js"></script>
-	</head>
-	<body>
-		<div class='banner'>
-			<div class='container'>
-				<img src="./img/Tousen.JPG" alt="Tousen Character Builder" >
+<head>
+	<title>Tousen Character Builder</title>
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/module.js"></script>
+	<script type="text/javascript" src="js/Controllers/mainController.js"></script>
+	<script type="text/javascript" src="js/Controllers/human.controller.js"></script>
+	<script type="text/javascript" src="js/Controllers/armory.controller.js"></script>
+	<script type="text/javascript" src="js/Controllers/creature.controller.js"></script>
+	<script type="text/javascript" src="js/Services/character.service.js"></script>
+	<script type="text/javascript" src="js/Services/armory.service.js"></script>
+	<script type="text/javascript" src="js/Services/creatures.service.js"></script>
+	<script type="text/javascript" src="js/DataLayer/armoryData.service.js"></script>
+	<script type="text/javascript" src="js/DataLayer/characterData.service.js"></script>
+	<script type="text/javascript" src="js/DataLayer/creaturesData.service.js"></script>
+</head>
+<body>
+    <div class='banner'>
+        <div class='container'>
+            <img src="./img/Tousen.JPG" alt="Tousen Character Builder" >
+        </div>
+    </div>
+	<div class="container main-frame"  ng-controller="MainController as vm">
+		<div class="row" ng-hide="vm.character.Race != undefined">
+			<div class="form-group">
+				<div class="col-md-1 text-center">
+					<label> Tipo: </label>
+				</div>
+				<div class="col-md-3">
+				<select ng-options="race as race.name for race in vm.races" ng-model="vm.selectedRace" class="form-control"></select>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2">
+					<label> Current Money: </label>
+				</div>
+				<div class="col-sm-1">
+					<input type="text" ng-model="vm.Money" class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2">
+					<label> Exp Available: </label>
+				</div>
+				<div class="col-sm-1">
+					<input type="text" ng-model="vm.Experience" class="form-control" />
+				</div>
+			</div>
+			<input type="button" ng-if="vm.selectedRace != undefined" ng-click="vm.SetCharacter(vm.selectedRace)" value="Fijar" class="btn btn-primary"/>
+		</div>
+		<div ng-show="vm.human === true" ng-if="vm.organizationsEnabled === false" ng-controller="HumanController as hc">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-2">
+						<label>Paterna: </label>
+					</div>
+					<div class="col-md-4">
+						<select ng-options="family as family.Family for family in hc.Families" ng-change="hc.handleFatherFamily(hc.selectedFatherFamily)" ng-model="hc.selectedFatherFamily" class="form-control"></select>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-2">
+						<label>Materna: </label>
+					</div>
+					<div class="col-md-4">
+						<select ng-options="family as family.Family for family in hc.Families" ng-change="hc.handleMotherFamily(hc.selectedMotherFamily)" ng-model="hc.selectedMotherFamily" class="form-control"></select>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-1">
+						<label>Ventaja Paterna: </label>
+					</div>
+					<div class="col-md-2">
+						<select ng-model="hc.fatherAdvantage"  ng-options="adv as adv.key for adv in hc.advantages.father" ng-change="hc.setAdv(hc.fatherAdvantage)" class="form-control"></select>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-1">
+						<label>Ventaja Materna: </label>
+					</div>
+					<div class="col-md-2">
+						<select ng-model="hc.motherAdvantage" ng-options="med as med.key for med in hc.advantages.mother" ng-change="hc.setMed(hc.motherAdvantage)" class="form-control"></select>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-1">
+						<label> Desventaja: </label>
+					</div>
+					<div class="col-md-2">
+						<select ng-model="hc.disAdvantage" ng-options="disav as disav.key for disav in hc.advantages.disadvantages" ng-change="hc.setDis(hc.disAdvantage)" class="form-control"></select>
+					</div>
+				</div>				
+				<div>
+					<button ng-click="hc.setAdvantages()" class="btn btn-primary">Fijar Ventajas</button>
+				</div>
+			</div>
+			
+			<span ng-if="hc.fatherAdvantage"><b>{{hc.fatherAdvantage.key}}</b> - {{hc.fatherAdvantage.value}} </span></br>
+			<span ng-if="hc.motherAdvantage"><b>{{hc.motherAdvantage.key}}</b> - {{hc.motherAdvantage.value}}</span></br>
+			<span ng-if="hc.disAdvantage"><b>{{hc.disAdvantage.key}}</b> - {{hc.disAdvantage.value}}</span>
+		</div>
+		<div ng-show="vm.selectedRace.name !== 'Humano'" ng-if="vm.organizationsEnabled === false" ng-controller="CreatureController as cc">
+			<p> {{vm.selectedRace.description}} </p>
+			<p> <select ng-options="espec.Raza for espec in vm.creatures" ng-model="vm.character.espec" class="form-control"></select> </p>
+			<p> {{vm.character.espec}} </p>
+		</div>
+		<div ng-if="vm.organizationsEnabled === true">
+			<div>
+				<span> <b>Organization: </b> <select ng-options="org as org.Name for org in vm.organizations" ng-model="vm.selectedOrg" ng-change="vm.getOrganizationClans(vm.selectedOrg)" class="form-control"></select></span>
+				<span> <b>Clan: </b> <select ng-options="clan as clan.clan  for clan in vm.clans" ng-model="vm.selectedClan" ng-change="vm.handleClan(vm.selectedClan)" class="form-control"></select></span></br>
+			</div>
+			<div ng-if="vm.clanSelected.vals.Secondary.length > 1"> 
+				<b>Senda Secundaria: </b><select ng-options="way for way in vm.clanSelected.vals.Secondary" ng-model="vm.character.secondaryWay" class="form-control"></select>
 			</div>
 		</div>
-		<div class="container main-frame"  ng-controller="MainController as vm">
-			<div class="row" ng-hide="vm.character.Race != undefined">
-				<div class="form-group">
-					<div class="col-md-1 text-center">
-						<label> Tipo: </label>
-					</div>
-					<div class="col-md-3">
-					<select ng-options="race.name for race in vm.races" ng-model="vm.selectedRace" ng-change="vm.setCharacter(vm.selectedRace)" class="form-control"></select>
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="col-sm-2">
-						<label> Current Money: </label>
-					</div>
-					<div class="col-sm-1">
-						<input type="text" ng-model="vm.Money" class="form-control" />
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="col-sm-2">
-						<label> Exp Available: </label>
-					</div>
-					<div class="col-sm-1">
-						<input type="text" ng-model="vm.Experience" class="form-control" />
-					</div>
+		<div id="main-card" ng-if="vm.character.Race">
+			<table class="table">
+				<tr>
+					<th>Movement</th>
+					<th>Intelligence</th>
+					<th>Atention</th>
+					<th>Reaction</th>
+					<th>Serenity</th>
+					<th>Constitution</th>
+					<th>Perseverance</th>
+					<th>Size</th>
+					<th>Initiative</th>
+					<th>Health</th>
+					<th>Honor</th>
+					<th>Richness</th>
+				</tr>
+				<tr>
+					<td>{{vm.character.movement}}</td>
+					<td>{{vm.character.intelligence}}</td>
+					<td>{{vm.character.atention}}</td>
+					<td>{{vm.character.reaction}}</td>
+					<td>{{vm.character.serenity}}</td>
+					<td>{{vm.character.constitution}}</td>
+					<td>{{vm.character.perseverance}}</td>
+					<td>{{vm.character.size}}</td>
+					<td>{{vm.character.intelligence + vm.character.atention + vm.character.initiative}}</td>
+					<td>{{vm.character.perseverance + vm.character.constitution + vm.character.health}}</td>
+					<td>{{vm.character.honor + vm.honor}}</td>
+					<td>{{vm.character.richness + vm.richness}}</td>
+				</tr>
+			</table>
+			<div class="row">
+				<div class="col-md-12">
+					<b>Tipo:</b> {{vm.selectedRace.name}} <span ng-if="vm.selectedRace.name !== 'Humano'"><b> Clase: </b> {{vm.character.espec.Raza}} </span>
+					<b>Dinero disponible:</b> {{vm.character.CurrentMoney}} Kobans
+					<b>Experiencia disponible:</b> {{vm.character.CurrentExperience}} Xp.
 				</div>
 			</div>
-			<div ng-show="vm.human === true" ng-if="vm.organizationsEnabled === false" ng-controller="HumanController as hc">
+			<div ng-show="vm.selectedRace.name === 'Humano'">
 				<div class="row">
-					<div class="form-group">
-						<div class="col-md-2">
-							<label>Paterna: </label>
+					<div class="col-sm-12">
+						<div class="col-sm-3">
+							<span><b>Familia Paterna: </b>{{vm.familiesSelected.father.Family}}</span>
 						</div>
-						<div class="col-md-4">
-							<select ng-options="family as family.Family for family in hc.Families" ng-change="hc.handleFatherFamily(hc.selectedFatherFamily)" ng-model="hc.selectedFatherFamily" class="form-control"></select>
+						<div class="col-sm-3">
+							<span><b>Familia Materna: </b>{{vm.familiesSelected.mother.Family}}</span>
 						</div>
 					</div>
-					<div class="form-group">
-						<div class="col-md-2">
-							<label>Materna: </label>
-						</div>
-						<div class="col-md-4">
-							<select ng-options="family as family.Family for family in hc.Families" ng-change="hc.handleMotherFamily(hc.selectedMotherFamily)" ng-model="hc.selectedMotherFamily" class="form-control"></select>
-						</div>
+					</br>
+					<b> Ventajas </b><br>
+					<span ng-if="vm.advantages.fatherSelected"><b>{{vm.advantages.fatherSelected.key}}</b> - {{vm.advantages.fatherSelected.value}} </span></br>
+					<span ng-if="vm.advantages.motherSelected"><b>{{vm.advantages.motherSelected.key}}</b> - {{vm.advantages.motherSelected.value}}</span></br>
+					<span ng-if="vm.advantages.disAdvantage"><b>{{vm.advantages.disAdvantage.key}}</b> - {{vm.advantages.disAdvantage.value}}</span>
+				</div>
+				<div class="col-md-12">
+					<div ng-if="vm.clanSelected != undefined" class="row">
+						<span><b>Organización:</b> {{vm.organizationSelected.Name}}</span>
+						<span><b>Clan:</b> {{vm.clanSelected.clan}}</span>
+						<span><b>Senda Principal: </b> {{vm.character.mainWay}} </span>
+						<span><b>Senda Secundaria: </b> {{vm.character.secondaryWay}} </span>
 					</div>
 				</div>
-				<div class="row">
-					<div class="form-group">
-						<div class="col-md-1">
-							<label>Ventaja Paterna: </label>
-						</div>
-						<div class="col-md-2">
-							<select ng-model="hc.fatherAdvantage"  ng-options="adv as adv.key for adv in hc.advantages.father" ng-change="hc.setAdv(hc.fatherAdvantage)" class="form-control"></select>
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="col-md-1">
-							<label>Ventaja Materna: </label>
-						</div>
-						<div class="col-md-2">
-							<select ng-model="hc.motherAdvantage" ng-options="med as med.key for med in hc.advantages.mother" ng-change="hc.setMed(hc.motherAdvantage)" class="form-control"></select>
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="col-md-1">
-							<label> Desventaja: </label>
-						</div>
-						<div class="col-md-2">
-							<select ng-model="hc.disAdvantage" ng-options="disav as disav.key for disav in hc.advantages.disadvantages" ng-change="hc.setDis(hc.disAdvantage)" class="form-control"></select>
-						</div>
-					</div>				
-					<div>
-						<button ng-click="hc.setAdvantages()" class="btn btn-primary">Fijar Ventajas</button>
-					</div>
-				</div>
-				
-				<span ng-if="hc.fatherAdvantage"><b>{{hc.fatherAdvantage.key}}</b> - {{hc.fatherAdvantage.value}} </span></br>
-				<span ng-if="hc.motherAdvantage"><b>{{hc.motherAdvantage.key}}</b> - {{hc.motherAdvantage.value}}</span></br>
-				<span ng-if="hc.disAdvantage"><b>{{hc.disAdvantage.key}}</b> - {{hc.disAdvantage.value}}</span>
-			</div>
-			<div ng-show="vm.selectedRace.name !== 'Humano'" ng-if="vm.organizationsEnabled === false" ng-controller="CreatureController as cc">
-				<p> {{vm.selectedRace.description}} </p>
-				<p> <select ng-options="espec.Raza for espec in vm.creatures" ng-model="vm.character.espec" class="form-control"></select> </p>
-				<p> {{vm.character.espec}} </p>
-			</div>
-			<div id="main-card" ng-if="vm.character.Race">
-				<table class="table">
-					<tr>
-						<th>Movement</th>
-						<th>Intelligence</th>
-						<th>Atention</th>
-						<th>Reaction</th>
-						<th>Serenity</th>
-						<th>Constitution</th>
-						<th>Perseverance</th>
-						<th>Size</th>
-						<th>Initiative</th>
-						<th>Health</th>
-						<th>Honor</th>
-						<th>Richness</th>
-					</tr>
-					<tr>
-						<td>{{vm.character.movement}}</td>
-						<td>{{vm.character.intelligence}}</td>
-						<td>{{vm.character.atention}}</td>
-						<td>{{vm.character.reaction}}</td>
-						<td>{{vm.character.serenity}}</td>
-						<td>{{vm.character.constitution}}</td>
-						<td>{{vm.character.perseverance}}</td>
-						<td>{{vm.character.size}}</td>
-						<td>{{vm.character.intelligence + vm.character.atention + vm.character.initiative}}</td>
-						<td>{{vm.character.perseverance + vm.character.constitution + vm.character.health}}</td>
-						<td>{{vm.character.honor + vm.honor}}</td>
-						<td>{{vm.character.richness + vm.richness}}</td>
-					</tr>
-				</table>
-				<div class="row">
-					<div class="col-md-12">
-						<b>Tipo:</b> {{vm.selectedRace.name}} <span ng-if="vm.selectedRace.name !== 'Humano'"><b> Clase: </b> {{vm.character.espec.Raza}} </span>
-						<b>Dinero disponible:</b> {{vm.character.CurrentMoney}} Kobans
-						<b>Experiencia disponible:</b> {{vm.character.CurrentExperience}} Xp.
-					</div>
-				</div>
-				<div ng-show="vm.selectedRace.name === 'Humano'">
+				<div class="col-md-12" ng-if="vm.Dishonor.length > 1">
+					<span><b>Causas de deshonor: <b></span>
 					<div class="row">
-						<div class="col-sm-12">
-							<div class="col-sm-3">
-								<span><b>Familia Paterna: </b>{{vm.familiesSelected.father.Family}}</span>
-							</div>
-							<div class="col-sm-3">
-								<span><b>Familia Materna: </b>{{vm.familiesSelected.mother.Family}}</span>
-							</div>
+						<div class="col-md-4">		 
+							<ul>
+								<li ng-repeat="dishonor in vm.Dishonor"> {{dishonor}} </li>
+							</ul>
 						</div>
-						</br>
-						<b> Ventajas </b><br>
-						<span ng-if="vm.advantages.fatherSelected"><b>{{vm.advantages.fatherSelected.key}}</b> - {{vm.advantages.fatherSelected.value}} </span></br>
-						<span ng-if="vm.advantages.motherSelected"><b>{{vm.advantages.motherSelected.key}}</b> - {{vm.advantages.motherSelected.value}}</span></br>
-						<span ng-if="vm.advantages.disAdvantage"><b>{{vm.advantages.disAdvantage.key}}</b> - {{vm.advantages.disAdvantage.value}}</span>
-					</div>
-					<div class="col-md-12">
-						<div ng-if="vm.clanSelected != undefined" class="row">
-							<span><b>Organización:</b> {{vm.organizationSelected.Name}}</span>
-							<span><b>Clan:</b> {{vm.clanSelected.clan}}</span>
-							<span><b>Senda Principal: </b> {{vm.character.mainWay}} </span>
-							<span><b>Senda Secundaria: </b> {{vm.character.secondaryWay}} </span>
+						<div class="col-md-4">
+							<span><b>Armas: <b></span> 
+							<ul>
+								<li ng-repeat="weapon in vm.weapons"> {{weapon}} </li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<span><b>Armaduras: <b></span> 
+							<ul>
+								<li ng-repeat="armor in vm.armors"> {{armor}} </li>
+							</ul>
 						</div>
 					</div>
-					<div class="col-md-12" ng-if="vm.Dishonor.length > 1">
-						<span><b>Causas de deshonor: <b></span>
-						<div class="row">
-							<div class="col-md-4">		 
-								<ul>
-									<li ng-repeat="dishonor in vm.Dishonor"> {{dishonor}} </li>
-								</ul>
-							</div>
-							<div class="col-md-4">
-								<span><b>Armas: <b></span> 
-								<ul>
-									<li ng-repeat="weapon in vm.weapons"> {{weapon}} </li>
-								</ul>
-							</div>
-							<div class="col-md-4">
-								<span><b>Armaduras: <b></span> 
-								<ul>
-									<li ng-repeat="armor in vm.armors"> {{armor}} </li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					</div>
+				</div>
 				</div>
 			</div>
 		</div>
-	</body>
+	</div>
+	<div class="container-fluid" ng-controller="ArmoryController as ac">
+		<div  class="row">
+			<div id="weaponlist" class="col-md-3">
+				<h3> Weapons </h3>
+				<select ng-options="weapon.Name for weapon in ac.weapons" ng-model="ac.weapon" class="form-control"></select>
+			</div>
+			<div id="armorlist" class="col-md-2">
+				<h3> Armors </h3>
+				<select ng-options="armor.Name for armor in ac.armors" ng-model="ac.armor" class="form-control"></select>
+			</div>
+			<div id="extralist" class="col-md-2">
+				<h3> Complements </h3>
+				<select ng-options="extra.Name for extra in ac.extras" ng-model="ac.extra" class="form-control"></select>
+			</div>
+			<div id="consumableslist" class="col-md-2">
+				<h3> Consumables </h3>
+				<select ng-options="consumable.Name for consumable in ac.consumables" ng-model="ac.consumable" class="form-control"></select>
+			</div>
+			<div id="projectileList" class="col-md-2">
+				<h3> Projectiles </h3>
+				<select ng-options="projectile.Name for projectile in ac.projectiles" ng-model="ac.projectile" class="form-control"></select>
+			</div>
+		</div>
+		<div>
+			<p>{{ac.weapon.Name}} {{ac.weapon.Values.Profiles.Onehanded.Effects[0]}} {{ac.weapon.Values.Price}} {{ac.weapon.Values.Description}}</p>
+			<p> {{ac.armor.Name}} {{ac.armor.Values.Kind}} {{ac.armor.Values.Price}} {{ac.armor.Values.Description}}</p>
+			<p> {{ac.extra.Name}} {{ac.extra.Values.Price}} {{ac.extra.Values.Description}}</p>
+			<p> {{ac.consumable.Name}} {{ac.consumable.Values.Price}} {{ac.consumable.Values.Description}}</p>
+			<p> {{ac.projectile.Name}} {{ac.projectile.Values.Weapon}} {{ac.projectile.Values.Price}}  {{ac.projectile.Values.Description}} </p>
+		</div>
+	</div>
+</body>
 </html>
